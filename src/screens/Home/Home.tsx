@@ -7,6 +7,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const Home = () => {
   const {top} = useSafeAreaInsets();
+
   return (
     <SafeAreaView style={[{top: top}]}>
       <Icon name="bat" size={30} />
