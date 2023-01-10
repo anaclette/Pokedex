@@ -15,12 +15,12 @@ export const Home = () => {
         <Text style={styles.title}>Pokedex</Text>
         <Icon name="pokeball" size={25} />
       </View>
-      <View style={styles.imgWrapper}>
+      {/* <View style={styles.imgWrapper}>
         <Image
           source={require('../../assets/pokebola.png')}
           style={styles.pokeimg}
         />
-      </View>
+      </View> */}
       <PokemonList />
     </SafeAreaView>
   );
