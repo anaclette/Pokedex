@@ -8,4 +8,11 @@ export const styles = StyleSheet.create({
   pokeimg: {
     flex: 1,
   },
+  titleWrapper: {
+    alignItems: 'flex-end',
+  },
+  title: {
+    // color: 'white',
+    // textAlign: 'center',
+  },
 });
