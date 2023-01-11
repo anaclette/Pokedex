@@ -7,11 +7,21 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 3,
   },
-  titleWrapper: {
+  nameWrapper: {
     left: '5%',
     top: '5%',
     position: 'absolute',
     zIndex: 1,
+    height: '100%',
+    justifyContent: 'space-between',
+  },
+  id: {
+    top: '-10%',
+    alignSelf: 'flex-start',
+  },
+  name: {
+    textTransform: 'capitalize',
+    fontWeight: '700',
   },
   imagesWrapper: {
     alignItems: 'flex-end',

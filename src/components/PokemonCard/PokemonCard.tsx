@@ -33,9 +33,9 @@ export const PokemonCard = ({item}: Props) => {
     <TouchableOpacity
       activeOpacity={0.8}
       style={[styles.container, {backgroundColor: backgroundImgColor}]}>
-      <View style={styles.titleWrapper}>
-        <Text style={{color: titleColor}}>{item.name}</Text>
-        <Text>#{item.id}</Text>
+      <View style={styles.nameWrapper}>
+        <Text style={[{color: titleColor}, styles.name]}>{item.name}</Text>
+        <Text style={[{color: titleColor}, styles.id]}>#{item.id}</Text>
       </View>
       <View style={styles.imagesWrapper}>
         <Image
