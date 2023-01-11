@@ -9,9 +9,9 @@ const Drawer = createDrawerNavigator();
 export const DrawerNavigator = () => {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Pokedex" component={Home} />
-      <Drawer.Screen name="PokemonList" component={PokemonList} />
-      <Drawer.Screen name="PokemonDetails" component={PokemonDetails} />
+      <Drawer.Screen name="Home" component={Home} />
+      <Drawer.Screen name="Pokedex" component={PokemonList} />
+      <Drawer.Screen name="Pokemon details" component={PokemonDetails} />
     </Drawer.Navigator>
   );
 };
