@@ -1,18 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  imgWrapper: {
-    width: 300,
-    position: 'absolute',
-  },
-  pokeimg: {
+  container: {
+    backgroundColor: 'black',
     flex: 1,
+    opacity: 0.5,
   },
-  titleWrapper: {
-    alignItems: 'flex-end',
-  },
-  title: {
-    // color: 'white',
-    // textAlign: 'center',
+  pokeballIcon: {
+    position: 'absolute',
+    alignSelf: 'center',
+    top: '60%',
   },
 });
