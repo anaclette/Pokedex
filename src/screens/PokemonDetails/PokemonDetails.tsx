@@ -1,6 +1,17 @@
 import React from 'react';
-import {View} from 'react-native';
+import {Text, SafeAreaView} from 'react-native';
+import {DrawerScreenProps} from '@react-navigation/drawer';
+import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 
-export const PokemonDetails = () => {
-  return <View></View>;
+interface Props extends DrawerScreenProps<RootStackParams, 'PokemonDetails'> {}
+
+export const PokemonDetails = ({route}: Props) => {
+  const details = route.params.pokemonDetails;
+
+  return (
+    <SafeAreaView>
+      <Text>{details.name}</Text>
+      <Text>{details.id}</Text>
+    </SafeAreaView>
+  );
 };

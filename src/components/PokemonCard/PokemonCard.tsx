@@ -8,12 +8,13 @@ import {styles} from './pokemonCard.style';
 
 interface Props {
   item: NewListPokemon;
+  onPress: () => void;
 }
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export const PokemonCard = ({item}: Props) => {
+export const PokemonCard = ({item, onPress}: Props) => {
   const [backgroundImgColor, setBackgroundImgColor] = useState('grey');
   const [titleColor, setTitleColor] = useState<string | undefined>('white');
 
@@ -32,7 +33,8 @@ export const PokemonCard = ({item}: Props) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      style={[styles.container, {backgroundColor: backgroundImgColor}]}>
+      style={[styles.container, {backgroundColor: backgroundImgColor}]}
+      onPress={onPress}>
       <View style={styles.nameWrapper}>
         <Text style={[{color: titleColor}, styles.name]}>{item.name}</Text>
         <Text style={[{color: titleColor}, styles.id]}>#{item.id}</Text>
