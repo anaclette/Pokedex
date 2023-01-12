@@ -101,6 +101,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           {
             width: width * 0.6,
             height: height / 3.4,
+            top: isIOS ? top * 2.6 : top + 190,
           },
           styles.pokemonImg,
         ]}
