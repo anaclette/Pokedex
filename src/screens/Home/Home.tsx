@@ -1,6 +1,5 @@
 import React from 'react';
-import {ImageBackground} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {Image, ImageBackground} from 'react-native';
 import {styles} from './home.style';
 
 export const Home = () => {
@@ -8,11 +7,9 @@ export const Home = () => {
     <ImageBackground
       source={require('../../assets/pikachu.jpeg')}
       style={styles.container}>
-      <Icon
-        name="pokeball"
-        color={'white'}
-        size={100}
-        style={styles.pokeballIcon}
+      <Image
+        source={require('../../assets/pokebola.png')}
+        style={styles.pokeballImg}
       />
     </ImageBackground>
   );
