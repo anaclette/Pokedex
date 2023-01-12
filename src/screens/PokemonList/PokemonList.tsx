@@ -9,17 +9,19 @@ import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
-export const PokemonList = ({navigation}: Props) => {
+export const PokemonList = ({navigation, route}: Props) => {
   const {pokeList, loadPokemons} = usePokemon();
 
   const renderItem = ({item}: {item: NewListPokemon}) => {
-    const onPress = () => {
-      navigation.navigate('PokemonDetails', {
-        pokemonDetails: item,
-        color: item.color,
-      });
-    };
-    return <PokemonCard onPress={onPress} item={item} />;
+    return (
+      <PokemonCard
+        navigation={navigation}
+        item={item}
+        imgColor={item.imgColor}
+        route={route}
+        textColor={undefined}
+      />
+    );
   };
 
   return (
@@ -27,7 +29,7 @@ export const PokemonList = ({navigation}: Props) => {
       numColumns={2}
       showsVerticalScrollIndicator={false}
       data={pokeList}
-      keyExtractor={pokemon => pokemon.id}
+      keyExtractor={(_, index) => index.toString()}
       renderItem={renderItem}
       onEndReached={loadPokemons}
       onEndReachedThreshold={0.4}

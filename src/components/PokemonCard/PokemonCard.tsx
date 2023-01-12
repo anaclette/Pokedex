@@ -5,18 +5,29 @@ import {NewListPokemon} from '../../types/Pokemon';
 import ImageColors from 'react-native-image-colors';
 import FadeInImage from '../FadeInImage';
 import {styles} from './pokemonCard.style';
+import {StackScreenProps} from '@react-navigation/stack';
+import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 
-interface Props {
+interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {
   item: NewListPokemon;
-  onPress: () => void;
+  imgColor: string | undefined;
+  textColor: string | undefined;
 }
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export const PokemonCard = ({item, onPress}: Props) => {
+export const PokemonCard = ({item, navigation}: Props) => {
   const [backgroundImgColor, setBackgroundImgColor] = useState('grey');
   const [titleColor, setTitleColor] = useState<string | undefined>('white');
+
+  const onPress = () => {
+    navigation.navigate('PokemonDetails', {
+      pokemonDetails: item,
+      imgColor: backgroundImgColor,
+      textColor: titleColor,
+    });
+  };
 
   useEffect(() => {
     ImageColors.getColors(item.picture, {fallback: 'grey'}).then(colors => {
