@@ -5,7 +5,7 @@ import PokemonDetails from '../../screens/PokemonDetails';
 import DrawerNavigator from '../DrawerNavigator';
 
 export type RootStackParams = {
-  PokemonDetails: {pokemonDetails: NewListPokemon};
+  PokemonDetails: {pokemonDetails: NewListPokemon; color: string | undefined};
 };
 
 const Stack = createStackNavigator();

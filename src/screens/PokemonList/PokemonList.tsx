@@ -14,7 +14,10 @@ export const PokemonList = ({navigation}: Props) => {
 
   const renderItem = ({item}: {item: NewListPokemon}) => {
     const onPress = () => {
-      navigation.navigate('PokemonDetails', {pokemonDetails: item});
+      navigation.navigate('PokemonDetails', {
+        pokemonDetails: item,
+        color: item.color,
+      });
     };
     return <PokemonCard onPress={onPress} item={item} />;
   };

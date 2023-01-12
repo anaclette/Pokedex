@@ -17,4 +17,5 @@ export interface NewListPokemon {
   id: string;
   name: string;
   picture: string;
+  color?: string;
 }
