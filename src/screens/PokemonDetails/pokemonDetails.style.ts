@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
   pokemonImg: {
     alignSelf: 'center',
     position: 'absolute',
+    bottom: 0,
   },
   nameWrapper: {
     flexDirection: 'row',
@@ -22,4 +23,26 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
+
+  // container: {
+  //   flex: 1,
+  // },
+  // pokeballImg: {
+  //   opacity: 0.4,
+  // },
+  // imagesWrapper: {
+  //   alignSelf: 'center',
+  //   flex: 1,
+  //   alignItems: 'center',
+  // },
+  // pokemonImg: {
+  //   alignSelf: 'center',
+  //   position: 'absolute',
+  // },
+  // name: {
+  //   marginVertical: 50,
+  //   textTransform: 'capitalize',
+  //   textAlign: 'center',
+  //   fontSize: 40,
+  // },
 });
