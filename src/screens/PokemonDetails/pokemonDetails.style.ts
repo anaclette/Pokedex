@@ -23,7 +23,14 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
-
+  loaderWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  spriteImg: {
+    width: 100,
+    height: 100,
+  },
   // container: {
   //   flex: 1,
   // },
