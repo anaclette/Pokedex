@@ -1,10 +1,11 @@
 import React from 'react';
-import {TextInput, View} from 'react-native';
+import {View} from 'react-native';
+import SearchInput from '../../components/SearchInput';
 
 export const Search = () => {
   return (
     <View>
-      <TextInput style={{backgroundColor: 'green'}} placeholder="Search" />
+      <SearchInput />
     </View>
   );
 };
