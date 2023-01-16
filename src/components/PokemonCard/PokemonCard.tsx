@@ -44,11 +44,11 @@ export const PokemonCard = ({item, navigation}: Props) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      style={[styles.container, {backgroundColor: backgroundImgColor}]}
+      style={{...styles.container, backgroundColor: backgroundImgColor}}
       onPress={onPress}>
       <View style={styles.nameWrapper}>
-        <Text style={[{color: titleColor}, styles.name]}>{item.name}</Text>
-        <Text style={[{color: titleColor}, styles.id]}>#{item.id}</Text>
+        <Text style={{color: titleColor, ...styles.name}}>{item.name}</Text>
+        <Text style={{color: titleColor, ...styles.id}}>#{item.id}</Text>
       </View>
       <View style={styles.imagesWrapper}>
         <Image
