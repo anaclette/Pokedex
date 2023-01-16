@@ -31,25 +31,4 @@ export const styles = StyleSheet.create({
     width: 100,
     height: 100,
   },
-  // container: {
-  //   flex: 1,
-  // },
-  // pokeballImg: {
-  //   opacity: 0.4,
-  // },
-  // imagesWrapper: {
-  //   alignSelf: 'center',
-  //   flex: 1,
-  //   alignItems: 'center',
-  // },
-  // pokemonImg: {
-  //   alignSelf: 'center',
-  //   position: 'absolute',
-  // },
-  // name: {
-  //   marginVertical: 50,
-  //   textTransform: 'capitalize',
-  //   textAlign: 'center',
-  //   fontSize: 40,
-  // },
 });
