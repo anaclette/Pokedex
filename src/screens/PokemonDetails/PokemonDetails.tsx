@@ -22,6 +22,10 @@ interface Props extends DrawerScreenProps<RootStackParams, 'PokemonDetails'> {}
 
 const {height, width} = Dimensions.get('window');
 
+export const isValid = (item: string | null | undefined) => {
+  return item !== null && item !== undefined;
+};
+
 export const PokemonDetails = ({route, navigation}: Props) => {
   const {pokemonDetails, imgColor, textColor} = route.params;
   const {top} = useSafeAreaInsets();
@@ -30,6 +34,23 @@ export const PokemonDetails = ({route, navigation}: Props) => {
   const {isLoading, fullPokemon} = useFullPokemon(pokemonDetails.id);
 
   // console.log('full pokemon details: ', fullPokemon.name); // TODO: check why this executing thrice, 1st undefined and then twice
+
+  const retrieveSprites = (sprites: Object) => {
+    const pokemonImages = Object.values(sprites);
+    return pokemonImages.slice(0, 8).map(
+      image =>
+        isValid(image) && (
+          <FadeInImage
+            uri={image}
+            containerStyle={{
+              width: width * 0.2,
+              height: height * 0.1,
+            }}
+            imgStyle={styles.spriteImg}
+          />
+        ),
+    );
+  };
 
   return (
     <>
@@ -75,43 +96,18 @@ export const PokemonDetails = ({route, navigation}: Props) => {
       {/* <View style={styles.loaderWrapper}>
         <ActivityIndicator color={textColor} size={50} />
       </View> */}
-      <View>
+      <>
         <Text>Types</Text>
-        {fullPokemon.types?.map(type => (
-          <Text>{type.type.name}</Text>
+        {fullPokemon.types?.map((type, index) => (
+          <Text key={index}>{type.type.name}</Text>
         ))}
         <Text>Sprites</Text>
-        {fullPokemon.sprites && (
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {fullPokemon.sprites.front_default && (
-              <FadeInImage
-                uri={fullPokemon.sprites.front_default}
-                imgStyle={styles.spriteImg}
-              />
-            )}
-            {fullPokemon.sprites.back_default && (
-              <FadeInImage
-                uri={fullPokemon.sprites.back_default}
-                imgStyle={styles.spriteImg}
-              />
-            )}
-            {fullPokemon.sprites.front_shiny && (
-              <FadeInImage
-                uri={fullPokemon.sprites.front_shiny}
-                imgStyle={styles.spriteImg}
-              />
-            )}
-            {fullPokemon.sprites.back_shiny && (
-              <FadeInImage
-                uri={fullPokemon.sprites.back_shiny}
-                imgStyle={styles.spriteImg}
-              />
-            )}
-          </ScrollView>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {fullPokemon.sprites && retrieveSprites(fullPokemon.sprites)}
+        </ScrollView>
 
-          // TODO: habilidades, peso, movimientos, stats
-        )}
-      </View>
+        {/* TODO: habilidades, peso, movimientos, stats */}
+      </>
     </>
   );
 };
