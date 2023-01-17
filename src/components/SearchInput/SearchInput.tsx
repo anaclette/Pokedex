@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Platform, TextInput, View} from 'react-native';
+import {Platform, TextInput, TouchableOpacity, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDebouncer} from '../../hooks/useDebouncer';
 import {useEffect} from 'react';
@@ -32,7 +32,13 @@ export const SearchInput = ({onDebounce}: Props) => {
         placeholder="Search"
         placeholderTextColor={'gray'}
       />
-      <Icon style={styles.searchIcon} name="magnify" size={30} color="brown" />
+      <TouchableOpacity
+        accessibilityRole="button"
+        accessibilityLabel="Search button"
+        onPress={() => (inputValue !== '' ? setInputValue : '')}
+        style={styles.searchIconButton}>
+        <Icon name="magnify" size={30} color="brown" />
+      </TouchableOpacity>
     </View>
   );
 };

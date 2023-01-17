@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     borderRadius: 230,
     paddingLeft: '3%',
   },
-  searchIcon: {
+  searchIconButton: {
     position: 'absolute',
     alignSelf: 'flex-end',
     justifyContent: 'center',
