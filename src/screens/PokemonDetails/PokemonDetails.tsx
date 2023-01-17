@@ -38,9 +38,10 @@ export const PokemonDetails = ({route, navigation}: Props) => {
   const retrieveSprites = (sprites: Object) => {
     const pokemonImages = Object.values(sprites);
     return pokemonImages.slice(0, 8).map(
-      image =>
+      (image, index) =>
         isValid(image) && (
           <FadeInImage
+            key={index}
             uri={image}
             containerStyle={{
               width: width * 0.2,
