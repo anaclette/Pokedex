@@ -1,7 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
+  whiteContainer: {
+    backgroundColor: '#fff',
+  },
+  pokemonImageContainer: {
     borderBottomLeftRadius: 200,
     borderBottomRightRadius: 200,
   },
@@ -29,5 +32,37 @@ export const styles = StyleSheet.create({
   },
   spriteImg: {
     flex: 1,
+  },
+  moveItemsWrapper: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  fullMovesWrapper: {
+    padding: 10,
+    opacity: 0.8,
+  },
+  buttonText: {
+    textDecorationLine: 'underline',
+  },
+  fullMovesItem: {
+    textTransform: 'capitalize',
+    textAlign: 'center',
+    fontWeight: '700',
+    fontSize: 17,
+  },
+  moveItem: {
+    margin: 6,
+    textTransform: 'capitalize',
+  },
+  showFullMovesBtn: {
+    bottom: '20%',
+  },
+  seeFullContentText: {
+    marginLeft: 3,
+  },
+  seeLessContentText: {
+    fontSize: 20,
   },
 });
