@@ -6,11 +6,13 @@ import {NewListPokemon} from '../../types/Pokemon';
 import {styles} from './pokemonList.style';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
 export const PokemonList = ({navigation, route}: Props) => {
   const {pokeList, loadPokemons} = usePokemon();
+  const {top} = useSafeAreaInsets();
 
   const renderItem = ({item}: {item: NewListPokemon}) => {
     return (
@@ -27,6 +29,7 @@ export const PokemonList = ({navigation, route}: Props) => {
   return (
     <FlatList
       numColumns={2}
+      contentContainerStyle={{top: top * 1.9}}
       showsVerticalScrollIndicator={false}
       data={pokeList}
       keyExtractor={(_, index) => index.toString()}

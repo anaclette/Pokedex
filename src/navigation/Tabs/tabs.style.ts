@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   focusedColor: {
-    color: '#673ab7',
+    color: 'darkblue',
   },
   inactiveColor: {
     color: 'gray',

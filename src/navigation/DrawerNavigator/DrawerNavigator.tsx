@@ -19,7 +19,7 @@ export const DrawerNavigator = () => {
         title: '',
         sceneContainerStyle: {backgroundColor: 'rgba(255,255,255, 0.92)'},
         headerTransparent: true,
-        headerTintColor: '#fff',
+        headerTintColor: 'darkblue',
       }}>
       <Drawer.Screen
         options={{

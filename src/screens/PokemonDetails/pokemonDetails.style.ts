@@ -40,8 +40,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   fullMovesWrapper: {
-    padding: 10,
+    padding: '10%',
     opacity: 0.8,
+    borderRadius: 100,
   },
   buttonText: {
     textDecorationLine: 'underline',

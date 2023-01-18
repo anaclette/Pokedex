@@ -7,8 +7,12 @@ export const Account = () => {
   const isIos = Platform.OS === 'ios';
   const topValue = isIos ? top : top + 10;
   return (
-    <View style={{top: topValue}}>
-      <Text>My account</Text>
+    <View
+      style={{
+        backgroundColor: 'rgba(255,255,255, 0.92)',
+        flex: 1,
+      }}>
+      <Text style={{top: topValue}}>My account</Text>
     </View>
   );
 };
