@@ -2,179 +2,151 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "assets/fonts/Abril_Fatface/AbrilFatface-Regular.ttf",
+      "path": "src/assets/fonts/AbrilFatface-Regular.ttf",
       "sha1": "545553bf8733c6edc2846ba1b420f19e4a6ff2de"
     },
     {
-      "path": "assets/fonts/Abril_Fatface/OFL.txt",
-      "sha1": "c4ec5c820acc80fd2856ac3a83d2cd2ad25d5e78"
-    },
-    {
-      "path": "assets/fonts/Lora/Lora-Italic-VariableFont_wght.ttf",
-      "sha1": "732e917787efe8211bb910767d08c1f2c598acbd"
-    },
-    {
-      "path": "assets/fonts/Lora/Lora-VariableFont_wght.ttf",
-      "sha1": "a07008f1ec453e882c5d61483707ebdf3fd7b72c"
-    },
-    {
-      "path": "assets/fonts/Lora/OFL.txt",
-      "sha1": "627286a2216135d120cc6bec397b84906534abdd"
-    },
-    {
-      "path": "assets/fonts/Lora/README.txt",
-      "sha1": "30fa52a57c9448ba863a83392185571f4351ec63"
-    },
-    {
-      "path": "assets/fonts/Lora/static/Lora-Bold.ttf",
+      "path": "src/assets/fonts/Lora-Bold.ttf",
       "sha1": "e99487fd02ba70750b66536cd668cf6c5a7a334b"
     },
     {
-      "path": "assets/fonts/Lora/static/Lora-BoldItalic.ttf",
+      "path": "src/assets/fonts/Lora-BoldItalic.ttf",
       "sha1": "91e7e2019f706627e344b3cc3dafebccfddc1a33"
     },
     {
-      "path": "assets/fonts/Lora/static/Lora-Italic.ttf",
+      "path": "src/assets/fonts/Lora-Italic-VariableFont_wght.ttf",
+      "sha1": "732e917787efe8211bb910767d08c1f2c598acbd"
+    },
+    {
+      "path": "src/assets/fonts/Lora-Italic.ttf",
       "sha1": "dc425fde9706d9c095c14d622f1348c5cec6bbbc"
     },
     {
-      "path": "assets/fonts/Lora/static/Lora-Medium.ttf",
+      "path": "src/assets/fonts/Lora-Medium.ttf",
       "sha1": "bdee2d6093aeb360b44f750d0713ef6e2eb42f01"
     },
     {
-      "path": "assets/fonts/Lora/static/Lora-MediumItalic.ttf",
+      "path": "src/assets/fonts/Lora-MediumItalic.ttf",
       "sha1": "536dfe3560d9e8738039d09e77e4889a5134f74a"
     },
     {
-      "path": "assets/fonts/Lora/static/Lora-Regular.ttf",
+      "path": "src/assets/fonts/Lora-Regular.ttf",
       "sha1": "37441667677811e25dae30850b0263e0d39bf959"
     },
     {
-      "path": "assets/fonts/Lora/static/Lora-SemiBold.ttf",
+      "path": "src/assets/fonts/Lora-SemiBold.ttf",
       "sha1": "fc1d18b0360fa441d8ca088ad576ede33052025d"
     },
     {
-      "path": "assets/fonts/Lora/static/Lora-SemiBoldItalic.ttf",
+      "path": "src/assets/fonts/Lora-SemiBoldItalic.ttf",
       "sha1": "7dd55b2f98450497e7ef0e0184a624090058bb58"
     },
     {
-      "path": "assets/fonts/Quicksand/OFL.txt",
-      "sha1": "060d73cf12d28ecea238954c94c77e908c4d2345"
+      "path": "src/assets/fonts/Lora-VariableFont_wght.ttf",
+      "sha1": "a07008f1ec453e882c5d61483707ebdf3fd7b72c"
     },
     {
-      "path": "assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf",
-      "sha1": "71c193f7835f2d7bcce8d6d4c9d605696d76b14a"
-    },
-    {
-      "path": "assets/fonts/Quicksand/README.txt",
-      "sha1": "214aa74b994dec3432315e5db0a5ffec0a5cd084"
-    },
-    {
-      "path": "assets/fonts/Quicksand/static/Quicksand-Bold.ttf",
+      "path": "src/assets/fonts/Quicksand-Bold.ttf",
       "sha1": "8727a6ae26c6646a7f25bfe6560e19c9265ea87c"
     },
     {
-      "path": "assets/fonts/Quicksand/static/Quicksand-Light.ttf",
+      "path": "src/assets/fonts/Quicksand-Light.ttf",
       "sha1": "739d87992cf1cd96cff0c9c32e40927385a38146"
     },
     {
-      "path": "assets/fonts/Quicksand/static/Quicksand-Medium.ttf",
+      "path": "src/assets/fonts/Quicksand-Medium.ttf",
       "sha1": "48d202c7a215914264064dc27f6a8cd77ebe3036"
     },
     {
-      "path": "assets/fonts/Quicksand/static/Quicksand-Regular.ttf",
+      "path": "src/assets/fonts/Quicksand-Regular.ttf",
       "sha1": "6eebfcb02f142c6e2bf58f7fcb31f10ec914a0ed"
     },
     {
-      "path": "assets/fonts/Quicksand/static/Quicksand-SemiBold.ttf",
+      "path": "src/assets/fonts/Quicksand-SemiBold.ttf",
       "sha1": "43fdbf795bb0b7cc5b0d3dbcbdef0cdec0f29ca9"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/OFL.txt",
-      "sha1": "776022200ed55beb7ba02ee971ad18d47b1ffa89"
+      "path": "src/assets/fonts/Quicksand-VariableFont_wght.ttf",
+      "sha1": "71c193f7835f2d7bcce8d6d4c9d605696d76b14a"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf",
+      "path": "src/assets/fonts/SourceSansPro-Black.ttf",
       "sha1": "9f5e9f9165668260c574dcd07db63d6b90b98824"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-BlackItalic.ttf",
+      "path": "src/assets/fonts/SourceSansPro-BlackItalic.ttf",
       "sha1": "13cd3240c1ac5b97e2d4a4119600b3c36b868045"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf",
+      "path": "src/assets/fonts/SourceSansPro-Bold.ttf",
       "sha1": "167ac25366e252f07c090a8113910337f3d5255b"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-BoldItalic.ttf",
+      "path": "src/assets/fonts/SourceSansPro-BoldItalic.ttf",
       "sha1": "c320303ae126e23bd566d412916f68cc347d573f"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-ExtraLight.ttf",
+      "path": "src/assets/fonts/SourceSansPro-ExtraLight.ttf",
       "sha1": "48fe9c368a331044f7cb8ddf4db4feda40808993"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-ExtraLightItalic.ttf",
+      "path": "src/assets/fonts/SourceSansPro-ExtraLightItalic.ttf",
       "sha1": "f51dcfb53d69e4f64c78263e20f67758b10d8c71"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-Italic.ttf",
+      "path": "src/assets/fonts/SourceSansPro-Italic.ttf",
       "sha1": "1c774bad0dad64ee30d7f2e71e89891870a2d304"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-Light.ttf",
+      "path": "src/assets/fonts/SourceSansPro-Light.ttf",
       "sha1": "df208d4edf8bf13483beec5c5893a3f474755439"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-LightItalic.ttf",
+      "path": "src/assets/fonts/SourceSansPro-LightItalic.ttf",
       "sha1": "c27caccb61ee5253eb83cb46ad5f3ebb4703d6a2"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf",
+      "path": "src/assets/fonts/SourceSansPro-Regular.ttf",
       "sha1": "48d6928e08ba5e2ca1e15d754c146580b1c8febd"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf",
+      "path": "src/assets/fonts/SourceSansPro-SemiBold.ttf",
       "sha1": "3eeb4bae47e308c768d8c65a89480159d4e0e7c2"
     },
     {
-      "path": "assets/fonts/Source_Sans_Pro/SourceSansPro-SemiBoldItalic.ttf",
+      "path": "src/assets/fonts/SourceSansPro-SemiBoldItalic.ttf",
       "sha1": "ddbf657592d067296ef891b03f17f452907c8a7b"
     },
     {
-      "path": "assets/fonts/Ubuntu/UFL.txt",
-      "sha1": "72062da2045ec80b124ba50d667306ef4396763c"
-    },
-    {
-      "path": "assets/fonts/Ubuntu/Ubuntu-Bold.ttf",
+      "path": "src/assets/fonts/Ubuntu-Bold.ttf",
       "sha1": "020aaec9cdeb59aa8ebd2e4c693527cddb2d1577"
     },
     {
-      "path": "assets/fonts/Ubuntu/Ubuntu-BoldItalic.ttf",
+      "path": "src/assets/fonts/Ubuntu-BoldItalic.ttf",
       "sha1": "9ec6f8b1c000fe9d081f2598d801ed85cef63a63"
     },
     {
-      "path": "assets/fonts/Ubuntu/Ubuntu-Italic.ttf",
+      "path": "src/assets/fonts/Ubuntu-Italic.ttf",
       "sha1": "1f02c79207884c1d1adf3b0679bbacb1d17c6f39"
     },
     {
-      "path": "assets/fonts/Ubuntu/Ubuntu-Light.ttf",
+      "path": "src/assets/fonts/Ubuntu-Light.ttf",
       "sha1": "d060b0ff74b379dcc3d10ac2d024602af419d9f0"
     },
     {
-      "path": "assets/fonts/Ubuntu/Ubuntu-LightItalic.ttf",
+      "path": "src/assets/fonts/Ubuntu-LightItalic.ttf",
       "sha1": "7b5e622026245d52f4eafbaa9564ece8e8889dc9"
     },
     {
-      "path": "assets/fonts/Ubuntu/Ubuntu-Medium.ttf",
+      "path": "src/assets/fonts/Ubuntu-Medium.ttf",
       "sha1": "da662f767e6261491e20da197bd7ffbb7a7d122c"
     },
     {
-      "path": "assets/fonts/Ubuntu/Ubuntu-MediumItalic.ttf",
+      "path": "src/assets/fonts/Ubuntu-MediumItalic.ttf",
       "sha1": "f96c9c3a3bf40efdc9b20afcc8203f6e47e87ea5"
     },
     {
-      "path": "assets/fonts/Ubuntu/Ubuntu-Regular.ttf",
+      "path": "src/assets/fonts/Ubuntu-Regular.ttf",
       "sha1": "8238e55f0320c3abc74057c988367c2f25fa3727"
     }
   ]

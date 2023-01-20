@@ -52,7 +52,7 @@ export const PokemonCard = ({item, navigation}: Props) => {
       </View>
       <View style={styles.imagesWrapper}>
         <Image
-          source={require('../../assets/pokebola-blanca.png')}
+          source={require('../../assets/images/pokebola-blanca.png')}
           style={styles.pokebolaImage}
         />
         <FadeInImage

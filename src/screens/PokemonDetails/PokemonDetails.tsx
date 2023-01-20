@@ -165,7 +165,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             </Text>
           </View>
           <Image
-            source={require('../../assets/pokebola.png')}
+            source={require('../../assets/images/pokebola.png')}
             style={{
               width: width / 1.8,
               height: height / 4,
