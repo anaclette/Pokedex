@@ -30,10 +30,11 @@ export const DrawerNavigator = () => {
           drawerInactiveTintColor: 'black',
           drawerInactiveBackgroundColor: 'transparent',
           drawerContentContainerStyle: {
-            backgroundColor: 'rgba(2,35,252,0.2)',
+            backgroundColor: 'rgba(255,255,255, 0.92)',
             opacity: 0.5,
             flex: 1,
           },
+          drawerType: 'front',
         }}
         name="Home"
         component={Home}
@@ -46,10 +47,11 @@ export const DrawerNavigator = () => {
           drawerInactiveTintColor: 'black',
           drawerInactiveBackgroundColor: 'transparent',
           drawerContentContainerStyle: {
-            backgroundColor: 'rgba(2,35,252,0.2)',
+            backgroundColor: 'rgba(255,255,255, 0.92)',
             opacity: 0.5,
             flex: 1,
           },
+          drawerType: 'front',
         }}
         name="Pokedex"
         component={PokemonList}
