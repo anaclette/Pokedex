@@ -9,6 +9,7 @@ import {NewListPokemon} from '../../types/Pokemon';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import {Dimensions} from 'react-native';
+import PokemonPoster from '../../components/PokemonPoster';
 
 interface NavProps
   extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
@@ -45,6 +46,7 @@ export const Search = ({navigation, route}: NavProps) => {
 
   return (
     <View style={styles.container}>
+      <PokemonPoster viewTop={top * 1.8} imgHeight={height / 4} />
       <SearchInput onDebounce={setSearchValue} />
 
       {isFetching ? (
@@ -52,8 +54,8 @@ export const Search = ({navigation, route}: NavProps) => {
       ) : (
         <FlatList
           contentContainerStyle={{
-            top: top + 50,
-            paddingBottom: height * 0.3,
+            top: top * 6.5,
+            paddingBottom: height * 0.6,
           }}
           data={filteredPokemonResult}
           numColumns={2}
