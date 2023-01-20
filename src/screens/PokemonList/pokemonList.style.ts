@@ -5,4 +5,9 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     height: 400,
   },
+  poster: {
+    width: '100%',
+    position: 'absolute',
+    resizeMode: 'cover',
+  },
 });
