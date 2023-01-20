@@ -4,7 +4,7 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleDisplayName</key>
+	<string>Gae&#x2007;Poke&#x2007;App</string>
 	<string>pokedex</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -55,22 +55,22 @@
 	<array>
 		<string>MaterialCommunityIcons.ttf</string>
 		<string>AbrilFatface-Regular.ttf</string>
-		<string>Lora-Italic-VariableFont_wght.ttf</string>
-		<string>Lora-VariableFont_wght.ttf</string>
 		<string>Lora-Bold.ttf</string>
 		<string>Lora-BoldItalic.ttf</string>
+		<string>Lora-Italic-VariableFont_wght.ttf</string>
 		<string>Lora-Italic.ttf</string>
 		<string>Lora-Medium.ttf</string>
 		<string>Lora-MediumItalic.ttf</string>
 		<string>Lora-Regular.ttf</string>
 		<string>Lora-SemiBold.ttf</string>
 		<string>Lora-SemiBoldItalic.ttf</string>
-		<string>Quicksand-VariableFont_wght.ttf</string>
+		<string>Lora-VariableFont_wght.ttf</string>
 		<string>Quicksand-Bold.ttf</string>
 		<string>Quicksand-Light.ttf</string>
 		<string>Quicksand-Medium.ttf</string>
 		<string>Quicksand-Regular.ttf</string>
 		<string>Quicksand-SemiBold.ttf</string>
+		<string>Quicksand-VariableFont_wght.ttf</string>
 		<string>SourceSansPro-Black.ttf</string>
 		<string>SourceSansPro-BlackItalic.ttf</string>
 		<string>SourceSansPro-Bold.ttf</string>
