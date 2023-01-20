@@ -20,4 +20,7 @@ export const styles = StyleSheet.create({
   inactiveColor: {
     color: 'gray',
   },
+  label: {
+    fontFamily: 'AbrilFatface-Regular',
+  },
 });

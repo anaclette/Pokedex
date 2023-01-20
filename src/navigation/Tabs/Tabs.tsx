@@ -64,7 +64,12 @@ const MyTabBar = ({state, descriptors, navigation}) => {
                 style={isFocused ? styles.focusedColor : styles.inactiveColor}
               />
               <Text
-                style={isFocused ? styles.focusedColor : styles.inactiveColor}>
+                style={[
+                  isFocused
+                    ? {...styles.focusedColor}
+                    : {...styles.inactiveColor},
+                  styles.label,
+                ]}>
                 {label}
               </Text>
             </TouchableOpacity>
