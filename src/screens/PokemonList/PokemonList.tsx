@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  ActivityIndicator,
-  FlatList,
-  Image,
-  useWindowDimensions,
-  View,
-} from 'react-native';
+import {ActivityIndicator, FlatList, useWindowDimensions} from 'react-native';
 import PokemonCard from '../../components/PokemonCard';
 import {usePokemon} from '../../hooks/usePokemon';
 import {NewListPokemon} from '../../types/Pokemon';
@@ -13,6 +7,7 @@ import {styles} from './pokemonList.style';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import PokemonPoster from '../../components/PokemonPoster';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
@@ -35,15 +30,7 @@ export const PokemonList = ({navigation, route}: Props) => {
 
   return (
     <>
-      <View style={{top: top * 1.9}}>
-        <Image
-          source={require('../../assets/images/poster.jpeg')}
-          style={{
-            ...styles.poster,
-            height: height / 4,
-          }}
-        />
-      </View>
+      <PokemonPoster viewTop={top * 1.9} imgHeight={height / 4} />
       <FlatList
         numColumns={2}
         contentContainerStyle={{top: top * 6.5}}
