@@ -55,9 +55,18 @@ export const PokemonDetails = ({route, navigation}: Props) => {
       shownMoves.push(moves[0]);
     });
 
+    // const PokeIcon = () => {
+    //   return (
+    //     <Icon
+    //       name="pokeball"
+    //       color={shownMoves.length > maxShown ? textColor : imgColor}
+    //     />
+    //   );
+    // };
+
     return (
-      <View style={{alignItems: 'center'}}>
-        <Text>{`Movimientos (${shownMoves.length})`}</Text>
+      <View>
+        <Text style={styles.title}>{`Movimientos (${shownMoves.length})`}</Text>
         {fullMoves ? (
           <ScrollView
             style={{
@@ -82,7 +91,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
                   color: textColor,
                   ...styles.moveItem,
                 }}>
-                {`${index !== 0 && '⊛ '} ${move}`}
+                {`${index !== 0 && ' ⊛ '} ${move}`}
               </Text>
             ))}
             {shownMoves.length > maxShown && (
@@ -183,12 +192,20 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             }}
           />
         </View>
-        <Text>{fullPokemon.types?.length > 1 ? 'Tipos' : 'Tipo'}</Text>
+
+        <Text style={styles.title}>
+          {fullPokemon.types?.length > 1 ? 'Tipos:' : 'Tipo:'}
+        </Text>
         {fullPokemon.types?.map((type, index) => (
-          <Text key={index}>{type.type.name}</Text>
+          <Text style={styles.listItem} key={index}>
+            {type.type.name}
+          </Text>
         ))}
 
-        <Text>Peso: {convertLbToKg(fullPokemon.weight)} kg</Text>
+        <Text style={styles.title}>Peso:</Text>
+        <Text style={styles.listItem}>
+          {convertLbToKg(fullPokemon.weight)} kg
+        </Text>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {fullPokemon.sprites && retrieveSprites(fullPokemon.sprites)}
@@ -196,11 +213,12 @@ export const PokemonDetails = ({route, navigation}: Props) => {
 
         {fullPokemon.moves && getMoves(fullPokemon.moves)}
       </View>
+
       {/* <View style={styles.loaderWrapper}>
         <ActivityIndicator color={textColor} size={50} />
       </View> */}
 
-      {/* TODO: stats */}
+      {/* TODO: stats. Componentizar todo esto */}
     </ScrollView>
   );
 };

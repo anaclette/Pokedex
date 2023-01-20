@@ -46,16 +46,20 @@ export const styles = StyleSheet.create({
   },
   buttonText: {
     textDecorationLine: 'underline',
+    fontFamily: 'Ubuntu-Medium',
+    alignSelf: 'center',
   },
   fullMovesItem: {
     textTransform: 'capitalize',
     textAlign: 'center',
     fontWeight: '700',
     fontSize: 17,
+    fontFamily: 'SourceSansPro-Regular',
   },
   moveItem: {
     margin: 6,
     textTransform: 'capitalize',
+    fontFamily: 'SourceSansPro-Regular',
   },
   showFullMovesBtn: {
     bottom: '20%',
@@ -66,4 +70,17 @@ export const styles = StyleSheet.create({
   seeLessContentText: {
     fontSize: 20,
   },
+  title: {
+    fontFamily: 'Quicksand-SemiBold',
+    left: '8%',
+    marginBottom: '1%',
+  },
+  listItem: {
+    fontFamily: 'SourceSansPro-Black',
+    left: '13%',
+    marginBottom: '1%',
+  },
+  // detailsWrapper: {
+  //   left: '10%',
+  // },
 });

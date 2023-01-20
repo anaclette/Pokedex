@@ -24,7 +24,9 @@ export const DrawerNavigator = () => {
       <Drawer.Screen
         options={{
           drawerLabel: 'Home',
-
+          drawerLabelStyle: {
+            fontFamily: 'Lora-Bold',
+          },
           drawerActiveBackgroundColor: 'transparent',
           drawerActiveTintColor: 'darkblue',
           drawerInactiveTintColor: 'black',
@@ -41,7 +43,10 @@ export const DrawerNavigator = () => {
       />
       <Drawer.Screen
         options={{
-          drawerLabel: 'Pokedex',
+          drawerLabel: 'Poke list',
+          drawerLabelStyle: {
+            fontFamily: 'Lora-Bold',
+          },
           drawerActiveBackgroundColor: 'transparent',
           drawerActiveTintColor: 'darkblue',
           drawerInactiveTintColor: 'black',
