@@ -35,19 +35,16 @@ export const PokemonList = ({navigation, route}: Props) => {
         numColumns={2}
         contentContainerStyle={{top: top * 6.5}}
         showsVerticalScrollIndicator={false}
-        data={pokeList.sort((pokeA, pokeB) =>
-          pokeA.name.localeCompare(pokeB.name),
+        data={pokeList.sort(
+          (pokeA, pokeB) => pokeA.name.localeCompare(pokeB.name),
+          // TODO: fix how this is currently working
         )}
         keyExtractor={(_, index) => index.toString()}
         renderItem={renderItem}
         onEndReached={loadPokemons}
         onEndReachedThreshold={0.4}
         ListFooterComponent={
-          <ActivityIndicator
-            size={20}
-            color={'green'}
-            style={styles.loaderHeight}
-          />
+          <ActivityIndicator size={20} color={'green'} style={styles.loader} />
         }
       />
     </>
