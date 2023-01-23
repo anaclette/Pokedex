@@ -4,7 +4,7 @@ import {
   View,
   Dimensions,
   Image,
-  TouchableOpacity,
+  TouchableHighlight,
   Platform,
   ActivityIndicator,
   ScrollView,
@@ -30,6 +30,12 @@ const convertLbToKg = (lbs: number) => {
   const kg = lbs * 0.453592;
   const pokemonWeight = Math.floor(kg);
   return pokemonWeight;
+};
+
+const convertDcToCm = (dc: number) => {
+  const cm = dc * 10;
+  const pokemonHeight = Math.floor(cm);
+  return pokemonHeight;
 };
 
 export const PokemonDetails = ({route, navigation}: Props) => {
@@ -106,11 +112,14 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           </View>
         )}
         {shownMoves.length > maxShown && (
-          <TouchableOpacity
+          <TouchableHighlight
             accessibilityRole="button"
             accessibilityLabel="See full moves"
             onPress={onFullMovesBtnPress}
-            style={fullMoves && styles.showFullMovesBtn}>
+            underlayColor={fullMoves ? textColor : imgColor}
+            style={
+              fullMoves ? styles.showFullMovesBtn : {backgroundColor: imgColor}
+            }>
             <Text
               style={[
                 styles.buttonText,
@@ -120,7 +129,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
               ]}>
               {fullMoves ? 'Ver menos' : 'Ver todos los movimientos'}
             </Text>
-          </TouchableOpacity>
+          </TouchableHighlight>
         )}
       </View>
     );
@@ -160,15 +169,18 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             paddingTop: isIos ? top : top + 20,
             ...styles.pokemonImageContainer,
           }}>
-          <View style={styles.nameWrapper}>
-            <TouchableOpacity onPress={() => navigation.goBack()}>
+          <View style={styles.rowContainer}>
+            <TouchableHighlight
+              accessibilityRole="imagebutton"
+              accessibilityLabel="Go back icon"
+              onPress={() => navigation.goBack()}>
               <Icon
                 size={isIos ? 25 : 35}
                 name="arrow-left"
                 color={textColor}
                 style={{left: width * 0.02}}
               />
-            </TouchableOpacity>
+            </TouchableHighlight>
             <Text style={{...styles.name, color: textColor}}>
               {pokemonDetails.name}
             </Text>
@@ -193,32 +205,76 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           />
         </View>
 
-        <Text style={styles.title}>
-          {fullPokemon.types?.length > 1 ? 'Tipos:' : 'Tipo:'}
-        </Text>
-        {fullPokemon.types?.map((type, index) => (
-          <Text style={styles.listItem} key={index}>
-            {type.type.name}
-          </Text>
-        ))}
+        {isLoading ? (
+          <ActivityIndicator
+            color={textColor}
+            size={50}
+            style={{
+              top: height * 0.25,
+              ...styles.loader,
+            }}
+          />
+        ) : (
+          <>
+            <Text style={styles.title}>
+              {fullPokemon.types?.length > 1 ? 'Tipos:' : 'Tipo:'}
+            </Text>
+            {fullPokemon.types?.map((type, index) => (
+              <Text style={styles.listItem} key={index}>
+                {type.type.name}
+              </Text>
+            ))}
 
-        <Text style={styles.title}>Peso:</Text>
-        <Text style={styles.listItem}>
-          {convertLbToKg(fullPokemon.weight)} kg
-        </Text>
+            <Text style={styles.title}>Peso:</Text>
+            <Text style={styles.listItem}>
+              {convertLbToKg(fullPokemon.weight)} kg
+            </Text>
+            <Text style={styles.title}>Altura:</Text>
+            <Text style={styles.listItem}>
+              {convertDcToCm(fullPokemon.height)} cm
+            </Text>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {fullPokemon.sprites && retrieveSprites(fullPokemon.sprites)}
-        </ScrollView>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {fullPokemon.sprites && retrieveSprites(fullPokemon.sprites)}
+            </ScrollView>
 
-        {fullPokemon.moves && getMoves(fullPokemon.moves)}
+            {fullPokemon.moves && getMoves(fullPokemon.moves)}
+
+            <Text style={styles.title}>Stats</Text>
+            <View>
+              {fullPokemon.stats.map((stat, index) => (
+                <View
+                  key={stat.stat.name + index.toString()}
+                  style={styles.rowContainer}>
+                  <Text
+                    style={{
+                      ...styles.listItem,
+                      ...styles.statName,
+                    }}
+                    key={stat.stat.name}>
+                    {stat.stat.name}
+                  </Text>
+
+                  <Text style={styles.listItem}>{stat.base_stat}</Text>
+                </View>
+              ))}
+
+              <View
+                style={{...styles.rowContainer, ...styles.abilitiesContainer}}>
+                {fullPokemon.abilities.map(ability => (
+                  <>
+                    <Text>{ability.ability.name}</Text>
+                    <Text>{ability.is_hidden}</Text>
+                    <Text>{ability.slot}</Text>
+                  </>
+                ))}
+              </View>
+            </View>
+          </>
+        )}
       </View>
 
-      {/* <View style={styles.loaderWrapper}>
-        <ActivityIndicator color={textColor} size={50} />
-      </View> */}
-
-      {/* TODO: stats. Componentizar todo esto */}
+      {/* TODO: Componentizar */}
     </ScrollView>
   );
 };

@@ -17,18 +17,15 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
   },
-  nameWrapper: {
-    flexDirection: 'row',
-  },
   name: {
     flexGrow: 1,
     textTransform: 'capitalize',
     textAlign: 'center',
     fontSize: 20,
+    fontFamily: 'Quicksand-SemiBold',
   },
-  loaderWrapper: {
-    flex: 1,
-    justifyContent: 'center',
+  loader: {
+    alignSelf: 'center',
   },
   spriteImg: {
     flex: 1,
@@ -65,7 +62,7 @@ export const styles = StyleSheet.create({
     bottom: '20%',
   },
   seeFullContentText: {
-    marginLeft: 3,
+    marginTop: '2%',
   },
   seeLessContentText: {
     fontSize: 20,
@@ -80,7 +77,14 @@ export const styles = StyleSheet.create({
     left: '13%',
     marginBottom: '1%',
   },
-  // detailsWrapper: {
-  //   left: '10%',
-  // },
+  abilitiesContainer: {
+    marginBottom: 300,
+  },
+  rowContainer: {
+    flexDirection: 'row',
+  },
+  statName: {
+    marginRight: 10,
+    width: 150,
+  },
 });
