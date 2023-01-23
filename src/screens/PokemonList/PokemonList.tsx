@@ -23,7 +23,7 @@ export const PokemonList = ({navigation, route}: Props) => {
         item={item}
         imgColor={item.imgColor}
         route={route}
-        textColor={undefined}
+        textColor={item.textColor}
       />
     );
   };
@@ -35,7 +35,9 @@ export const PokemonList = ({navigation, route}: Props) => {
         numColumns={2}
         contentContainerStyle={{top: top * 6.5}}
         showsVerticalScrollIndicator={false}
-        data={pokeList}
+        data={pokeList.sort((pokeA, pokeB) =>
+          pokeA.name.localeCompare(pokeB.name),
+        )}
         keyExtractor={(_, index) => index.toString()}
         renderItem={renderItem}
         onEndReached={loadPokemons}
