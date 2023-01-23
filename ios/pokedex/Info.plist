@@ -4,6 +4,7 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
 	<string>Gae&#x2007;Poke&#x2007;App</string>
 	<string>pokedex</string>
 	<key>CFBundleExecutable</key>
