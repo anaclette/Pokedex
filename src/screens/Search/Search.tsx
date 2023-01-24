@@ -32,6 +32,7 @@ export const Search = ({navigation, route}: NavProps) => {
     NewListPokemon[]
   >([]);
   const {top} = useSafeAreaInsets();
+  const pokePosterHeight = height / 4;
 
   useEffect(() => {
     if (searchValue.length === 0) {
@@ -46,7 +47,10 @@ export const Search = ({navigation, route}: NavProps) => {
 
   return (
     <View style={styles.container}>
-      <PokemonPoster viewTop={top * 1.8} imgHeight={height / 4} />
+      <PokemonPoster
+        viewTop={top + pokePosterHeight / 3.5}
+        imgHeight={pokePosterHeight}
+      />
       <SearchInput onDebounce={setSearchValue} />
 
       {isFetching ? (
@@ -54,7 +58,7 @@ export const Search = ({navigation, route}: NavProps) => {
       ) : (
         <FlatList
           contentContainerStyle={{
-            top: top * 6.5,
+            top: top + pokePosterHeight * 1.3,
             paddingBottom: height * 0.6,
           }}
           data={filteredPokemonResult}

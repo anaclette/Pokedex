@@ -15,6 +15,7 @@ export const PokemonList = ({navigation, route}: Props) => {
   const {pokeList, loadPokemons} = usePokemon();
   const {top} = useSafeAreaInsets();
   const height = useWindowDimensions().height;
+  const pokePosterHeight = height / 4;
 
   const renderItem = ({item}: {item: NewListPokemon}) => {
     return (
@@ -30,10 +31,10 @@ export const PokemonList = ({navigation, route}: Props) => {
 
   return (
     <>
-      <PokemonPoster viewTop={top * 1.9} imgHeight={height / 4} />
+      <PokemonPoster viewTop={top} imgHeight={pokePosterHeight} />
       <FlatList
         numColumns={2}
-        contentContainerStyle={{top: top * 6.5}}
+        contentContainerStyle={{top: top + pokePosterHeight}}
         showsVerticalScrollIndicator={false}
         data={pokeList.sort(
           (pokeA, pokeB) => pokeA.name.localeCompare(pokeB.name),

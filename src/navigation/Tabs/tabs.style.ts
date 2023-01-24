@@ -4,11 +4,12 @@ export const styles = StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    paddingTop: '3%',
-    height: '10%',
+    paddingVertical: '3%',
+    height: '12%',
     backgroundColor: 'rgba(255,255,255, 0.8)',
     position: 'absolute',
     bottom: 0,
+    alignItems: 'center',
     width: '100%',
   },
   tabBarButton: {
