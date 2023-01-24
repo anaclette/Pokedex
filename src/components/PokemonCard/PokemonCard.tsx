@@ -33,7 +33,7 @@ export const PokemonCard = ({item, navigation}: Props) => {
     ImageColors.getColors(item.picture, {fallback: 'grey'}).then(colors => {
       if (colors.platform === 'android') {
         setBackgroundImgColor(colors.dominant || 'grey');
-        setTitleColor(colors.lightMuted || 'grey');
+        setTitleColor(colors.average || 'grey');
       } else if (colors.platform === 'ios') {
         setBackgroundImgColor(colors.background);
         setTitleColor(colors.detail);
