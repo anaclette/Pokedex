@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     zIndex: 2,
-    height: '6%',
+    minHeight: 40,
   },
   textInput: {
     color: 'brown',
