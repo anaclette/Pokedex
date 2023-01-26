@@ -30,43 +30,6 @@ export const styles = StyleSheet.create({
   spriteImg: {
     flex: 1,
   },
-  moveItemsWrapper: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  fullMovesWrapper: {
-    padding: '10%',
-    opacity: 0.8,
-    borderRadius: 100,
-  },
-  buttonText: {
-    textDecorationLine: 'underline',
-    fontFamily: 'Ubuntu-Medium',
-    alignSelf: 'center',
-  },
-  fullMovesItem: {
-    textTransform: 'capitalize',
-    textAlign: 'center',
-    fontWeight: '700',
-    fontSize: 17,
-    fontFamily: 'SourceSansPro-Regular',
-  },
-  moveItem: {
-    margin: 6,
-    textTransform: 'capitalize',
-    fontFamily: 'SourceSansPro-Regular',
-  },
-  showFullMovesBtn: {
-    bottom: '20%',
-  },
-  seeFullContentText: {
-    marginTop: '2%',
-  },
-  seeLessContentText: {
-    fontSize: 20,
-  },
   title: {
     fontFamily: 'Quicksand-SemiBold',
     left: '8%',
