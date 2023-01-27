@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Dimensions, Image, Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 
 import {NewListPokemon} from '../../types/Pokemon';
 import ImageColors from 'react-native-image-colors';
@@ -7,6 +7,8 @@ import FadeInImage from '../FadeInImage';
 import {styles} from './pokemonCard.style';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
+import Pokeball from '../Pokeball';
+import {height, width} from '../../common/constants';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {
   item: NewListPokemon;
@@ -14,8 +16,8 @@ interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {
   textColor: string | undefined;
 }
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+const windowWidth = width;
+const windowHeight = height;
 
 export const PokemonCard = ({item, navigation}: Props) => {
   const [backgroundImgColor, setBackgroundImgColor] = useState('grey');
@@ -51,9 +53,9 @@ export const PokemonCard = ({item, navigation}: Props) => {
         <Text style={{color: titleColor, ...styles.id}}>#{item.id}</Text>
       </View>
       <View style={styles.imagesWrapper}>
-        <Image
-          source={require('../../assets/images/pokebola-blanca.png')}
-          style={styles.pokebolaImage}
+        <Pokeball
+          style={styles.pokeballImage}
+          source={require('../../assets/images/light_pokeball.png')}
         />
         <FadeInImage
           uri={item.picture}

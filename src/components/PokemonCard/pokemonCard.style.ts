@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     marginRight: 20,
     bottom: -10,
   },
-  pokebolaImage: {
+  pokeballImage: {
     width: 80,
     height: 80,
     position: 'absolute',
