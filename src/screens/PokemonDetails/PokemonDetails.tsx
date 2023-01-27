@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Text,
-  View,
-  ActivityIndicator,
-  ScrollView,
-  TouchableHighlight,
-} from 'react-native';
+import {Text, View, ActivityIndicator, ScrollView} from 'react-native';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -21,6 +15,10 @@ import {height, isIos, width} from '../../common/constants';
 import Pokeball from '../../components/Pokeball';
 import PokemonSprites from '../../components/PokemonSprites';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Button from '../../components/Button';
+import {useAppDispatch} from '../../state/hooks';
+import {useIsFavourite} from '../../utils/hooks';
+import {toggleIsFavourite} from '../../state/reducers/favouritesReducer';
 
 interface Props extends DrawerScreenProps<RootStackParams, 'PokemonDetails'> {}
 
@@ -30,6 +28,8 @@ export const PokemonDetails = ({route, navigation}: Props) => {
   const {top} = useSafeAreaInsets();
   const {isLoading, fullPokemon} = useFullPokemon(pokemonDetails.id);
   const [typeColor, setTypeColor] = useState('');
+  const dispatch = useAppDispatch();
+  const isFavourite = useIsFavourite(pokemonDetails.id);
 
   // console.log('full pokemon details: ', fullPokemon.name); // TODO: check why this executing thrice, 1st undefined and then twice
 
@@ -74,9 +74,23 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           iconColor={textColor}
           buttonStyle={{left: width * 0.02}}
         />
-        <TouchableHighlight style={{right: width * 0.1}}>
-          <Icon name={'heart-outline'} size={25} color={textColor} />
-        </TouchableHighlight>
+        <Button
+          accessibilityLabel={'Add to favourites heart icon'}
+          activeOpacity={0.6}
+          onPress={() => dispatch(toggleIsFavourite(fullPokemon))}
+          children={
+            <Icon
+              name={isFavourite ? 'heart' : 'heart-outline'}
+              size={25}
+              color={isFavourite ? 'red' : textColor}
+            />
+          }
+          style={{
+            right: width * 0.1,
+            ...styles.favouriteIconButton,
+          }}
+          underlayColor={typeColor}
+        />
       </View>
 
       <View style={styles.nameAndTypesWrapper}>
@@ -87,7 +101,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
       </View>
       <Pokeball
         style={{width: width / 1.8, height: height / 4, ...styles.pokeballImg}}
-        source={require('../../assets/images/dark_pokeball.png')}
+        source={require('../../assets/images/light_pokeball.png')}
       />
 
       {isLoading ? (
@@ -106,7 +120,6 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             backgroundColor: textColor,
             ...styles.scrollView,
           }}>
-          {/* TODO: fix view hiding bottom */}
           <PokemonDetailsGrid
             pokemon={fullPokemon}
             lightColor={imgColor}
