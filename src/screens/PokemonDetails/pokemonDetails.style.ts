@@ -1,53 +1,47 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  whiteContainer: {
-    backgroundColor: '#fff',
+  container: {
+    flex: 1,
   },
-  pokemonImageContainer: {
-    borderBottomLeftRadius: 200,
-    borderBottomRightRadius: 200,
+  topButtonsWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   pokeballImg: {
     alignSelf: 'flex-end',
     opacity: 0.4,
   },
-  pokemonImg: {
-    alignSelf: 'center',
-    position: 'absolute',
-    bottom: 0,
+  nameAndTypesWrapper: {
+    left: '13%',
+  },
+  scrollView: {
+    borderTopEndRadius: 20,
+    borderTopLeftRadius: 20,
   },
   name: {
-    flexGrow: 1,
+    marginBottom: 5,
     textTransform: 'capitalize',
-    textAlign: 'center',
-    fontSize: 20,
+    fontSize: 30,
     fontFamily: 'Quicksand-SemiBold',
+  },
+  typeItemWrapper: {
+    borderRadius: 20,
+    backgroundColor: 'pink',
+  },
+  typeItem: {
+    textTransform: 'capitalize',
+    fontFamily: 'SourceSansPro-Black',
+    padding: 10,
   },
   loader: {
     alignSelf: 'center',
   },
-  spriteImg: {
-    flex: 1,
-  },
-  title: {
-    fontFamily: 'Quicksand-SemiBold',
-    left: '8%',
-    marginBottom: '1%',
-  },
-  listItem: {
-    fontFamily: 'SourceSansPro-Black',
-    left: '13%',
-    marginBottom: '1%',
-  },
-  abilitiesContainer: {
-    marginBottom: 300,
-  },
   rowContainer: {
     flexDirection: 'row',
+    alignSelf: 'flex-start',
   },
-  statName: {
-    marginRight: 10,
-    width: 150,
+  marginLeft: {
+    marginLeft: 8,
   },
 });

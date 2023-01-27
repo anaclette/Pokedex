@@ -1,6 +1,5 @@
 import React from 'react';
 import {ScrollView, Text, TouchableHighlight, View} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {PokemonFullDetails} from '../../types/Pokemon';
 import {getMoves} from '../../utils/helpers';
 import {styles} from './pokemonMoves.style';
@@ -9,8 +8,8 @@ interface Props {
   pokemon: PokemonFullDetails;
   onFullMovesPress: () => void;
   fullMoves: boolean;
-  textColor: string;
-  imgColor: string;
+  textColor: string | undefined;
+  imgColor: string | undefined;
 }
 
 // const PokeIcon = (color: string) => {
@@ -30,18 +29,16 @@ export const PokemonMoves = ({
   textColor,
   imgColor,
 }: Props) => {
-  const {top} = useSafeAreaInsets();
   const moves = getMoves(pokemon.moves);
   const maxShown = 10;
   return (
-    <View>
+    <View style={styles.container}>
       <Text style={styles.title}>{`Movimientos (${moves.length})`}</Text>
       {fullMoves ? (
         <ScrollView
           style={[
             {
               backgroundColor: textColor,
-              top: top - 250,
               ...styles.fullMovesWrapper,
             },
           ]}>
@@ -50,57 +47,66 @@ export const PokemonMoves = ({
               color: imgColor,
               ...styles.fullMovesItem,
             }}>
-            {moves.join(' ⊛ ')}
+            {moves.join('  ·  ')}
           </Text>
+          <TouchableHighlight
+            accessibilityRole="button"
+            accessibilityLabel="See less moves"
+            onPress={onFullMovesPress}
+            activeOpacity={0.5}
+            underlayColor={textColor}>
+            <Text
+              style={{
+                ...styles.buttonText,
+                ...styles.seeLessContentText,
+                color: imgColor,
+              }}>
+              Ver menos
+            </Text>
+          </TouchableHighlight>
         </ScrollView>
       ) : (
         <View
           style={{
-            backgroundColor: imgColor,
             ...styles.moveItemsWrapper,
           }}>
           {moves.slice(0, maxShown).map((move, index) => (
             <Text
               key={index}
               style={{
-                color: textColor,
+                color: imgColor,
                 ...styles.moveItem,
               }}>
               {`${index !== 0 && ' ⊛ '} ${move}`}
             </Text>
           ))}
           {moves.length > maxShown && (
-            <Text
-              style={{
-                color: textColor,
-                ...styles.moveItem,
-              }}>
-              ...
-            </Text>
+            <>
+              <Text
+                style={{
+                  color: imgColor,
+                  ...styles.moveItem,
+                }}>
+                ...
+              </Text>
+              <TouchableHighlight
+                accessibilityRole="button"
+                accessibilityLabel="See full moves"
+                onPress={onFullMovesPress}
+                activeOpacity={0.5}
+                underlayColor={textColor}>
+                <Text
+                  style={{
+                    ...styles.buttonText,
+                    ...styles.seeFullContentText,
+                    color: imgColor,
+                  }}>
+                  Ver todos
+                </Text>
+              </TouchableHighlight>
+            </>
           )}
         </View>
-      )}
-      {moves.length > maxShown && (
-        <TouchableHighlight
-          accessibilityRole="button"
-          accessibilityLabel="See full moves"
-          onPress={onFullMovesPress}
-          underlayColor={fullMoves ? textColor : imgColor}
-          style={
-            fullMoves
-              ? {...styles.showFullMovesBtn}
-              : {backgroundColor: imgColor}
-          }>
-          <Text
-            style={[
-              styles.buttonText,
-              fullMoves
-                ? {...styles.seeLessContentText, color: imgColor}
-                : styles.seeFullContentText,
-            ]}>
-            {fullMoves ? 'Ver menos' : 'Ver todos los movimientos'}
-          </Text>
-        </TouchableHighlight>
       )}
     </View>
   );
