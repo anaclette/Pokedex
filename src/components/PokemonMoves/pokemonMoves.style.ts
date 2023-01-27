@@ -1,35 +1,36 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+  container: {
+    marginVertical: 15,
+  },
   title: {
     fontFamily: 'Quicksand-SemiBold',
     left: '8%',
-    marginBottom: '1%',
+    marginBottom: '5%',
+    fontSize: 16,
   },
   fullMovesWrapper: {
-    padding: '10%',
-    borderRadius: 100,
+    paddingHorizontal: 15,
   },
   fullMovesItem: {
     textTransform: 'capitalize',
     textAlign: 'center',
-    fontWeight: '700',
-    fontSize: 17,
     fontFamily: 'SourceSansPro-Regular',
+    fontSize: 15,
   },
   moveItem: {
+    fontSize: 15,
     margin: 6,
     textTransform: 'capitalize',
     fontFamily: 'SourceSansPro-Regular',
   },
-  showFullMovesBtn: {
-    bottom: '20%',
-  },
   seeFullContentText: {
-    marginTop: '2%',
+    marginLeft: '5%',
   },
   seeLessContentText: {
-    fontSize: 20,
+    marginTop: '5%',
+    alignSelf: 'center',
   },
   moveItemsWrapper: {
     flexDirection: 'row',
@@ -38,8 +39,8 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonText: {
+    fontSize: 15,
     textDecorationLine: 'underline',
     fontFamily: 'Ubuntu-Medium',
-    alignSelf: 'center',
   },
 });
