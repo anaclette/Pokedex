@@ -45,6 +45,7 @@ export const PokemonCard = ({item, navigation}: Props) => {
 
   return (
     <TouchableOpacity
+      key={item.id}
       activeOpacity={0.8}
       style={{...styles.container, backgroundColor: backgroundImgColor}}
       onPress={onPress}>

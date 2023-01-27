@@ -32,7 +32,7 @@ export const PokemonStats = ({pokemon}: Props) => {
     <View style={styles.container}>
       <Text style={styles.title}>Estadísticas base</Text>
       {stats.map((statGroup, index) => (
-        <View style={styles.rowContainer}>
+        <View style={styles.rowContainer} key={statGroup + index.toString()}>
           <View
             style={styles.nameWrapper}
             key={statGroup.stat.name + index.toString()}>

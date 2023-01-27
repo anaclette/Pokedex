@@ -44,4 +44,9 @@ export const styles = StyleSheet.create({
   marginLeft: {
     marginLeft: 8,
   },
+  favouriteIconButton: {
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });

@@ -18,6 +18,9 @@ export const styles = StyleSheet.create({
   focusedColor: {
     color: 'darkblue',
   },
+  favouritesActiveTabIcon: {
+    color: 'red',
+  },
   inactiveColor: {
     color: 'gray',
   },
