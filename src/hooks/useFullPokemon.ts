@@ -10,7 +10,9 @@ export const useFullPokemon = (id: string) => {
   );
 
   const loadFullPokemon = async () => {
-    const result = await api.get<PokemonFullDetails>(`${baseUrl}/${id}`);
+    const result = await api.get<PokemonFullDetails>(
+      `${baseUrl}/pokemon/${id}`,
+    );
 
     setFullPokemon(result.data);
     setIsLoading(false);

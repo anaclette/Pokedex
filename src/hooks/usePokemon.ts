@@ -5,7 +5,7 @@ import {Pokemon, PokemonDetails, NewListPokemon} from '../types/Pokemon';
 
 export const usePokemon = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const apiUrl = `${baseUrl}?limit=20`;
+  const apiUrl = `${baseUrl}/pokemon?limit=20`;
   const [pokeList, setPokeList] = useState<NewListPokemon[]>([]);
   const nextPage = useRef(apiUrl);
 
