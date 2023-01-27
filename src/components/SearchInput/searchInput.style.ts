@@ -7,10 +7,12 @@ export const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     zIndex: 2,
+    minHeight: 40,
   },
   textInput: {
     color: 'brown',
     backgroundColor: '#fff',
+    height: '100%',
     borderColor: 'gray',
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 230,

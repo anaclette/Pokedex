@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, FlatList, useWindowDimensions} from 'react-native';
+import {ActivityIndicator, FlatList} from 'react-native';
 import PokemonCard from '../../components/PokemonCard';
 import {usePokemon} from '../../hooks/usePokemon';
 import {NewListPokemon} from '../../types/Pokemon';
@@ -8,13 +8,14 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import PokemonPoster from '../../components/PokemonPoster';
+import {height} from '../../common/constants';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
 export const PokemonList = ({navigation, route}: Props) => {
   const {pokeList, loadPokemons} = usePokemon();
   const {top} = useSafeAreaInsets();
-  const height = useWindowDimensions().height;
+  const pokePosterHeight = height / 4;
 
   const renderItem = ({item}: {item: NewListPokemon}) => {
     return (
@@ -30,10 +31,10 @@ export const PokemonList = ({navigation, route}: Props) => {
 
   return (
     <>
-      <PokemonPoster viewTop={top * 1.9} imgHeight={height / 4} />
+      <PokemonPoster viewTop={top} imgHeight={pokePosterHeight} />
       <FlatList
         numColumns={2}
-        contentContainerStyle={{top: top * 6.5}}
+        contentContainerStyle={{top: top + pokePosterHeight}}
         showsVerticalScrollIndicator={false}
         data={pokeList.sort(
           (pokeA, pokeB) => pokeA.name.localeCompare(pokeB.name),

@@ -1,15 +1,16 @@
 import React from 'react';
-import {Image, ImageBackground} from 'react-native';
+import {ImageBackground} from 'react-native';
 import {styles} from './home.style';
+import {Pokeball} from '../../components/Pokeball/Pokeball';
 
 export const Home = () => {
   return (
     <ImageBackground
       source={require('../../assets/images/pikachu.jpeg')}
       style={styles.container}>
-      <Image
-        source={require('../../assets/images/pokebola.png')}
+      <Pokeball
         style={styles.pokeballImg}
+        source={require('../../assets/images/dark_pokeball.png')}
       />
     </ImageBackground>
   );

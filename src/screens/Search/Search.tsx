@@ -8,8 +8,8 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {NewListPokemon} from '../../types/Pokemon';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
-import {Dimensions} from 'react-native';
 import PokemonPoster from '../../components/PokemonPoster';
+import {height} from '../../common/constants';
 
 interface NavProps
   extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
@@ -23,8 +23,6 @@ export const Loader = () => {
   );
 };
 
-const {height} = Dimensions.get('window');
-
 export const Search = ({navigation, route}: NavProps) => {
   const {isFetching, pokemonList} = usePokemonSearch();
   const [searchValue, setSearchValue] = useState('');
@@ -32,6 +30,7 @@ export const Search = ({navigation, route}: NavProps) => {
     NewListPokemon[]
   >([]);
   const {top} = useSafeAreaInsets();
+  const pokePosterHeight = height / 4;
 
   useEffect(() => {
     if (searchValue.length === 0) {
@@ -46,7 +45,10 @@ export const Search = ({navigation, route}: NavProps) => {
 
   return (
     <View style={styles.container}>
-      <PokemonPoster viewTop={top * 1.8} imgHeight={height / 4} />
+      <PokemonPoster
+        viewTop={top + pokePosterHeight / 3.5}
+        imgHeight={pokePosterHeight}
+      />
       <SearchInput onDebounce={setSearchValue} />
 
       {isFetching ? (
@@ -54,7 +56,7 @@ export const Search = ({navigation, route}: NavProps) => {
       ) : (
         <FlatList
           contentContainerStyle={{
-            top: top * 6.5,
+            top: top + pokePosterHeight * 1.3,
             paddingBottom: height * 0.6,
           }}
           data={filteredPokemonResult}
@@ -64,8 +66,8 @@ export const Search = ({navigation, route}: NavProps) => {
           renderItem={({item}) => (
             <PokemonCard
               item={item}
-              imgColor={item.picture}
-              textColor={undefined}
+              imgColor={item.imgColor}
+              textColor={item.textColor}
               navigation={navigation}
               route={route}
             />

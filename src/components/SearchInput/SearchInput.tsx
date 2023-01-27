@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Platform, TextInput, TouchableOpacity, View} from 'react-native';
+import {TextInput, TouchableOpacity, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDebouncer} from '../../hooks/useDebouncer';
 import {useEffect} from 'react';
@@ -14,21 +14,19 @@ export const SearchInput = ({onDebounce}: Props) => {
   const [inputValue, setInputValue] = useState('');
   const debouncedValue = useDebouncer(inputValue, 1500);
   const {top} = useSafeAreaInsets();
-  const isIos = Platform.OS === 'ios';
-  const topValue = isIos ? top : top + 10;
 
   useEffect(() => {
     onDebounce(debouncedValue);
   }, [debouncedValue, onDebounce]);
 
   return (
-    <View style={{top: topValue, ...styles.container}}>
+    <View style={{top: top + 15, ...styles.container}}>
       <TextInput
         autoCapitalize="none"
         autoCorrect={false}
         value={inputValue}
         onChangeText={setInputValue}
-        style={{...styles.textInput, height: top}}
+        style={styles.textInput}
         placeholder="Search"
         placeholderTextColor={'gray'}
       />
