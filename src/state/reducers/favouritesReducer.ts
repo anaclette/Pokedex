@@ -1,9 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {STATE_MODULES} from '../../common/constants';
-import {PokemonFullDetails} from '../../types/Pokemon';
+import {NewListPokemon} from '../../types/Pokemon';
 
 type FavouritesSlice = {
-  data: PokemonFullDetails[];
+  data: NewListPokemon[];
   favouritePokemon: string;
 };
 
@@ -16,7 +16,7 @@ export const favouritesSlice = createSlice({
   name: STATE_MODULES.FAVOURITES,
   initialState,
   reducers: {
-    toggleIsFavourite: (state, action: PayloadAction<PokemonFullDetails>) => {
+    toggleIsFavourite: (state, action: PayloadAction<NewListPokemon>) => {
       const isFavourite = state.data?.some(
         pokemon => pokemon.id === action.payload.id,
       );

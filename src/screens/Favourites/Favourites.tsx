@@ -9,8 +9,6 @@ interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
 export const Favourites = ({navigation, route}: Props) => {
   const favourites = useFavourites();
-  const pokemon = route.params.pokemonDetails;
-
   return favourites?.length ? (
     <>
       <FlatList
@@ -18,8 +16,8 @@ export const Favourites = ({navigation, route}: Props) => {
         renderItem={({item}) => (
           <PokemonCard
             item={item}
-            imgColor={pokemon.imgColor}
-            textColor={pokemon.textColor}
+            imgColor={item.imgColor}
+            textColor={item.textColor}
             navigation={navigation}
             route={route}
           />

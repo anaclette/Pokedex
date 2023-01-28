@@ -77,7 +77,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
         <Button
           accessibilityLabel={'Add to favourites heart icon'}
           activeOpacity={0.6}
-          onPress={() => dispatch(toggleIsFavourite(fullPokemon))}
+          onPress={() => dispatch(toggleIsFavourite(pokemonDetails))}
           children={
             <Icon
               name={isFavourite ? 'heart' : 'heart-outline'}
