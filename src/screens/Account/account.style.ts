@@ -4,12 +4,13 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(255,255,255, 0.92)',
-    opacity: 0.5,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   loginWrapper: {
     flex: 1,
+    width: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   warningContainer: {
     flexBasis: '10%',
@@ -23,9 +24,8 @@ export const styles = StyleSheet.create({
   },
   diffAccountContainer: {
     justifyContent: 'space-between',
-    height: '65%',
+    flex: 1,
   },
-
   textInput: {
     color: 'black',
     fontSize: 20,
@@ -38,18 +38,20 @@ export const styles = StyleSheet.create({
   textInputWrapper: {
     width: '50%',
   },
-
+  storedUserNameContainer: {
+    flexGrow: 2,
+  },
   storedUserName: {
     fontSize: 30,
-    top: '30%',
-  },
-  diffUserNameWrapper: {
-    bottom: '10%',
+    flexBasis: '16%',
   },
   userInput: {
     color: '#fff',
     fontFamily: 'Quicksand-Bold',
     textAlign: 'center',
+  },
+  diffUserNameContainer: {
+    flexGrow: 1,
   },
   diffUserNameMessage: {
     fontSize: 20,
@@ -59,7 +61,6 @@ export const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: '#fff',
     alignSelf: 'center',
-    justifyContent: 'flex-end',
     marginTop: 10,
   },
   buttonText: {
