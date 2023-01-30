@@ -28,10 +28,10 @@ export const Account = () => {
     <ImageBackground
       source={require('../../assets/images/pokeball_wallpaper.jpeg')}
       style={{...styles.container, paddingTop: isIos ? top * 2 : top + 70}}>
-      {/* <View style={styles.loginWrapper}> */}
       {!username && (
         <View style={styles.loginWrapper}>
           <View style={styles.textInputWrapper}>
+            {/* TODO: fix image going up when keyboard pops up */}
             <TextInput
               maxLength={20}
               autoFocus={true}
@@ -120,7 +120,6 @@ export const Account = () => {
           </View>
         </View>
       )}
-      {/* </View> */}
     </ImageBackground>
   );
 };
