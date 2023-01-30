@@ -1,3 +1,3 @@
-import {WithSplashScreen} from './Splash';
+import {SplashScreen} from './Splash';
 
-export default WithSplashScreen;
+export default SplashScreen;

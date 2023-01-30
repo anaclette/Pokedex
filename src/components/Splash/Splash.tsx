@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Animated} from 'react-native';
 import {styles} from './splash.style';
 
-export const WithSplashScreen = ({
+export const SplashScreen = ({
   children,
   isAppReady,
 }: {

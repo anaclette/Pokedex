@@ -6,7 +6,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider} from 'react-redux';
 import {store, persistor} from './src/state/store';
 import {PersistGate} from 'redux-persist/lib/integration/react';
-import WithSplashScreen from './src/components/Splash';
+import SplashScreen from './src/components/Splash';
 
 const App = () => {
   const [isAppReady, setIsAppReady] = useState(false);
@@ -15,7 +15,7 @@ const App = () => {
     setIsAppReady(true);
   }, []);
   return (
-    <WithSplashScreen isAppReady={isAppReady}>
+    <SplashScreen isAppReady={isAppReady}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
           <SafeAreaProvider>
@@ -25,7 +25,7 @@ const App = () => {
           </SafeAreaProvider>
         </PersistGate>
       </Provider>
-    </WithSplashScreen>
+    </SplashScreen>
   );
 };
 
