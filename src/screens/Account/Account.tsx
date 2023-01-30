@@ -10,6 +10,7 @@ import {
 import {styles} from './account.style';
 import Button from '../../components/Button';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {isIos} from '../../common/constants';
 
 export const Account = () => {
   const [userInput, setUserInput] = useState('');
@@ -26,7 +27,7 @@ export const Account = () => {
   return (
     <ImageBackground
       source={require('../../assets/images/pokeball_wallpaper.jpeg')}
-      style={{...styles.container, paddingTop: top * 2}}>
+      style={{...styles.container, paddingTop: isIos ? top * 2 : top + 70}}>
       {/* <View style={styles.loginWrapper}> */}
       {!username && (
         <View style={styles.loginWrapper}>
@@ -39,7 +40,7 @@ export const Account = () => {
               autoCorrect={false}
               keyboardType="default"
               style={styles.textInput}
-              placeholderTextColor={'darkRed'}
+              placeholderTextColor={'gray'}
               placeholder="username"
               onChangeText={input => {
                 checkIfEmpty(input, setEmptyField);
