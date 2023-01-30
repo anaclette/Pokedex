@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {ActivityIndicator, FlatList, RefreshControl} from 'react-native';
+import {ActivityIndicator, FlatList} from 'react-native';
 import PokemonCard from '../../components/PokemonCard';
 import {usePokemon} from '../../hooks/usePokemon';
 import {NewListPokemon} from '../../types/Pokemon';
