@@ -6,7 +6,7 @@ import {Pokemon, PokemonDetails, NewListPokemon} from '../types/Pokemon';
 export const usePokemonSearch = () => {
   const [isFetching, setIsFetching] = useState(true);
   const [pokemonList, setPokemonList] = useState<NewListPokemon[]>([]);
-  const apiUrl = `${baseUrl}?limit=1200`;
+  const apiUrl = `${baseUrl}/pokemon?limit=1200`;
 
   const loadPokemons = async () => {
     setIsFetching(true);

@@ -6,10 +6,13 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import StackNavigator from '../StackNavigator';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './tabs.style';
+import {useAppSelector} from '../../state/hooks';
+import Favourites from '../../screens/Favourites';
 
 const Tab = createBottomTabNavigator();
 
 const MyTabBar = ({state, descriptors, navigation}) => {
+  const username = useAppSelector(appState => appState.auth.username);
   return (
     <View style={styles.tabBar}>
       {state.routes.map(
@@ -56,12 +59,22 @@ const MyTabBar = ({state, descriptors, navigation}) => {
                 name={
                   route.name === 'Home'
                     ? 'home-outline'
-                    : route.name === 'Account'
-                    ? 'account-circle-outline'
+                    : route.name === 'Account' && !username
+                    ? 'account'
+                    : route.name === 'Account' && username
+                    ? 'human-greeting-variant'
+                    : route.name === 'Fav'
+                    ? 'heart'
                     : 'magnify'
                 }
                 size={25}
-                style={isFocused ? styles.focusedColor : styles.inactiveColor}
+                style={
+                  route.name === 'Fav' && isFocused
+                    ? styles.favouritesActiveTabIcon
+                    : isFocused
+                    ? styles.focusedColor
+                    : styles.inactiveColor
+                }
               />
               <Text
                 style={[
@@ -81,6 +94,7 @@ const MyTabBar = ({state, descriptors, navigation}) => {
 };
 
 export const Tabs = () => {
+  const username = useAppSelector(appState => appState.auth.username);
   return (
     <Tab.Navigator
       sceneContainerStyle={{backgroundColor: 'rgba(255,255,255, 0.92)'}}
@@ -91,6 +105,7 @@ export const Tabs = () => {
       <Tab.Screen name="Home" component={StackNavigator} />
       <Tab.Screen name="Search" component={Search} />
       <Tab.Screen name="Account" component={Account} />
+      {username && <Tab.Screen name="Fav" component={Favourites} />}
     </Tab.Navigator>
   );
 };

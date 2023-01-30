@@ -17,8 +17,10 @@ export const PokemonAbilities = ({
   return (
     <View style={{backgroundColor, ...styles.abilitiesWrapper}}>
       <Text style={{color: textColor, ...styles.title}}>Habilidades</Text>
-      {pokemon.abilities.map(ability => (
-        <Text style={{color: textColor, ...styles.listItem}}>
+      {pokemon.abilities.map((ability, index) => (
+        <Text
+          key={ability.ability.name + index.toString()}
+          style={{color: textColor, ...styles.listItem}}>
           {ability.ability.name}
         </Text>
       ))}

@@ -1,13 +1,26 @@
-import React from 'react';
-import {View, Text, Button, ImageBackground, TextInput} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {isIos} from '../../common/constants';
+import React, {useState} from 'react';
+import {View, Text, TextInput, ImageBackground} from 'react-native';
+import {logIn, logOut} from '../../state/reducers/authReducer';
+import {useAppDispatch, useAppSelector} from '../../state/hooks';
+import {
+  checkIfEmpty,
+  handleUserMessage,
+  validateUserInput,
+} from '../../utils/helpers';
 import {styles} from './account.style';
+import Button from '../../components/Button';
 
 export const Account = () => {
-  const {top} = useSafeAreaInsets();
+  const [userInput, setUserInput] = useState('');
+  const [emptyField, setEmptyField] = useState(false);
+  const dispatch = useAppDispatch();
+  const username = useAppSelector(state => state.auth.username);
+  const minLength = 5;
 
-  const topValue = isIos ? top : top + 10;
+  const isDisabled = () => {
+    return userInput.length < minLength || validateUserInput(userInput);
+  };
+
   return (
     <ImageBackground
       source={require('../../assets/images/pikachu.jpeg')}

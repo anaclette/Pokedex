@@ -33,7 +33,10 @@ const getSprites = (sprites: Object) => {
 
 export const PokemonSprites = ({pokemon}: SpritesProps) => {
   return (
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <ScrollView
+      style={styles.spritesContainer}
+      horizontal
+      showsHorizontalScrollIndicator={false}>
       {pokemon.sprites && getSprites(pokemon.sprites)}
     </ScrollView>
   );

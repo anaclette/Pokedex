@@ -15,16 +15,16 @@ export const convertDcToCm = (dc: number) => {
   return pokemonHeight;
 };
 
-export const hexToRgb = (hex: string) => {
-  const getColorValue = (fromN: number, toN: number) =>
-    parseInt(hex.slice(fromN, toN), 16);
+// export const hexToRgb = (hex: string) => {
+//   const getColorValue = (fromN: number, toN: number) =>
+//     parseInt(hex.slice(fromN, toN), 16);
 
-  const r = getColorValue(1, 3);
-  const g = getColorValue(3, 5);
-  const b = getColorValue(5, 7);
+//   const r = getColorValue(1, 3);
+//   const g = getColorValue(3, 5);
+//   const b = getColorValue(5, 7);
 
-  return {r, g, b};
-};
+//   return {r, g, b};
+// };
 
 export const getMoves = (pokemonMoves: any[]) => {
   const shownMoves: any[] = [];
@@ -57,35 +57,25 @@ export const newShade = (hexColor: string | undefined, magnitude: number) => {
   }
 };
 
-// export const lightIntensity = (r: number, g: number, b: number) => {
-//   let [lumR, lumG, lumB] = [r, g, b].map(item => {
-//     let proportion = item / 255;
+export const validateUserInput = (input: string) => {
+  const acceptedValue = /^[a-z0-9]+$/i;
+  return acceptedValue.test(input) === false;
+};
 
-//     return proportion <= 0.03928
-//       ? proportion / 12.92
-//       : Math.pow((proportion + 0.055) / 1.055, 2.4);
-//   });
+export const handleUserMessage = (
+  username: string,
+  isDiffAccount?: boolean,
+) => {
+  return isDiffAccount ? `Not ${username}?` : `Hello, ${username}`;
+};
 
-//   return 0.2126 * lumR + 0.7152 * lumG + 0.0722 * lumB;
-// };
-
-// export const contrastRatio = (
-//   lightFirstValue: number,
-//   lightSecondValue: number,
-// ) => {
-//   let lighter = Math.max(lightFirstValue, lightSecondValue);
-//   let darker = Math.min(lightFirstValue, lightSecondValue);
-
-//   return (lighter + 0.05) / (darker + 0.05);
-// };
-
-// export const checkContrast = (colorOne: string, colorTwo: string) => {
-//   let [lightIntensityOne, lightIntensityTwo] = [colorOne, colorTwo].map(
-//     color => {
-//       color.startsWith('#') ? color.slice(1) : color;
-
-//       return hexToRgb(color);
-//     },
-//   );
-//   return contrastRatio(lightIntensityOne, lightIntensityTwo);
-// };
+export const checkIfEmpty = (
+  input: string,
+  setEmptyField: (value: boolean) => void,
+) => {
+  if (input === '') {
+    setEmptyField(true);
+  } else {
+    setEmptyField(false);
+  }
+};
