@@ -63,13 +63,13 @@ const MyTabBar = ({state, descriptors, navigation}) => {
                     ? 'account'
                     : route.name === 'Account' && username
                     ? 'human-greeting-variant'
-                    : route.name === 'Fav'
+                    : route.name === username
                     ? 'heart'
                     : 'magnify'
                 }
                 size={25}
                 style={
-                  route.name === 'Fav' && isFocused
+                  route.name === username && isFocused
                     ? styles.favouritesActiveTabIcon
                     : isFocused
                     ? styles.focusedColor
@@ -95,6 +95,7 @@ const MyTabBar = ({state, descriptors, navigation}) => {
 
 export const Tabs = () => {
   const username = useAppSelector(appState => appState.auth.username);
+
   return (
     <Tab.Navigator
       sceneContainerStyle={{backgroundColor: 'rgba(255,255,255, 0.92)'}}
@@ -105,7 +106,7 @@ export const Tabs = () => {
       <Tab.Screen name="Home" component={StackNavigator} />
       <Tab.Screen name="Search" component={Search} />
       <Tab.Screen name="Account" component={Account} />
-      {username && <Tab.Screen name="Fav" component={Favourites} />}
+      {username && <Tab.Screen name={username} component={Favourites} />}
     </Tab.Navigator>
   );
 };
