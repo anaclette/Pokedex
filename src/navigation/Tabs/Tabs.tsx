@@ -103,8 +103,8 @@ export const Tabs = () => {
         headerShown: false,
       }}
       tabBar={props => <MyTabBar {...props} />}>
-      <Tab.Screen name="Home" component={StackNavigator} />
-      <Tab.Screen name="Search" component={Search} />
+      {username && <Tab.Screen name="Home" component={StackNavigator} />}
+      {username && <Tab.Screen name="Search" component={Search} />}
       <Tab.Screen name="Account" component={Account} />
       {username && <Tab.Screen name={username} component={Favourites} />}
     </Tab.Navigator>

@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {ActivityIndicator, FlatList} from 'react-native';
+import {ActivityIndicator, FlatList, RefreshControl} from 'react-native';
 import PokemonCard from '../../components/PokemonCard';
 import {usePokemon} from '../../hooks/usePokemon';
 import {NewListPokemon} from '../../types/Pokemon';
@@ -37,8 +37,6 @@ export const PokemonList = ({navigation, route}: Props) => {
     }, 2000);
   }, []);
 
-  const loading = refreshing || isLoading;
-
   const showLoader = (isFooter?: boolean) => (
     <ActivityIndicator
       size={20}
@@ -50,7 +48,7 @@ export const PokemonList = ({navigation, route}: Props) => {
   return (
     <>
       <PokemonPoster viewTop={top} imgHeight={pokePosterHeight} />
-      {!loading ? (
+      {!refreshing && !isLoading ? (
         <FlatList
           numColumns={2}
           contentContainerStyle={{top: top + pokePosterHeight}}
@@ -65,8 +63,9 @@ export const PokemonList = ({navigation, route}: Props) => {
           renderItem={renderItem}
           onEndReached={loadPokemons}
           onEndReachedThreshold={0.4}
-          onRefresh={onRefresh}
-          refreshing={refreshing}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
           ListFooterComponent={showLoader(true)}
         />
       ) : (
