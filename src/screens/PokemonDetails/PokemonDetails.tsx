@@ -75,6 +75,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           buttonStyle={{left: width * 0.02}}
         />
         <Button
+          accessibilityRole="button"
           accessibilityLabel={'Add to favourites heart icon'}
           activeOpacity={0.6}
           onPress={() => dispatch(toggleIsFavourite(pokemonDetails))}
@@ -87,9 +88,8 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           }
           style={{
             right: width * 0.1,
-            ...styles.favouriteIconButton,
           }}
-          underlayColor={typeColor}
+          underlayColor={'transparent'}
         />
       </View>
 
