@@ -10,6 +10,7 @@ export enum STATE_MODULES {
   AUTH = 'auth',
   POKEMONS = 'pokemon',
   FAVOURITES = 'favourites',
+  LANGUAGES = 'languages',
 }
 
 export enum ACTIONS {

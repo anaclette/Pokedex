@@ -5,6 +5,7 @@ import authReducer from './reducers/authReducer';
 import pokemonsReducer from './reducers/pokemonsReducer';
 import favouritesReducer from './reducers/favouritesReducer';
 import {STATE_MODULES} from '../common/constants';
+import {i18nReducer} from './reducers/i18nReducer';
 
 const persistConfig = {
   key: 'root',
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   [STATE_MODULES.AUTH]: authReducer,
   [STATE_MODULES.POKEMONS]: pokemonsReducer,
   [STATE_MODULES.FAVOURITES]: favouritesReducer,
+  [STATE_MODULES.LANGUAGES]: i18nReducer.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
