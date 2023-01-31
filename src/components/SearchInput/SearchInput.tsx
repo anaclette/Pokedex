@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {TextInput, TouchableOpacity, View} from 'react-native';
+import {TextInput, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDebouncer} from '../../hooks/useDebouncer';
 import {useEffect} from 'react';
 import {styles} from './searchInput.style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Button from '../Button';
 
 interface Props {
   onDebounce: (userInput: string) => void;
@@ -30,13 +31,14 @@ export const SearchInput = ({onDebounce}: Props) => {
         placeholder="Search"
         placeholderTextColor={'gray'}
       />
-      <TouchableOpacity
+      <Button
         accessibilityRole="button"
-        accessibilityLabel="Search button"
+        accessibilityLabel={'Search button'}
+        activeOpacity={0.7}
         onPress={() => (inputValue !== '' ? setInputValue : '')}
-        style={styles.searchIconButton}>
-        <Icon name="magnify" size={30} color="brown" />
-      </TouchableOpacity>
+        style={styles.searchIconButton}
+        children={<Icon name="magnify" size={30} color="brown" />}
+      />
     </View>
   );
 };
