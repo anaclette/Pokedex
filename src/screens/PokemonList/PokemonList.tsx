@@ -1,5 +1,5 @@
-import React, {useCallback, useState} from 'react';
-import {ActivityIndicator, FlatList, RefreshControl} from 'react-native';
+import React from 'react';
+import {ActivityIndicator, FlatList} from 'react-native';
 import PokemonCard from '../../components/PokemonCard';
 import {usePokemon} from '../../hooks/usePokemon';
 import {NewListPokemon} from '../../types/Pokemon';
@@ -13,8 +13,7 @@ import {height} from '../../common/constants';
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
 export const PokemonList = ({navigation, route}: Props) => {
-  const {pokeList, loadPokemons, isLoading} = usePokemon();
-  const [refreshing, setRefreshing] = useState(false);
+  const {pokeList, loadPokemons} = usePokemon();
   const {top} = useSafeAreaInsets();
   const pokePosterHeight = height / 4;
 
@@ -30,13 +29,6 @@ export const PokemonList = ({navigation, route}: Props) => {
     );
   };
 
-  const onRefresh = useCallback(() => {
-    setRefreshing(true);
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 2000);
-  }, []);
-
   const showLoader = (isFooter?: boolean) => (
     <ActivityIndicator
       size={20}
@@ -48,29 +40,22 @@ export const PokemonList = ({navigation, route}: Props) => {
   return (
     <>
       <PokemonPoster viewTop={top} imgHeight={pokePosterHeight} />
-      {!refreshing && !isLoading ? (
-        <FlatList
-          numColumns={2}
-          contentContainerStyle={{top: top + pokePosterHeight}}
-          showsVerticalScrollIndicator={false}
-          // data={pokeList.sort(
-          //   (pokeA, pokeB) => pokeA.name.localeCompare(pokeB.name),
-          //    TODO: fix how this is currently working
-          // TODO: concat next page results onEndReached once data is retrieved from state
-          // )}
-          data={pokeList}
-          keyExtractor={(_, index) => index.toString()}
-          renderItem={renderItem}
-          onEndReached={loadPokemons}
-          onEndReachedThreshold={0.4}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }
-          ListFooterComponent={showLoader(true)}
-        />
-      ) : (
-        showLoader()
-      )}
+      <FlatList
+        numColumns={2}
+        contentContainerStyle={{top: top + pokePosterHeight}}
+        showsVerticalScrollIndicator={false}
+        // data={pokeList.sort(
+        //   (pokeA, pokeB) => pokeA.name.localeCompare(pokeB.name),
+        //    TODO: fix how this is currently working
+        // TODO: concat next page results onEndReached once data is retrieved from state
+        // )}
+        data={pokeList}
+        keyExtractor={(_, index) => index.toString()}
+        renderItem={renderItem}
+        onEndReached={loadPokemons}
+        onEndReachedThreshold={0.4}
+        ListFooterComponent={showLoader(true)}
+      />
     </>
   );
 };
