@@ -43,7 +43,7 @@ export const DrawerNavigator = () => {
       />
       <Drawer.Screen
         options={{
-          drawerLabel: 'Poke list',
+          drawerLabel: 'Pokedex',
           drawerLabelStyle: {
             fontFamily: 'Lora-Bold',
           },
