@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ActivityIndicator, FlatList, Text, View} from 'react-native';
+import {ActivityIndicator, FlatList, View} from 'react-native';
 import PokemonCard from '../../components/PokemonCard';
 import SearchInput from '../../components/SearchInput';
 import {usePokemonSearch} from '../../hooks/usePokemonSearch';
@@ -18,7 +18,6 @@ export const Loader = () => {
   return (
     <View style={styles.loaderWrapper}>
       <ActivityIndicator color={'red'} size={20} />
-      <Text>Loading...</Text>
     </View>
   );
 };
@@ -52,6 +51,7 @@ export const Search = ({navigation, route}: NavProps) => {
       <SearchInput onDebounce={setSearchValue} />
 
       {isFetching ? (
+        // TODO: fix loader showing on render instead of on search
         <Loader />
       ) : (
         <FlatList
