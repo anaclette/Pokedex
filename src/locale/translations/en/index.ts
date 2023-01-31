@@ -26,6 +26,8 @@ const translation: TranslationResource = {
   ACCESSIBILITY_LABEL_FAVOURITES_ICON: 'Add to favourites heart icon',
   SEARCH_PLACEHOLDER: 'Search',
   ACCESSIBILITY_SEARCH_LABEL: 'Search button',
+  TAB_SEARCH: 'Buscar',
+  TAB_ACCOUNT: 'Cuenta',
 };
 
 export default translation;

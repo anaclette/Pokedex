@@ -8,6 +8,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './tabs.style';
 import {useAppSelector} from '../../state/hooks';
 import Favourites from '../../screens/Favourites';
+import {useTranslation} from 'react-i18next';
+import {TranslationKeys} from '../../locale/translations/keys';
 
 const Tab = createBottomTabNavigator();
 
@@ -45,6 +47,18 @@ const MyTabBar = ({state, descriptors, navigation}) => {
             });
           };
 
+          const getIconName = () => {
+            return route.name === 'Home'
+              ? 'home-outline'
+              : route.name === 'Account' && !username
+              ? 'account'
+              : route.name === 'Account' && username
+              ? 'human-greeting-variant'
+              : route.name === username
+              ? 'heart'
+              : 'magnify';
+          };
+
           return (
             <TouchableOpacity
               key={route.name}
@@ -56,17 +70,7 @@ const MyTabBar = ({state, descriptors, navigation}) => {
               onLongPress={onLongPress}
               style={styles.tabBarButton}>
               <Icon
-                name={
-                  route.name === 'Home'
-                    ? 'home-outline'
-                    : route.name === 'Account' && !username
-                    ? 'account'
-                    : route.name === 'Account' && username
-                    ? 'human-greeting-variant'
-                    : route.name === username
-                    ? 'heart'
-                    : 'magnify'
-                }
+                name={getIconName()}
                 size={25}
                 style={
                   route.name === username && isFocused
@@ -95,6 +99,7 @@ const MyTabBar = ({state, descriptors, navigation}) => {
 
 export const Tabs = () => {
   const username = useAppSelector(appState => appState.auth.username);
+  const {t} = useTranslation();
 
   return (
     <Tab.Navigator
@@ -103,10 +108,14 @@ export const Tabs = () => {
         headerShown: false,
       }}
       tabBar={props => <MyTabBar {...props} />}>
-      {username && <Tab.Screen name="Home" component={StackNavigator} />}
-      {username && <Tab.Screen name="Search" component={Search} />}
-      <Tab.Screen name="Account" component={Account} />
-      {username && <Tab.Screen name={username} component={Favourites} />}
+      {username && (
+        <Tab.Group>
+          <Tab.Screen name="Home" component={StackNavigator} />
+          <Tab.Screen name={t(TranslationKeys.TAB_SEARCH)} component={Search} />
+          <Tab.Screen name={username} component={Favourites} />
+        </Tab.Group>
+      )}
+      <Tab.Screen name={t(TranslationKeys.TAB_ACCOUNT)} component={Account} />
     </Tab.Navigator>
   );
 };
