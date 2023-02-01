@@ -27,7 +27,6 @@ export const styles = StyleSheet.create({
   },
   typeItemWrapper: {
     borderRadius: 20,
-    backgroundColor: 'pink',
   },
   typeItem: {
     textTransform: 'capitalize',

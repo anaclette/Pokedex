@@ -9,6 +9,7 @@ import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import PokemonPoster from '../../components/PokemonPoster';
 import {height} from '../../common/constants';
+import colors from '../../themes/colors';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
@@ -32,7 +33,7 @@ export const PokemonList = ({navigation, route}: Props) => {
   const showLoader = (isFooter?: boolean) => (
     <ActivityIndicator
       size={20}
-      color={'darkblue'}
+      color={colors.dark}
       style={isFooter ? styles.footerLoader : styles.loader}
     />
   );

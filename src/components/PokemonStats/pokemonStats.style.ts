@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../themes/colors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -28,7 +29,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ecf0f1',
+    backgroundColor: colors.gainsboroLightBackground,
     borderRadius: 10,
   },
 });

@@ -11,6 +11,7 @@ import {styles} from './account.style';
 import Button from '../../components/Button';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {isIos} from '../../common/constants';
+import colors from '../../themes/colors';
 
 export const Account = () => {
   const [userInput, setUserInput] = useState('');
@@ -40,7 +41,7 @@ export const Account = () => {
               autoCorrect={false}
               keyboardType="default"
               style={styles.textInput}
-              placeholderTextColor={'gray'}
+              placeholderTextColor={colors.indigoFocusColor}
               placeholder="username"
               onChangeText={input => {
                 checkIfEmpty(input, setEmptyField);
@@ -73,7 +74,7 @@ export const Account = () => {
           </View>
           <Button
             style={styles.button}
-            underlayColor="transparent"
+            underlayColor={colors.transparent}
             disabled={isDisabled()}
             accessibilityState={{disabled: isDisabled()}}
             accessibilityLabel={'Sign in'}
@@ -94,7 +95,7 @@ export const Account = () => {
             </Text>
             <Button
               style={styles.button}
-              underlayColor="transparent"
+              underlayColor={colors.transparent}
               accessibilityLabel={'Log out'}
               activeOpacity={0.8}
               onPress={() => dispatch(logOut())}
@@ -107,7 +108,7 @@ export const Account = () => {
             </Text>
             <Button
               style={styles.button}
-              underlayColor="transparent"
+              underlayColor={colors.transparent}
               accessibilityLabel={'Sign with a different account.'}
               activeOpacity={0.8}
               onPress={() => dispatch(logOut())}

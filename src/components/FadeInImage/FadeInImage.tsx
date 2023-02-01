@@ -8,6 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import {useAnimation} from '../../hooks/useAnimation';
+import colors from '../../themes/colors';
 import {styles} from './fadeInImage.style';
 
 interface Props {
@@ -34,7 +35,11 @@ export const FadeInImage = ({
   return (
     <View style={containerStyle ? containerStyle : styles.container}>
       {isLoading && (
-        <ActivityIndicator style={styles.loader} color="grey" size={30} />
+        <ActivityIndicator
+          style={styles.loader}
+          color={colors.dark}
+          size={30}
+        />
       )}
 
       <Animated.Image

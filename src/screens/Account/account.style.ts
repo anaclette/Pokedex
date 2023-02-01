@@ -1,9 +1,10 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../themes/colors';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'rgba(255,255,255, 0.92)',
+    backgroundColor: colors.white,
   },
   loginWrapper: {
     flex: 1,
@@ -16,7 +17,7 @@ export const styles = StyleSheet.create({
     marginTop: 10,
   },
   warningText: {
-    color: '#fff',
+    color: colors.lightText,
     fontSize: 16,
     fontFamily: 'SourceSansPro-Bold',
   },
@@ -25,12 +26,12 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   textInput: {
-    color: 'black',
+    color: colors.dark,
     fontSize: 20,
     textTransform: 'capitalize',
     fontFamily: 'SourceSansPro-Regular',
     padding: 5,
-    backgroundColor: 'rgba(255,255,255, 0.92)',
+    backgroundColor: colors.white,
     borderRadius: 10,
   },
   textInputWrapper: {
@@ -44,7 +45,7 @@ export const styles = StyleSheet.create({
     flexBasis: '16%',
   },
   userInput: {
-    color: '#fff',
+    color: colors.white,
     fontFamily: 'Quicksand-Bold',
     textAlign: 'center',
   },
@@ -57,12 +58,12 @@ export const styles = StyleSheet.create({
   button: {
     borderRadius: 20,
     borderWidth: StyleSheet.hairlineWidth,
-    borderColor: '#fff',
+    borderColor: colors.white,
     alignSelf: 'center',
     marginTop: 10,
   },
   buttonText: {
-    color: '#fff',
+    color: colors.white,
     fontSize: 20,
     marginVertical: 10,
     textAlign: 'center',

@@ -1,12 +1,16 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../themes/colors';
 
 export const styles = StyleSheet.create({
+  tabsContainer: {
+    backgroundColor: colors.translucidLightBackground,
+  },
   tabBar: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     paddingVertical: '3%',
     height: '12%',
-    backgroundColor: 'rgba(255,255,255, 0.8)',
+    backgroundColor: colors.translucidLightBackground,
     position: 'absolute',
     bottom: 0,
     alignItems: 'center',
@@ -16,13 +20,13 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   focusedColor: {
-    color: 'darkblue',
+    color: colors.indigoFocusColor,
   },
   favouritesActiveTabIcon: {
-    color: 'red',
+    color: colors.favouriteColor,
   },
   inactiveColor: {
-    color: 'gray',
+    color: colors.cadetBlueInactiveColor,
   },
   label: {
     fontFamily: 'AbrilFatface-Regular',

@@ -6,6 +6,7 @@ import {useEffect} from 'react';
 import {styles} from './searchInput.style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../Button';
+import colors from '../../themes/colors';
 
 interface Props {
   onDebounce: (userInput: string) => void;
@@ -29,9 +30,10 @@ export const SearchInput = ({onDebounce}: Props) => {
         onChangeText={setInputValue}
         style={styles.textInput}
         placeholder="Search"
-        placeholderTextColor={'gray'}
+        placeholderTextColor={colors.burgundy}
       />
       <Button
+        underlayColor={colors.transparent}
         accessibilityRole="button"
         accessibilityLabel={'Search button'}
         activeOpacity={0.7}

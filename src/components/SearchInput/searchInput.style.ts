@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../themes/colors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,10 +11,10 @@ export const styles = StyleSheet.create({
     minHeight: 40,
   },
   textInput: {
-    color: 'brown',
-    backgroundColor: '#fff',
+    color: colors.burgundy,
+    backgroundColor: colors.translucidLightBackground,
     height: '100%',
-    borderColor: 'gray',
+    borderColor: colors.gray,
     borderWidth: StyleSheet.hairlineWidth,
     borderRadius: 230,
     paddingLeft: '3%',
