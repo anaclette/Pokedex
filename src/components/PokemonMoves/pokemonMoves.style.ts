@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
+import fonts from '../../themes/fonts';
 
 export const styles = StyleSheet.create({
   container: {
     marginVertical: 15,
   },
   title: {
-    fontFamily: 'Quicksand-SemiBold',
+    fontFamily: fonts.secondarySemiBold,
     left: '8%',
     marginBottom: '5%',
     fontSize: 16,
@@ -16,14 +17,14 @@ export const styles = StyleSheet.create({
   fullMovesItem: {
     textTransform: 'capitalize',
     textAlign: 'center',
-    fontFamily: 'SourceSansPro-Regular',
+    fontFamily: fonts.secondaryText,
     fontSize: 15,
   },
   moveItem: {
     fontSize: 15,
     margin: 6,
     textTransform: 'capitalize',
-    fontFamily: 'SourceSansPro-Regular',
+    fontFamily: fonts.secondaryText,
   },
   seeFullContentText: {
     marginLeft: '5%',
@@ -41,6 +42,6 @@ export const styles = StyleSheet.create({
   buttonText: {
     fontSize: 15,
     textDecorationLine: 'underline',
-    fontFamily: 'Ubuntu-Medium',
+    fontFamily: fonts.mainText,
   },
 });

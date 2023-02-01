@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import fonts from '../../themes/fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,11 +9,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontFamily: 'Quicksand-SemiBold',
+    fontFamily: fonts.secondarySemiBold,
     fontSize: 15,
   },
   listItem: {
-    fontFamily: 'SourceSansPro-Black',
+    fontFamily: fonts.item,
     marginVertical: 3,
     fontSize: 15,
   },

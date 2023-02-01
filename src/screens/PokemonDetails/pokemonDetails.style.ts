@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import fonts from '../../themes/fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -23,14 +24,14 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     textTransform: 'capitalize',
     fontSize: 30,
-    fontFamily: 'Quicksand-SemiBold',
+    fontFamily: fonts.secondarySemiBold,
   },
   typeItemWrapper: {
     borderRadius: 20,
   },
   typeItem: {
     textTransform: 'capitalize',
-    fontFamily: 'SourceSansPro-Black',
+    fontFamily: fonts.item,
     padding: 10,
   },
   loader: {

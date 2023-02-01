@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
+import fonts from '../../themes/fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -19,7 +20,7 @@ export const styles = StyleSheet.create({
   warningText: {
     color: colors.lightText,
     fontSize: 16,
-    fontFamily: 'SourceSansPro-Bold',
+    fontFamily: fonts.itemBold,
   },
   diffAccountContainer: {
     justifyContent: 'space-between',
@@ -29,7 +30,7 @@ export const styles = StyleSheet.create({
     color: colors.dark,
     fontSize: 20,
     textTransform: 'capitalize',
-    fontFamily: 'SourceSansPro-Regular',
+    fontFamily: fonts.secondaryText,
     padding: 5,
     backgroundColor: colors.white,
     borderRadius: 10,
@@ -46,7 +47,7 @@ export const styles = StyleSheet.create({
   },
   userInput: {
     color: colors.white,
-    fontFamily: 'Quicksand-Bold',
+    fontFamily: fonts.secondaryBold,
     textAlign: 'center',
   },
   diffUserNameContainer: {
@@ -67,7 +68,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     marginVertical: 10,
     textAlign: 'center',
-    fontFamily: 'SourceSansPro-Regular',
+    fontFamily: fonts.secondaryText,
     paddingHorizontal: 10,
   },
 });

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import fonts from '../../themes/fonts';
 
 export const styles = StyleSheet.create({
   abilitiesWrapper: {
@@ -8,10 +9,10 @@ export const styles = StyleSheet.create({
     maxWidth: '30%',
   },
   title: {
-    fontFamily: 'Quicksand-SemiBold',
+    fontFamily: fonts.secondarySemiBold,
   },
   listItem: {
-    fontFamily: 'SourceSansPro-Black',
+    fontFamily: fonts.item,
     marginVertical: 2,
     textTransform: 'capitalize',
   },

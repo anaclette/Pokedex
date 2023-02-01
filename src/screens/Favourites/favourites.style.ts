@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import fonts from '../../themes/fonts';
 import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
@@ -28,12 +29,12 @@ export const styles = StyleSheet.create({
     top: '10%',
     zIndex: 2,
     right: '10%',
-    fontFamily: 'Ubuntu-Medium',
+    fontFamily: fonts.mainText,
     fontSize: metrics.scaledFontSize(30),
     alignSelf: 'flex-end',
   },
   subtitle: {
-    fontFamily: 'Ubuntu-Light',
+    fontFamily: fonts.mainLightText,
     fontSize: metrics.scaledFontSize(15),
     alignSelf: 'center',
     bottom: '22%',

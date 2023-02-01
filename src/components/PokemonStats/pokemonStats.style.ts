@@ -1,18 +1,19 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
+import fonts from '../../themes/fonts';
 
 export const styles = StyleSheet.create({
   container: {
     marginVertical: 15,
   },
   title: {
-    fontFamily: 'Quicksand-SemiBold',
+    fontFamily: fonts.secondarySemiBold,
     left: '10%',
     fontSize: 16,
     marginBottom: '5%',
   },
   listItem: {
-    fontFamily: 'SourceSansPro-Black',
+    fontFamily: fonts.item,
   },
   rowContainer: {
     marginBottom: 5,
