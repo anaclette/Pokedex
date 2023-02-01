@@ -1,20 +1,42 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabNavigationEventMap,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import Search from '../../screens/Search';
 import Account from '../../screens/Account/index';
 import {View, Text, TouchableOpacity} from 'react-native';
-import StackNavigator from '../StackNavigator';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './tabs.style';
 import {useAppSelector} from '../../state/hooks';
 import Favourites from '../../screens/Favourites';
 import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
+import {
+  ParamListBase,
+  TabNavigationState,
+  NavigationHelpers,
+} from '@react-navigation/native';
+import {BottomTabDescriptorMap} from '@react-navigation/bottom-tabs/lib/typescript/src/types';
+import PokemonList from '../../screens/PokemonList';
+interface TabsProps {
+  state: TabNavigationState<ParamListBase>;
+  descriptors: BottomTabDescriptorMap;
+  navigation: NavigationHelpers<ParamListBase, BottomTabNavigationEventMap>;
+}
 
-const Tab = createBottomTabNavigator();
+type TabNavigationProps = {
+  Pokedex: undefined;
+  Search: undefined;
+  Favourites: undefined;
+  User: undefined;
+};
 
-const MyTabBar = ({state, descriptors, navigation}) => {
+const Tab = createBottomTabNavigator<TabNavigationProps>();
+
+const MyTabBar = ({state, navigation, descriptors}: TabsProps) => {
   const username = useAppSelector(appState => appState.auth.username);
+  const {t} = useTranslation();
   return (
     <View style={styles.tabBar}>
       {state.routes.map(
@@ -32,7 +54,7 @@ const MyTabBar = ({state, descriptors, navigation}) => {
           const onPress = () => {
             const event = navigation.emit({
               type: 'tabPress',
-              target: route.key,
+              target: route.key as string,
               canPreventDefault: true,
             });
             if (!isFocused && !event.defaultPrevented) {
@@ -43,16 +65,16 @@ const MyTabBar = ({state, descriptors, navigation}) => {
           const onLongPress = () => {
             navigation.emit({
               type: 'tabLongPress',
-              target: route.key,
+              target: route.key as string,
             });
           };
 
           const getIconName = () => {
-            return route.name === 'Home'
-              ? 'home-outline'
-              : route.name === 'Account' && !username
+            return route.name === 'Pokedex'
+              ? 'pokeball'
+              : route.name === t(TranslationKeys.TAB_ACCOUNT) && !username
               ? 'account'
-              : route.name === 'Account' && username
+              : route.name === t(TranslationKeys.TAB_ACCOUNT) && username
               ? 'human-greeting-variant'
               : route.name === username
               ? 'heart'
@@ -103,19 +125,27 @@ export const Tabs = () => {
 
   return (
     <Tab.Navigator
-      sceneContainerStyle={{backgroundColor: 'rgba(255,255,255, 0.92)'}}
+      sceneContainerStyle={styles.tabsContainer}
       screenOptions={{
         headerShown: false,
       }}
       tabBar={props => <MyTabBar {...props} />}>
+      <Tab.Screen
+        name={t(TranslationKeys.TAB_ACCOUNT) as keyof TabNavigationProps}
+        component={Account}
+      />
       {username && (
-        <Tab.Group>
-          <Tab.Screen name="Home" component={StackNavigator} />
-          <Tab.Screen name={t(TranslationKeys.TAB_SEARCH)} component={Search} />
-          <Tab.Screen name={username} component={Favourites} />
-        </Tab.Group>
+        <Tab.Screen
+          name={username as keyof TabNavigationProps}
+          component={Favourites}
+        />
       )}
-      <Tab.Screen name={t(TranslationKeys.TAB_ACCOUNT)} component={Account} />
+
+      <Tab.Screen name="Pokedex" component={PokemonList} />
+      <Tab.Screen
+        name={t(TranslationKeys.TAB_SEARCH) as keyof TabNavigationProps}
+        component={Search}
+      />
     </Tab.Navigator>
   );
 };
