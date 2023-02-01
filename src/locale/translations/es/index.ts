@@ -16,19 +16,25 @@ const translation: TranslationResource = {
   USERNAME_ALPHANUMERIC_ONLY: 'Solo letras y números.',
   USERNAME_REQUIRED: 'El nombre de usuario es obligatorio.',
   SIGN_IN: 'Ingresar',
-  USERNAME_MATCH_STORED: 'Verifies if current user matches logged in.',
-  LOG_OUT: 'Log out',
-  NOT_USERNAME: 'Not',
-  GREET_USERNAME: 'Hello,',
-  SIGN_IN_DIFF_ACCOUNT: 'Sign with a different account.',
-  MY_FAVOURITES: 'My favourites',
-  NO_FAVOURITES_SUBTITLE: 'Still no favourites. Find some through the ',
+  USERNAME_MATCH_STORED:
+    'Verifica si el usuario ingresado es igual al anterior.',
+  LOG_OUT: 'Salir',
+  NOT_USERNAME: 'No sos',
+  GREET_USERNAME: 'Hola, ',
+  SIGN_IN_DIFF_ACCOUNT: 'Entrar con otro usuario.',
+  MY_FAVOURITES: 'Mis favoritos',
+  NO_FAVOURITES_SUBTITLE:
+    'Todavía no hay favoritos. Agregá los tuyos desde la ',
   NO_FAVOURITES_LINK: 'Pokedex',
-  ACCESSIBILITY_LABEL_FAVOURITES_ICON: 'Add to favourites heart icon',
-  SEARCH_PLACEHOLDER: 'Search',
-  ACCESSIBILITY_SEARCH_LABEL: 'Search button',
-  TAB_SEARCH: 'Search',
-  TAB_ACCOUNT: 'Account',
+  ACCESSIBILITY_LABEL_FAVOURITES_ICON:
+    'Ícono de corazón para agregar favoritos',
+  SEARCH_PLACEHOLDER: 'Buscar',
+  ACCESSIBILITY_SEARCH_LABEL: 'Botón para buscar',
+  TAB_SEARCH: 'Buscar',
+  TAB_ACCOUNT: 'Usuario',
+  ADD_FAVOURITE_LOGIN_WARNING:
+    'Te tenés que loguear para agregar a {{PokemonName}} a tus favoritos',
+  STILL_LOADING_WARNING: 'Todavía no cargó...\nEn cualquier momento!',
 };
 
 export default translation;
