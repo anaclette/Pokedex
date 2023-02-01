@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, ActivityIndicator, ScrollView} from 'react-native';
-import {DrawerScreenProps} from '@react-navigation/drawer';
+import {Text, View, ActivityIndicator, ScrollView, Alert} from 'react-native';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {styles} from './pokemonDetails.style';
 import {useFullPokemon} from '../../hooks/useFullPokemon';
-import {newShade} from '../../utils/helpers';
+import {capitalizeFirstLetter, newShade} from '../../utils/helpers';
 import PokemonDetailsGrid from '../../components/PokemonDetailsGrid';
 import PokemonMoves from '../../components/PokemonMoves';
 import PokemonStats from '../../components/PokemonStats';
@@ -16,11 +15,15 @@ import Pokeball from '../../components/Pokeball';
 import PokemonSprites from '../../components/PokemonSprites';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../../components/Button';
-import {useAppDispatch} from '../../state/hooks';
+import {useAppDispatch, useAppSelector} from '../../state/hooks';
 import {useIsFavourite} from '../../utils/hooks';
 import {toggleIsFavourite} from '../../state/reducers/favouritesReducer';
+import {StackScreenProps} from '@react-navigation/stack';
+import {useTranslation} from 'react-i18next';
+import {TranslationKeys} from '../../locale/translations/keys';
+import colors from '../../themes/colors';
 
-interface Props extends DrawerScreenProps<RootStackParams, 'PokemonDetails'> {}
+interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
 export const PokemonDetails = ({route, navigation}: Props) => {
   const {pokemonDetails, imgColor, textColor} = route.params;
@@ -30,6 +33,9 @@ export const PokemonDetails = ({route, navigation}: Props) => {
   const [typeColor, setTypeColor] = useState('');
   const dispatch = useAppDispatch();
   const isFavourite = useIsFavourite(pokemonDetails.id);
+  const username = useAppSelector(state => state.auth.username);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const {t} = useTranslation();
 
   // console.log('full pokemon details: ', fullPokemon.name); // TODO: check why this executing thrice, 1st undefined and then twice
 
@@ -54,7 +60,8 @@ export const PokemonDetails = ({route, navigation}: Props) => {
 
   useEffect(() => {
     setTypeColor(newShade(imgColor, 50));
-  }, [imgColor]);
+    username ? setIsLoggedIn(true) : setIsLoggedIn(false);
+  }, [imgColor, username]);
 
   return (
     <View
@@ -78,18 +85,28 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           accessibilityRole="button"
           accessibilityLabel={'Add to favourites heart icon'}
           activeOpacity={0.6}
-          onPress={() => dispatch(toggleIsFavourite(pokemonDetails))}
+          onPress={() => {
+            isLoading
+              ? Alert.alert(t(TranslationKeys.STILL_LOADING_WARNING))
+              : isLoggedIn
+              ? dispatch(toggleIsFavourite(pokemonDetails))
+              : Alert.alert(
+                  t(TranslationKeys.ADD_FAVOURITE_LOGIN_WARNING, {
+                    PokemonName: capitalizeFirstLetter(fullPokemon.name),
+                  }),
+                );
+          }}
           children={
             <Icon
               name={isFavourite ? 'heart' : 'heart-outline'}
               size={25}
-              color={isFavourite ? 'red' : textColor}
+              color={isFavourite ? colors.favouriteColor : textColor}
             />
           }
           style={{
             right: width * 0.1,
           }}
-          underlayColor={'transparent'}
+          underlayColor={colors.transparent}
         />
       </View>
 

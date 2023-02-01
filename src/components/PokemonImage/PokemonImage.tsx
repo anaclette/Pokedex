@@ -1,12 +1,12 @@
-import {DrawerScreenProps} from '@react-navigation/drawer';
 import React from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {height, isIos, width} from '../../common/constants';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import FadeInImage from '../FadeInImage';
 import {styles} from './pokemonImage.style';
+import {StackScreenProps} from '@react-navigation/stack';
 
-interface Props extends DrawerScreenProps<RootStackParams, 'PokemonDetails'> {}
+interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
 export const PokemonImage = ({route}: Props) => {
   const {pokemonDetails} = route.params;
