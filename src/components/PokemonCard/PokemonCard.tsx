@@ -14,12 +14,13 @@ interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {
   item: NewListPokemon;
   imgColor: string | undefined;
   textColor: string | undefined;
+  isFavourite?: boolean;
 }
 
 const windowWidth = width;
 const windowHeight = height;
 
-export const PokemonCard = ({item, navigation}: Props) => {
+export const PokemonCard = ({item, navigation, isFavourite}: Props) => {
   const [backgroundImgColor, setBackgroundImgColor] = useState('grey');
   const [titleColor, setTitleColor] = useState<string | undefined>('white');
 
@@ -47,20 +48,40 @@ export const PokemonCard = ({item, navigation}: Props) => {
     <TouchableOpacity
       key={item.id}
       activeOpacity={0.8}
-      style={{...styles.container, backgroundColor: backgroundImgColor}}
+      style={[
+        styles.container,
+        {backgroundColor: backgroundImgColor},
+        isFavourite && styles.favouritePokeCard,
+      ]}
       onPress={onPress}>
-      <View style={styles.nameWrapper}>
-        <Text style={{color: titleColor, ...styles.name}}>{item.name}</Text>
+      <View
+        style={[
+          styles.nameWrapper,
+          isFavourite && styles.favouritePokeNameWrapper,
+        ]}>
+        <Text
+          style={[
+            {color: titleColor, ...styles.name},
+            isFavourite && styles.favouritePokeName,
+          ]}>
+          {item.name}
+        </Text>
         <Text style={{color: titleColor, ...styles.id}}>#{item.id}</Text>
       </View>
       <View style={styles.imagesWrapper}>
         <Pokeball
-          style={styles.pokeballImage}
+          style={[
+            styles.pokeballImage,
+            isFavourite && styles.favouritePokeballImage,
+          ]}
           source={require('../../assets/images/light_pokeball.png')}
         />
         <FadeInImage
           uri={item.picture}
-          containerStyle={{width: windowWidth / 3, height: windowHeight / 7}}
+          containerStyle={[
+            {width: windowWidth / 3, height: windowHeight / 7},
+            isFavourite && styles.favouritePokemonImageContainer,
+          ]}
           imgStyle={styles.pokemonImage}
         />
       </View>

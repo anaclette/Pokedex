@@ -1,38 +1,43 @@
 import {StyleSheet} from 'react-native';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   container: {
     paddingBottom: '30%',
   },
-  pikachuImg: {
+  backgroundImage: {
+    width: '100%',
+    height: '100%',
     position: 'absolute',
-    opacity: 0.8,
+    opacity: 0.5,
   },
   pokeballImg: {
-    position: 'absolute',
-    opacity: 0.8,
     width: 270,
     height: 270,
     top: '-5%',
-    left: '-15%',
+    right: '-15%',
+    position: 'absolute',
+    opacity: 0.5,
   },
   noFavsContainer: {
     flex: 1,
     justifyContent: 'space-between',
   },
   title: {
-    marginRight: 10,
-    marginBottom: 10,
-    marginTop: '20%',
+    position: 'absolute',
+    top: '10%',
+    zIndex: 2,
+    right: '10%',
     fontFamily: 'Ubuntu-Medium',
-    fontSize: 35,
+    fontSize: metrics.scaledFontSize(30),
     alignSelf: 'flex-end',
   },
   subtitle: {
     fontFamily: 'Ubuntu-Light',
-    fontSize: 15,
+    fontSize: metrics.scaledFontSize(15),
     alignSelf: 'center',
     bottom: '22%',
+    position: 'absolute',
   },
   linkText: {
     textDecorationLine: 'underline',

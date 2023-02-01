@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {ActivityIndicator, FlatList, View} from 'react-native';
+import {ActivityIndicator, FlatList, Image, View} from 'react-native';
 import PokemonCard from '../../components/PokemonCard';
 import SearchInput from '../../components/SearchInput';
 import {usePokemonSearch} from '../../hooks/usePokemonSearch';
@@ -8,8 +8,9 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {NewListPokemon} from '../../types/Pokemon';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
-import PokemonPoster from '../../components/PokemonPoster';
 import {height} from '../../common/constants';
+import Pokeball from '../../components/Pokeball';
+import colors from '../../themes/colors';
 
 interface NavProps
   extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
@@ -17,7 +18,7 @@ interface NavProps
 export const Loader = () => {
   return (
     <View style={styles.loaderWrapper}>
-      <ActivityIndicator color={'red'} size={20} />
+      <ActivityIndicator color={colors.dark} size={20} />
     </View>
   );
 };
@@ -29,7 +30,6 @@ export const Search = ({navigation, route}: NavProps) => {
     NewListPokemon[]
   >([]);
   const {top} = useSafeAreaInsets();
-  const pokePosterHeight = height / 4;
 
   useEffect(() => {
     if (searchValue.length === 0) {
@@ -37,16 +37,24 @@ export const Search = ({navigation, route}: NavProps) => {
     }
 
     setFilteredPokemonResult(
-      pokemonList.filter(pokemon => pokemon.name.includes(searchValue)),
+      pokemonList.filter(pokemon =>
+        pokemon.name
+          .toLocaleLowerCase()
+          .includes(searchValue.toLocaleLowerCase()),
+      ),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
   return (
-    <View style={styles.container}>
-      <PokemonPoster
-        viewTop={top + pokePosterHeight / 3.5}
-        imgHeight={pokePosterHeight}
+    <>
+      <Image
+        source={require('../../assets/images/pikachu.jpeg')}
+        style={styles.backgroundImage}
+      />
+      <Pokeball
+        style={styles.pokeballImg}
+        source={require('../../assets/images/dark_pokeball.png')}
       />
       <SearchInput onDebounce={setSearchValue} />
 
@@ -56,8 +64,8 @@ export const Search = ({navigation, route}: NavProps) => {
       ) : (
         <FlatList
           contentContainerStyle={{
-            top: top + pokePosterHeight * 1.3,
-            paddingBottom: height * 0.6,
+            top: top * 3,
+            paddingBottom: height * 0.4,
           }}
           data={filteredPokemonResult}
           numColumns={2}
@@ -74,6 +82,6 @@ export const Search = ({navigation, route}: NavProps) => {
           )}
         />
       )}
-    </View>
+    </>
   );
 };

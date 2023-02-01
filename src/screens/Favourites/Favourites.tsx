@@ -2,9 +2,9 @@ import React from 'react';
 import {
   Text,
   FlatList,
+  Image,
   TouchableWithoutFeedback,
   ImageBackground,
-  Image,
 } from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useFavourites} from '../../utils/hooks';
@@ -15,6 +15,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {styles} from './favourites.style';
 // import {useAppSelector} from '../../state/hooks';
 import {TranslationKeys} from '../../locale/translations/keys';
+import Pokeball from '../../components/Pokeball';
 
 interface Props
   extends StackScreenProps<RootStackParams, 'PokemonDetails', ''> {}
@@ -31,21 +32,21 @@ export const Favourites = ({navigation, route}: Props) => {
   return favourites?.length ? (
     <>
       <Image
-        source={require('../../assets/images/dark_pokeball.png')}
-        style={styles.pokeballImg}
+        source={require('../../assets/images/pikachu.jpeg')}
+        style={styles.backgroundImage}
       />
-      <Image
-        source={require('../../assets/images/pika.webp')}
-        style={styles.pikachuImg}
+      <Pokeball
+        style={styles.pokeballImg}
+        source={require('../../assets/images/dark_pokeball.png')}
       />
       {showTitle()}
-      {/* TODO: fix header overlapping with background images and data */}
       <FlatList
         numColumns={2}
         data={favourites}
-        contentContainerStyle={styles.container}
+        contentContainerStyle={{top: top * 3, ...styles.container}}
         renderItem={({item}) => (
           <PokemonCard
+            isFavourite
             item={item}
             imgColor={item.imgColor}
             textColor={item.textColor}
@@ -63,7 +64,8 @@ export const Favourites = ({navigation, route}: Props) => {
 
       <Text style={styles.subtitle}>
         {t(TranslationKeys.NO_FAVOURITES_SUBTITLE)}
-        <TouchableWithoutFeedback onPress={() => undefined}>
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate('Pokedex')}>
           <Text style={styles.linkText}>
             {t(TranslationKeys.NO_FAVOURITES_LINK)}
           </Text>
