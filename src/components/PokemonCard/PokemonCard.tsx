@@ -8,7 +8,9 @@ import {styles} from './pokemonCard.style';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import Pokeball from '../Pokeball';
-import {height, width} from '../../common/constants';
+import {height, width, isIos} from '../../common/constants';
+import globalStyles from '../../themes/globalStyles';
+import colors from '../../themes/colors';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {
   item: NewListPokemon;
@@ -19,10 +21,13 @@ interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {
 
 const windowWidth = width;
 const windowHeight = height;
+const fallbackColor = colors.gray;
 
 export const PokemonCard = ({item, navigation, isFavourite}: Props) => {
   const [backgroundImgColor, setBackgroundImgColor] = useState('grey');
-  const [titleColor, setTitleColor] = useState<string | undefined>('white');
+  const [titleColor, setTitleColor] = useState<string | undefined>(
+    colors.white,
+  );
 
   const onPress = () => {
     navigation.navigate('PokemonDetails', {
@@ -33,15 +38,27 @@ export const PokemonCard = ({item, navigation, isFavourite}: Props) => {
   };
 
   useEffect(() => {
-    ImageColors.getColors(item.picture, {fallback: 'grey'}).then(colors => {
-      if (colors.platform === 'android') {
-        setBackgroundImgColor(colors.dominant || 'grey');
-        setTitleColor(colors.average || 'grey');
-      } else if (colors.platform === 'ios') {
-        setBackgroundImgColor(colors.background);
-        setTitleColor(colors.detail);
-      }
-    });
+    ImageColors.getColors(item.picture, {fallback: fallbackColor}).then(
+      imageColors => {
+        if (imageColors.platform === 'android') {
+          setBackgroundImgColor(
+            imageColors.muted ||
+              imageColors.lightVibrant ||
+              imageColors.dominant ||
+              fallbackColor,
+          );
+          setTitleColor(
+            imageColors.darkMuted ||
+              imageColors.darkVibrant ||
+              imageColors.average ||
+              fallbackColor,
+          );
+        } else if (imageColors.platform === 'ios') {
+          setBackgroundImgColor(imageColors.background);
+          setTitleColor(imageColors.detail);
+        }
+      },
+    );
   }, [item.picture]);
 
   return (
@@ -54,15 +71,12 @@ export const PokemonCard = ({item, navigation, isFavourite}: Props) => {
         isFavourite && styles.favouritePokeCard,
       ]}
       onPress={onPress}>
-      <View
-        style={[
-          styles.nameWrapper,
-          isFavourite && styles.favouritePokeNameWrapper,
-        ]}>
+      <View style={styles.nameWrapper}>
         <Text
           style={[
             {color: titleColor, ...styles.name},
             isFavourite && styles.favouritePokeName,
+            !isIos && {...globalStyles.textShadow},
           ]}>
           {item.name}
         </Text>
