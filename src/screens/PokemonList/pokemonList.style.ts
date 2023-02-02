@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  container: {
+    flex: 1,
+  },
   footerLoader: {
     justifyContent: 'flex-start',
     paddingTop: '30%',

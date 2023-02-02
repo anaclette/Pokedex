@@ -1,5 +1,5 @@
-import React from 'react';
-import {ActivityIndicator, FlatList} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {ActivityIndicator, FlatList, Appearance, View} from 'react-native';
 import PokemonCard from '../../components/PokemonCard';
 import {usePokemon} from '../../hooks/usePokemon';
 import {NewListPokemon} from '../../types/Pokemon';
@@ -17,6 +17,18 @@ export const PokemonList = ({navigation, route}: Props) => {
   const {pokeList, loadPokemons} = usePokemon();
   const {top} = useSafeAreaInsets();
   const pokePosterHeight = height / 4;
+  const [backgroundColor, setBackgroundColor] = useState(
+    colors.translucidLightBackground,
+  );
+  const mode = Appearance.getColorScheme();
+
+  useEffect(() => {
+    if (mode === 'dark') {
+      setBackgroundColor(colors.black);
+    } else {
+      setBackgroundColor(colors.lightOcean);
+    }
+  }, [mode]);
 
   const renderItem = ({item}: {item: NewListPokemon}) => {
     return (
@@ -39,11 +51,13 @@ export const PokemonList = ({navigation, route}: Props) => {
   );
 
   return (
-    <>
+    <View style={{backgroundColor: backgroundColor, ...styles.container}}>
       <PokemonPoster viewTop={top} imgHeight={pokePosterHeight} />
       <FlatList
         numColumns={2}
-        contentContainerStyle={{top: top + pokePosterHeight}}
+        contentContainerStyle={{
+          top: top + pokePosterHeight,
+        }}
         showsVerticalScrollIndicator={false}
         // data={pokeList.sort(
         //   (pokeA, pokeB) => pokeA.name.localeCompare(pokeB.name),
@@ -57,6 +71,6 @@ export const PokemonList = ({navigation, route}: Props) => {
         onEndReachedThreshold={0.4}
         ListFooterComponent={showLoader(true)}
       />
-    </>
+    </View>
   );
 };
