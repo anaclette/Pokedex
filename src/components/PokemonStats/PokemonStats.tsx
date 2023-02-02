@@ -1,36 +1,31 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {Animated, Text, View} from 'react-native';
+import globalStyles from '../../themes/globalStyles';
 import {PokemonFullDetails} from '../../types/Pokemon';
 import {styles} from './pokemonStats.style';
+import {TranslationKeys} from '../../locale/translations/keys';
 
 interface Props {
   pokemon: PokemonFullDetails;
+  color: string;
+  titleColor: string;
 }
 
-export const PokemonStats = ({pokemon}: Props) => {
-  // const anim = useRef(new Animated.Value(0)).current;
+export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
+  const {t} = useTranslation();
   const stats = pokemon.stats;
-  // const [progressStatus, setProgressStatus] = useState(0);
-
-  // const onAnimate = (stat: number) => {
-  //   setProgressStatus(stat);
-  //   Animated.timing(anim, {
-  //     toValue: stat,
-  //     duration: 1000,
-  //     useNativeDriver: true,
-  //   }).start();
-  // };
-
-  // useEffect(() => {
-  //   stats.forEach(stat => {
-  //     onAnimate(stat.base_stat);
-  //     console.log(stat.base_stat);
-  //   });
-  // }, [stats]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Estadísticas base</Text>
+      <Text
+        style={{
+          ...globalStyles.textShadow,
+          ...styles.title,
+          color: titleColor,
+        }}>
+        {t(TranslationKeys.BASE_STATS)}
+      </Text>
       {stats.map((statGroup, index) => (
         <View style={styles.rowContainer} key={statGroup + index.toString()}>
           <View
@@ -40,6 +35,7 @@ export const PokemonStats = ({pokemon}: Props) => {
               style={{
                 ...styles.listItem,
                 ...styles.statName,
+                color: color,
               }}
               key={statGroup.stat.name}>
               {statGroup.stat.name}
