@@ -16,6 +16,7 @@ const authReducer = createSlice({
       username: action.payload,
     }),
     logOut: () => initialState,
+    // TODO: clean state if different user
   },
 });
 
