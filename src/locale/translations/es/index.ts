@@ -37,6 +37,7 @@ const translation: TranslationResource = {
     'Logueate para agregar a {{PokemonName}} a tus favoritos',
   STILL_LOADING_WARNING: 'Todavía no cargó...\nEn cualquier momento!',
   GO_BACK_BUTTON_LABEL: 'Botón para volver atrás',
+  NAVIGATE_TO_POKEDEX_BUTTON_LABEL: 'Ir a la Pokedex',
 };
 
 export default translation;

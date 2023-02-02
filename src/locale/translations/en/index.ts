@@ -33,6 +33,7 @@ const translation: TranslationResource = {
     'You need to login to add {{PokemonName}} to your favourites',
   STILL_LOADING_WARNING: 'Not done loading yet...\nAny second now!',
   GO_BACK_BUTTON_LABEL: 'Go back button',
+  NAVIGATE_TO_POKEDEX_BUTTON_LABEL: 'Go to Pokedex',
 };
 
 export default translation;
