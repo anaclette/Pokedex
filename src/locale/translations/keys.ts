@@ -1,5 +1,6 @@
 export enum TranslationKeys {
   ABILITIES = 'ABILITIES',
+  MOVES = 'MOVES',
   WEIGHT = 'WEIGHT',
   HEIGHT = 'HEIGHT',
   SEE_LESS = 'SEE_LESS',
@@ -27,6 +28,7 @@ export enum TranslationKeys {
   TAB_ACCOUNT = 'TAB_ACCOUNT',
   ADD_FAVOURITE_LOGIN_WARNING = 'ADD_FAVOURITE_LOGIN_WARNING',
   STILL_LOADING_WARNING = 'STILL_LOADING_WARNING',
+  GO_BACK_BUTTON_LABEL = 'GO_BACK_BUTTON_LABEL',
 }
 
 export type TranslationResource = {

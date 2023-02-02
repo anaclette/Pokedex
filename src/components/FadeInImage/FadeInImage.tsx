@@ -43,6 +43,7 @@ export const FadeInImage = ({
       )}
 
       <Animated.Image
+        accessibilityRole="image"
         source={{uri}}
         onError={onError}
         onLoad={finishLoading}

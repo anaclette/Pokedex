@@ -2,6 +2,7 @@ import {TranslationResource} from '../keys';
 
 const translation: TranslationResource = {
   ABILITIES: 'Abilities',
+  MOVES: 'Moves',
   WEIGHT: 'Weight',
   HEIGHT: 'Height',
   SEE_LESS: 'See less',
@@ -19,7 +20,7 @@ const translation: TranslationResource = {
   LOG_OUT: 'Log out',
   NOT_USERNAME: 'Not',
   GREET_USERNAME: 'Hello,',
-  SIGN_IN_DIFF_ACCOUNT: 'Sign with a different user.',
+  SIGN_IN_DIFF_ACCOUNT: 'Sign with a different user',
   MY_FAVOURITES: 'My favourites',
   NO_FAVOURITES_SUBTITLE: 'Still no favourites. Find some through the ',
   NO_FAVOURITES_LINK: 'Pokedex',
@@ -31,6 +32,7 @@ const translation: TranslationResource = {
   ADD_FAVOURITE_LOGIN_WARNING:
     'You need to login to add {{PokemonName}} to your favourites',
   STILL_LOADING_WARNING: 'Not done loading yet...\nAny second now!',
+  GO_BACK_BUTTON_LABEL: 'Go back button',
 };
 
 export default translation;
