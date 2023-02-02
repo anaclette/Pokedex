@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Text,
-  FlatList,
-  Image,
-  TouchableWithoutFeedback,
-  ImageBackground,
-} from 'react-native';
+import {Text, FlatList, Image, ImageBackground} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useFavourites} from '../../utils/hooks';
 import PokemonCard from '../../components/PokemonCard';
@@ -18,6 +12,8 @@ import {TranslationKeys} from '../../locale/translations/keys';
 import Pokeball from '../../components/Pokeball';
 import {isIos} from '../../common/constants';
 import metrics from '../../themes/metrics';
+import Button from '../../components/Button';
+import colors from '../../themes/colors';
 
 interface Props
   extends StackScreenProps<RootStackParams, 'PokemonDetails', ''> {}
@@ -72,12 +68,21 @@ export const Favourites = ({navigation, route}: Props) => {
 
       <Text style={styles.subtitle}>
         {t(TranslationKeys.NO_FAVOURITES_SUBTITLE)}
-        <TouchableWithoutFeedback
-          onPress={() => navigation.navigate('Pokedex')}>
-          <Text style={styles.linkText}>
-            {t(TranslationKeys.NO_FAVOURITES_LINK)}
-          </Text>
-        </TouchableWithoutFeedback>
+        <Button
+          style={styles.navigateToPokedexButton}
+          accessibilityRole="link"
+          accessibilityLabel={t(
+            TranslationKeys.NAVIGATE_TO_POKEDEX_BUTTON_LABEL,
+          )}
+          activeOpacity={0.7}
+          underlayColor={colors.white}
+          onPress={() => navigation.navigate('Pokedex')}
+          children={
+            <Text style={styles.linkText}>
+              {t(TranslationKeys.NO_FAVOURITES_LINK)}
+            </Text>
+          }
+        />
       </Text>
     </ImageBackground>
   );
