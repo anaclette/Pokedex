@@ -44,7 +44,6 @@ export const Account = () => {
             <TextInput
               maxLength={20}
               autoFocus={true}
-              accessible={true}
               accessibilityLabel={
                 t(TranslationKeys.USERNAME_INPUT_LABEL) as string
               }
@@ -61,7 +60,6 @@ export const Account = () => {
           </View>
           <View style={styles.warningContainer}>
             <Text
-              accessible={true}
               accessibilityHint={String(
                 t(TranslationKeys.ACCESSIBILITY_HINT_USERNAME_REQS),
               )}
@@ -72,7 +70,6 @@ export const Account = () => {
               {emptyField && t(TranslationKeys.USERNAME_REQUIRED)}
             </Text>
             <Text
-              accessible={true}
               accessibilityHint={String(
                 t(TranslationKeys.USERNAME_ALPHANUMERIC_ONLY),
               )}
@@ -103,7 +100,6 @@ export const Account = () => {
           <View style={styles.storedUserNameContainer}>
             <Text
               style={{...styles.storedUserName, ...styles.userInput}}
-              accessible={true}
               accessibilityHint={String(
                 t(TranslationKeys.USERNAME_MATCH_STORED),
               )}>
