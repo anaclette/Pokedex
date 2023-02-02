@@ -24,7 +24,7 @@ const windowHeight = height;
 const fallbackColor = colors.gray;
 
 export const PokemonCard = ({item, navigation, isFavourite}: Props) => {
-  const [backgroundImgColor, setBackgroundImgColor] = useState('grey');
+  const [backgroundImgColor, setBackgroundImgColor] = useState(colors.gray);
   const [titleColor, setTitleColor] = useState<string | undefined>(
     colors.white,
   );
