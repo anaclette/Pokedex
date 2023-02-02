@@ -11,4 +11,6 @@ export default {
   transparent: 'transparent',
   dark: '#291720',
   lightText: '#fff',
+  black: '#000500',
+  lightOcean: '#bce7fd',
 };
