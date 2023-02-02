@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   loader: {
@@ -8,6 +9,6 @@ export const styles = StyleSheet.create({
   footerLoader: {
     justifyContent: 'flex-start',
     paddingTop: '30%',
-    paddingBottom: 500,
+    paddingBottom: metrics.scaleVertical(400),
   },
 });

@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
 import fonts from '../../themes/fonts';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,25 +16,26 @@ export const styles = StyleSheet.create({
   warningContainer: {
     flexBasis: '10%',
     justifyContent: 'center',
-    marginTop: 10,
+    marginTop: metrics.scale(9),
   },
   warningText: {
     color: colors.lightText,
-    fontSize: 16,
+    fontSize: metrics.scaledFontSize(15),
     fontFamily: fonts.itemBold,
+    paddingHorizontal: metrics.scale(2),
   },
   diffAccountContainer: {
     justifyContent: 'space-between',
     flex: 1,
   },
   textInput: {
-    color: colors.dark,
-    fontSize: 20,
+    color: colors.burgundy,
+    fontSize: metrics.scaledFontSize(20),
     textTransform: 'capitalize',
     fontFamily: fonts.secondaryText,
-    padding: 5,
+    padding: metrics.scale(4),
     backgroundColor: colors.white,
-    borderRadius: 10,
+    borderRadius: metrics.scale(10),
   },
   textInputWrapper: {
     width: '50%',
@@ -42,7 +44,7 @@ export const styles = StyleSheet.create({
     flexGrow: 2,
   },
   storedUserName: {
-    fontSize: 30,
+    fontSize: metrics.scale(30),
     flexBasis: '16%',
   },
   userInput: {
@@ -54,21 +56,21 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
   },
   diffUserNameMessage: {
-    fontSize: 20,
+    fontSize: metrics.scaledFontSize(20),
   },
   button: {
-    borderRadius: 20,
+    borderRadius: metrics.scale(20),
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.white,
     alignSelf: 'center',
-    marginTop: 10,
+    marginTop: metrics.scale(9),
   },
   buttonText: {
     color: colors.white,
-    fontSize: 20,
-    marginVertical: 10,
+    fontSize: metrics.scaledFontSize(20),
+    marginVertical: metrics.scale(9),
     textAlign: 'center',
     fontFamily: fonts.secondaryText,
-    paddingHorizontal: 10,
+    paddingHorizontal: metrics.scale(9),
   },
 });

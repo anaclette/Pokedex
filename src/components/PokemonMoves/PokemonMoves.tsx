@@ -1,5 +1,8 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {ScrollView, Text, TouchableHighlight, View} from 'react-native';
+import {TranslationKeys} from '../../locale/translations/keys';
+import globalStyles from '../../themes/globalStyles';
 import {PokemonFullDetails} from '../../types/Pokemon';
 import {getMoves} from '../../utils/helpers';
 import {styles} from './pokemonMoves.style';
@@ -9,31 +12,27 @@ interface Props {
   onFullMovesPress: () => void;
   fullMoves: boolean;
   textColor: string | undefined;
-  imgColor: string | undefined;
+  titleColor: string;
 }
-
-// const PokeIcon = (color: string) => {
-//   return (
-//     <Icon
-//       name="pokeball"
-//       color={color}
-//       size={25}
-//     />
-//   );
-// };
 
 export const PokemonMoves = ({
   pokemon,
   onFullMovesPress,
   fullMoves,
   textColor,
-  imgColor,
+  titleColor,
 }: Props) => {
   const moves = getMoves(pokemon.moves);
   const maxShown = 10;
+  const {t} = useTranslation();
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{`Movimientos (${moves.length})`}</Text>
+      <Text
+        style={{
+          ...globalStyles.textShadow,
+          ...styles.title,
+          color: titleColor,
+        }}>{`${t(TranslationKeys.MOVES)} (${moves.length})`}</Text>
       {fullMoves ? (
         <ScrollView
           style={[
@@ -44,14 +43,14 @@ export const PokemonMoves = ({
           ]}>
           <Text
             style={{
-              color: imgColor,
+              color: titleColor,
               ...styles.fullMovesItem,
             }}>
             {moves.join('  ·  ')}
           </Text>
           <TouchableHighlight
             accessibilityRole="button"
-            accessibilityLabel="See less moves"
+            accessibilityLabel={t(TranslationKeys.SEE_LESS) as string}
             onPress={onFullMovesPress}
             activeOpacity={0.5}
             underlayColor={textColor}>
@@ -59,9 +58,9 @@ export const PokemonMoves = ({
               style={{
                 ...styles.buttonText,
                 ...styles.seeLessContentText,
-                color: imgColor,
+                color: titleColor,
               }}>
-              Ver menos
+              {t(TranslationKeys.SEE_LESS)}
             </Text>
           </TouchableHighlight>
         </ScrollView>
@@ -74,7 +73,7 @@ export const PokemonMoves = ({
             <Text
               key={index}
               style={{
-                color: imgColor,
+                color: titleColor,
                 ...styles.moveItem,
               }}>
               {`${index !== 0 && ' ⊛ '} ${move}`}
@@ -84,14 +83,14 @@ export const PokemonMoves = ({
             <>
               <Text
                 style={{
-                  color: imgColor,
+                  color: titleColor,
                   ...styles.moveItem,
                 }}>
                 ...
               </Text>
               <TouchableHighlight
                 accessibilityRole="button"
-                accessibilityLabel="See full moves"
+                accessibilityLabel={String(t(TranslationKeys.SEE_ALL))}
                 onPress={onFullMovesPress}
                 activeOpacity={0.5}
                 underlayColor={textColor}>
@@ -99,9 +98,9 @@ export const PokemonMoves = ({
                   style={{
                     ...styles.buttonText,
                     ...styles.seeFullContentText,
-                    color: imgColor,
+                    color: titleColor,
                   }}>
-                  Ver todos
+                  {t(TranslationKeys.SEE_ALL)}
                 </Text>
               </TouchableHighlight>
             </>

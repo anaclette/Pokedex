@@ -1,36 +1,42 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
 import fonts from '../../themes/fonts';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   container: {
-    marginVertical: 15,
+    marginVertical: metrics.scaleVertical(13),
   },
   title: {
     fontFamily: fonts.secondarySemiBold,
     left: '10%',
-    fontSize: 16,
     marginBottom: '5%',
+    fontSize: metrics.scaledFontSize(17),
   },
   listItem: {
     fontFamily: fonts.item,
   },
   rowContainer: {
-    marginBottom: 5,
+    marginBottom: metrics.scaleVertical(4),
     flex: 1,
     flexDirection: 'row',
-    marginHorizontal: 10,
+    marginHorizontal: metrics.scaleVertical(10),
+    alignItems: 'center',
   },
   nameWrapper: {
     flex: 1,
   },
-  statName: {},
+  statName: {
+    fontFamily: fonts.secondaryText,
+    textTransform: 'capitalize',
+    fontSize: metrics.scaledFontSize(15),
+  },
   bar: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.gainsboroLightBackground,
-    borderRadius: 10,
+    borderRadius: metrics.scale(10),
   },
 });

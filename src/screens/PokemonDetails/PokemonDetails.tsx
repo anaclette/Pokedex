@@ -22,6 +22,8 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
 import colors from '../../themes/colors';
+import globalStyles from '../../themes/globalStyles';
+import metrics from '../../themes/metrics';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
@@ -73,17 +75,24 @@ export const PokemonDetails = ({route, navigation}: Props) => {
       <View
         style={{
           ...styles.topButtonsWrapper,
-          marginTop: isIos ? top + 15 : top + 30,
+          marginTop: isIos
+            ? top + metrics.scaleVertical(10)
+            : top + metrics.scaleVertical(20),
         }}>
         <BackButton
           onPress={() => navigation.goBack()}
           underlayColor={imgColor}
           iconColor={textColor}
           buttonStyle={{left: width * 0.02}}
+          iconStyle={{
+            ...globalStyles.textShadow,
+          }}
         />
         <Button
           accessibilityRole="button"
-          accessibilityLabel={'Add to favourites heart icon'}
+          accessibilityLabel={t(
+            TranslationKeys.ACCESSIBILITY_LABEL_FAVOURITES_ICON,
+          )}
           activeOpacity={0.6}
           onPress={() => {
             isLoading
@@ -98,6 +107,8 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           }}
           children={
             <Icon
+              accessibilityRole="image"
+              style={globalStyles.textShadow}
               name={isFavourite ? 'heart' : 'heart-outline'}
               size={25}
               color={isFavourite ? colors.favouriteColor : textColor}
@@ -111,7 +122,12 @@ export const PokemonDetails = ({route, navigation}: Props) => {
       </View>
 
       <View style={styles.nameAndTypesWrapper}>
-        <Text style={{...styles.name, color: textColor}}>
+        <Text
+          style={{
+            ...styles.name,
+            color: textColor,
+            ...globalStyles.textShadow,
+          }}>
           {pokemonDetails.name}
         </Text>
         <View style={styles.rowContainer}>{getTypes()}</View>
@@ -139,7 +155,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           }}>
           <PokemonDetailsGrid
             pokemon={fullPokemon}
-            lightColor={imgColor}
+            lightColor={typeColor}
             darkColor={textColor}
           />
 
@@ -148,15 +164,17 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             onFullMovesPress={onFullMovesBtnPress}
             fullMoves={fullMoves}
             textColor={textColor}
-            imgColor={imgColor}
+            titleColor={typeColor}
           />
 
-          <PokemonStats pokemon={fullPokemon} />
+          <PokemonStats
+            color={typeColor}
+            pokemon={fullPokemon}
+            titleColor={typeColor}
+          />
           <PokemonSprites pokemon={fullPokemon} />
         </ScrollView>
       )}
-
-      {/* TODO: Fix colors contrast on android cards */}
     </View>
   );
 };

@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
 import fonts from '../../themes/fonts';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   abilitiesWrapper: {
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: metrics.scale(10),
     flexGrow: 1,
     maxWidth: '30%',
   },
@@ -12,8 +13,8 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.secondarySemiBold,
   },
   listItem: {
-    fontFamily: fonts.item,
-    marginVertical: 2,
+    fontFamily: fonts.secondaryText,
+    marginVertical: metrics.scaleVertical(1.5),
     textTransform: 'capitalize',
   },
 });

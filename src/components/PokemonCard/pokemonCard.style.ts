@@ -7,37 +7,40 @@ export const styles = StyleSheet.create({
   container: {
     width: '45%',
     flexGrow: 1,
-    borderRadius: 20,
-    margin: 3,
+    borderRadius: metrics.scale(12),
+    margin: metrics.scale(3),
   },
   nameWrapper: {
-    left: '5%',
     top: '5%',
     position: 'absolute',
     zIndex: 1,
     height: '100%',
     justifyContent: 'space-between',
+    width: '100%',
   },
   id: {
+    left: '5%',
     top: '-10%',
     alignSelf: 'flex-start',
   },
   name: {
     textTransform: 'capitalize',
-    fontFamily: fonts.secondarySemiBold,
+    fontFamily: fonts.secondaryBold,
     fontSize: metrics.scaledFontSize(15),
+    paddingHorizontal: '5%',
+    letterSpacing: metrics.scale(0.5),
   },
   imagesWrapper: {
     alignItems: 'flex-end',
   },
   pokemonImage: {
     flex: 1,
-    right: 20,
-    bottom: -10,
+    right: metrics.scale(15),
+    bottom: metrics.scale(-5),
   },
   pokeballImage: {
-    width: 80,
-    height: 80,
+    width: metrics.scale(75),
+    height: metrics.scale(75),
     position: 'absolute',
     bottom: 0,
     right: 0,
@@ -47,15 +50,12 @@ export const styles = StyleSheet.create({
     height: height * 0.2,
   },
   favouritePokeballImage: {
-    width: 100,
-    height: 100,
+    width: metrics.scale(90),
+    height: metrics.scale(90),
   },
   favouritePokemonImageContainer: {
-    width: 170,
-    height: 170,
-  },
-  favouritePokeNameWrapper: {
-    right: 0,
+    width: metrics.scale(150),
+    height: metrics.scale(150),
   },
   favouritePokeName: {
     alignSelf: 'flex-end',

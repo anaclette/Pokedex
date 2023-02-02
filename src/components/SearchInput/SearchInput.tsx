@@ -7,6 +7,9 @@ import {styles} from './searchInput.style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../Button';
 import colors from '../../themes/colors';
+import {useTranslation} from 'react-i18next';
+import {TranslationKeys} from '../../locale/translations/keys';
+import metrics from '../../themes/metrics';
 
 interface Props {
   onDebounce: (userInput: string) => void;
@@ -16,30 +19,37 @@ export const SearchInput = ({onDebounce}: Props) => {
   const [inputValue, setInputValue] = useState('');
   const debouncedValue = useDebouncer(inputValue, 1500);
   const {top} = useSafeAreaInsets();
+  const {t} = useTranslation();
 
   useEffect(() => {
     onDebounce(debouncedValue);
   }, [debouncedValue, onDebounce]);
 
   return (
-    <View style={{top: top + 15, ...styles.container}}>
+    <View style={{top: top + metrics.scale(15), ...styles.container}}>
       <TextInput
-        autoCapitalize="none"
         autoCorrect={false}
         value={inputValue}
         onChangeText={setInputValue}
         style={styles.textInput}
-        placeholder="Search"
+        placeholder={t(TranslationKeys.SEARCH_PLACEHOLDER) as string}
         placeholderTextColor={colors.burgundy}
       />
       <Button
         underlayColor={colors.transparent}
         accessibilityRole="button"
-        accessibilityLabel={'Search button'}
+        accessibilityLabel={t(TranslationKeys.ACCESSIBILITY_SEARCH_LABEL)}
         activeOpacity={0.7}
         onPress={() => (inputValue !== '' ? setInputValue : '')}
         style={styles.searchIconButton}
-        children={<Icon name="magnify" size={30} color="brown" />}
+        children={
+          <Icon
+            accessibilityRole="image"
+            name="magnify"
+            size={metrics.scale(22)}
+            color={colors.burgundy}
+          />
+        }
       />
     </View>
   );

@@ -11,8 +11,8 @@ export const styles = StyleSheet.create({
     opacity: 0.5,
   },
   pokeballImg: {
-    width: 270,
-    height: 270,
+    width: metrics.scale(245),
+    height: metrics.scale(245),
     top: '-5%',
     right: '-15%',
     position: 'absolute',
@@ -38,11 +38,18 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     bottom: '22%',
     position: 'absolute',
+    lineHeight: metrics.scaleVertical(20),
+    color: colors.dark,
+  },
+  navigateToPokedexButton: {
+    borderRadius: metrics.scale(10),
   },
   linkText: {
+    fontFamily: fonts.mainText,
     textDecorationLine: 'underline',
     textTransform: 'capitalize',
-    fontSize: 17,
-    letterSpacing: 0.5,
+    fontSize: metrics.scaledFontSize(16),
+    padding: metrics.scale(2),
+    color: colors.dark,
   },
 });

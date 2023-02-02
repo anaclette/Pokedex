@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import fonts from '../../themes/fonts';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,11 +11,14 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: fonts.secondarySemiBold,
-    fontSize: 15,
+    fontSize: metrics.scaledFontSize(15),
   },
   listItem: {
-    fontFamily: fonts.item,
-    marginVertical: 3,
-    fontSize: 15,
+    fontFamily: fonts.secondaryText,
+    marginVertical: metrics.scaleVertical(2.5),
+    fontSize: metrics.scaledFontSize(15),
+  },
+  detailsWrapper: {
+    alignItems: 'center',
   },
 });

@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import fonts from '../../themes/fonts';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   container: {
@@ -17,22 +18,22 @@ export const styles = StyleSheet.create({
     left: '13%',
   },
   scrollView: {
-    borderTopEndRadius: 20,
-    borderTopLeftRadius: 20,
+    borderTopEndRadius: metrics.scale(20),
+    borderTopLeftRadius: metrics.scale(20),
   },
   name: {
-    marginBottom: 5,
+    paddingBottom: metrics.scaleVertical(4),
     textTransform: 'capitalize',
-    fontSize: 30,
+    fontSize: metrics.scaledFontSize(30),
     fontFamily: fonts.secondarySemiBold,
   },
   typeItemWrapper: {
-    borderRadius: 20,
+    borderRadius: metrics.scale(20),
   },
   typeItem: {
     textTransform: 'capitalize',
-    fontFamily: fonts.item,
-    padding: 10,
+    fontFamily: fonts.secondaryText,
+    padding: metrics.scale(7),
   },
   loader: {
     alignSelf: 'center',
@@ -42,6 +43,6 @@ export const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   marginLeft: {
-    marginLeft: 8,
+    marginLeft: metrics.scale(7),
   },
 });

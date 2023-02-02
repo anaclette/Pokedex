@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
+import fonts from '../../themes/fonts';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,7 +10,7 @@ export const styles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     zIndex: 2,
-    minHeight: 40,
+    minHeight: metrics.scale(38),
   },
   textInput: {
     color: colors.burgundy,
@@ -16,13 +18,15 @@ export const styles = StyleSheet.create({
     height: '100%',
     borderColor: colors.gray,
     borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 230,
+    borderRadius: metrics.scale(20),
     paddingLeft: '3%',
+    fontFamily: fonts.secondaryText,
+    fontSize: metrics.scaledFontSize(17),
   },
   searchIconButton: {
     position: 'absolute',
     alignSelf: 'flex-end',
     justifyContent: 'center',
-    right: '8%',
+    right: '4%',
   },
 });

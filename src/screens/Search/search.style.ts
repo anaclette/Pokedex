@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   loaderWrapper: {
@@ -14,8 +15,8 @@ export const styles = StyleSheet.create({
     opacity: 0.5,
   },
   pokeballImg: {
-    width: 270,
-    height: 270,
+    width: metrics.scale(265),
+    height: metrics.scale(265),
     top: '-5%',
     right: '-15%',
     position: 'absolute',

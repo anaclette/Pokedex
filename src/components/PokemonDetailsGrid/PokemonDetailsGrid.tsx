@@ -4,6 +4,8 @@ import {PokemonFullDetails} from '../../types/Pokemon';
 import {convertDcToCm, convertLbToKg} from '../../utils/helpers';
 import PokemonAbilities from '../PokemonAbilities';
 import {styles} from './pokemonDetailsGrid.style';
+import {useTranslation} from 'react-i18next';
+import {TranslationKeys} from '../../locale/translations/keys';
 
 interface Props {
   pokemon: PokemonFullDetails;
@@ -12,16 +14,22 @@ interface Props {
 }
 
 export const PokemonDetailsGrid = ({pokemon, darkColor, lightColor}: Props) => {
+  const {t} = useTranslation();
+
   return (
     <View style={styles.container}>
-      <View>
-        <Text style={{color: lightColor, ...styles.title}}>Peso</Text>
+      <View style={styles.detailsWrapper}>
+        <Text style={{color: lightColor, ...styles.title}}>
+          {t(TranslationKeys.WEIGHT)}
+        </Text>
         <Text style={{color: lightColor, ...styles.listItem}}>
           {convertLbToKg(pokemon.weight)} kg
         </Text>
       </View>
-      <View>
-        <Text style={{color: lightColor, ...styles.title}}>Altura</Text>
+      <View style={styles.detailsWrapper}>
+        <Text style={{color: lightColor, ...styles.title}}>
+          {t(TranslationKeys.HEIGHT)}
+        </Text>
         <Text style={{color: lightColor, ...styles.listItem}}>
           {convertDcToCm(pokemon.height)} cm
         </Text>

@@ -1,28 +1,29 @@
 import {StyleSheet} from 'react-native';
 import fonts from '../../themes/fonts';
+import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   container: {
-    marginVertical: 15,
+    marginVertical: metrics.scale(13),
   },
   title: {
     fontFamily: fonts.secondarySemiBold,
     left: '8%',
     marginBottom: '5%',
-    fontSize: 16,
+    fontSize: metrics.scaledFontSize(17),
   },
   fullMovesWrapper: {
-    paddingHorizontal: 15,
+    paddingHorizontal: metrics.scale(10),
   },
   fullMovesItem: {
     textTransform: 'capitalize',
     textAlign: 'center',
     fontFamily: fonts.secondaryText,
-    fontSize: 15,
+    fontSize: metrics.scaledFontSize(15),
   },
   moveItem: {
-    fontSize: 15,
-    margin: 6,
+    fontSize: metrics.scaledFontSize(15),
+    margin: metrics.scale(5),
     textTransform: 'capitalize',
     fontFamily: fonts.secondaryText,
   },
@@ -40,7 +41,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonText: {
-    fontSize: 15,
+    fontSize: metrics.scaledFontSize(15),
     textDecorationLine: 'underline',
     fontFamily: fonts.mainText,
   },
