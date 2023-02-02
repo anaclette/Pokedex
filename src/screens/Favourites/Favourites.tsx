@@ -16,6 +16,8 @@ import {styles} from './favourites.style';
 // import {useAppSelector} from '../../state/hooks';
 import {TranslationKeys} from '../../locale/translations/keys';
 import Pokeball from '../../components/Pokeball';
+import {isIos} from '../../common/constants';
+import metrics from '../../themes/metrics';
 
 interface Props
   extends StackScreenProps<RootStackParams, 'PokemonDetails', ''> {}
@@ -24,6 +26,7 @@ export const Favourites = ({navigation, route}: Props) => {
   const favourites = useFavourites();
   const {top} = useSafeAreaInsets();
   const {t} = useTranslation();
+  const {bottom} = useSafeAreaInsets();
   // const languageOptions = useAppSelector(state => state.languages.lang); // TODO: get language endpoint from data
 
   const showTitle = () => (
@@ -43,7 +46,12 @@ export const Favourites = ({navigation, route}: Props) => {
       <FlatList
         numColumns={2}
         data={favourites}
-        contentContainerStyle={{top: top * 3, ...styles.container}}
+        contentContainerStyle={{
+          top: isIos ? top * 3 : top + metrics.scaleVertical(130),
+          paddingBottom: isIos
+            ? bottom + metrics.scaleVertical(200)
+            : bottom + metrics.scaleVertical(250),
+        }}
         renderItem={({item}) => (
           <PokemonCard
             isFavourite

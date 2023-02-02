@@ -1,11 +1,9 @@
 import {StyleSheet} from 'react-native';
+import colors from '../../themes/colors';
 import fonts from '../../themes/fonts';
 import metrics from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
-  container: {
-    paddingBottom: '30%',
-  },
   backgroundImage: {
     width: '100%',
     height: '100%',
@@ -30,8 +28,9 @@ export const styles = StyleSheet.create({
     zIndex: 2,
     right: '10%',
     fontFamily: fonts.mainText,
-    fontSize: metrics.scaledFontSize(30),
+    fontSize: metrics.scaledFontSize(35),
     alignSelf: 'flex-end',
+    color: colors.translucidLightBackground,
   },
   subtitle: {
     fontFamily: fonts.mainLightText,
