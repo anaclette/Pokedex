@@ -12,6 +12,7 @@ export const PokemonPoster = ({viewTop, imgHeight, style}: Props) => {
   return (
     <View style={{...style, top: viewTop}}>
       <Image
+        accessibilityRole="image"
         source={require('../../assets/images/poster.jpeg')}
         style={{
           ...styles.poster,

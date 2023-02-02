@@ -50,6 +50,7 @@ export const Search = ({navigation, route}: NavProps) => {
   return (
     <>
       <Image
+        accessibilityRole="image"
         source={require('../../assets/images/pikachu.jpeg')}
         style={styles.backgroundImage}
       />
