@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   spritesContainer: {
-    marginBottom: '35%',
+    marginBottom: '20%',
   },
   spriteImg: {
     flex: 1,

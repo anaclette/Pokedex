@@ -10,6 +10,7 @@ import {isIos} from '../../common/constants';
 import colors from '../../themes/colors';
 import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
+import metrics from '../../themes/metrics';
 
 export const Account = () => {
   const [userInput, setUserInput] = useState('');
@@ -36,7 +37,10 @@ export const Account = () => {
   return (
     <ImageBackground
       source={require('../../assets/images/pokeball_wallpaper.jpeg')}
-      style={{...styles.container, paddingTop: isIos ? top * 2 : top + 70}}>
+      style={{
+        ...styles.container,
+        paddingTop: isIos ? top * 2 : top + metrics.scale(68),
+      }}>
       {!username && (
         <View style={styles.loginWrapper}>
           <View style={styles.textInputWrapper}>
