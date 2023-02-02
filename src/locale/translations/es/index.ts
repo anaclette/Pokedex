@@ -8,7 +8,7 @@ const translation: TranslationResource = {
   SEE_ALL: 'Ver todos',
   BASE_STATS: 'Estadísticas base',
   USERNAME_INPUT_LABEL: 'input de usuario',
-  USERNAME_PLACEHOLDER: 'username',
+  USERNAME_PLACEHOLDER: 'usuario',
   ACCESSIBILITY_HINT_USERNAME_REQS:
     'El nombre de usuario no puede estar vacío y debe contener un mínimo de 5 caracteres.',
   USERNAME_MIN_LENGTH:
@@ -19,8 +19,8 @@ const translation: TranslationResource = {
   USERNAME_MATCH_STORED:
     'Verifica si el usuario ingresado es igual al anterior.',
   LOG_OUT: 'Salir',
-  NOT_USERNAME: 'No sos',
-  GREET_USERNAME: 'Hola, ',
+  NOT_USERNAME: 'No sos {{username}}?',
+  GREET_USERNAME: 'Hola {{username}}',
   SIGN_IN_DIFF_ACCOUNT: 'Entrar con otro usuario.',
   MY_FAVOURITES: 'Mis favoritos',
   NO_FAVOURITES_SUBTITLE:
@@ -33,7 +33,7 @@ const translation: TranslationResource = {
   TAB_SEARCH: 'Buscar',
   TAB_ACCOUNT: 'Usuario',
   ADD_FAVOURITE_LOGIN_WARNING:
-    'Te tenés que loguear para agregar a {{PokemonName}} a tus favoritos',
+    'Logueate para agregar a {{PokemonName}} a tus favoritos',
   STILL_LOADING_WARNING: 'Todavía no cargó...\nEn cualquier momento!',
 };
 
