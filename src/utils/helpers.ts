@@ -15,17 +15,6 @@ export const convertDcToCm = (dc: number) => {
   return pokemonHeight;
 };
 
-// export const hexToRgb = (hex: string) => {
-//   const getColorValue = (fromN: number, toN: number) =>
-//     parseInt(hex.slice(fromN, toN), 16);
-
-//   const r = getColorValue(1, 3);
-//   const g = getColorValue(3, 5);
-//   const b = getColorValue(5, 7);
-
-//   return {r, g, b};
-// };
-
 export const getMoves = (pokemonMoves: any[]) => {
   const shownMoves: any[] = [];
 
@@ -60,13 +49,6 @@ export const newShade = (hexColor: string | undefined, magnitude: number) => {
 export const validateUserInput = (input: string) => {
   const acceptedValue = /^[a-z0-9]+$/i;
   return acceptedValue.test(input) === false;
-};
-
-export const handleUserMessage = (
-  username: string,
-  isDiffAccount?: boolean,
-) => {
-  return isDiffAccount ? `Not ${username}?` : `Hello, ${username}`;
 };
 
 export const checkIfEmpty = (
