@@ -28,35 +28,44 @@ export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
         }}>
         {t(TranslationKeys.BASE_STATS)}
       </Text>
-      {stats.map((statGroup, index) => (
-        <View style={styles.rowContainer} key={statGroup + index.toString()}>
-          <View
-            style={styles.nameWrapper}
-            key={statGroup.stat.name + index.toString()}>
-            <Text
-              style={{
-                ...styles.statName,
-                color: color,
-              }}
-              key={statGroup.stat.name}>
-              {statGroup.stat.name}
-            </Text>
-          </View>
+      {stats.map((statGroup, index) => {
+        const topFillWidth = 100;
+        const statWidth =
+          statGroup.base_stat > topFillWidth
+            ? topFillWidth
+            : statGroup.base_stat;
+        const statColor = String(
+          colors.baseStats[baseStatsColors[index] as keyof Object],
+        );
 
-          <View style={styles.bar}>
+        return (
+          <View style={styles.rowContainer} key={statGroup + index.toString()}>
             <View
-              style={{
-                width: statGroup.base_stat + '%',
-                backgroundColor: String(
-                  colors.baseStats[baseStatsColors[index] as keyof Object],
-                ),
-                ...styles.statValueWrapper,
-              }}>
-              <Text style={styles.statItem}>{statGroup.base_stat}</Text>
+              style={styles.nameWrapper}
+              key={statGroup.stat.name + index.toString()}>
+              <Text
+                style={{
+                  ...styles.statName,
+                  color: color,
+                }}
+                key={statGroup.stat.name}>
+                {statGroup.stat.name}
+              </Text>
+            </View>
+
+            <View style={styles.bar}>
+              <View
+                style={{
+                  width: statWidth + '%',
+                  backgroundColor: statColor,
+                  ...styles.statValueWrapper,
+                }}>
+                <Text style={styles.statItem}>{statGroup.base_stat}</Text>
+              </View>
             </View>
           </View>
-        </View>
-      ))}
+        );
+      })}
     </View>
   );
 };
