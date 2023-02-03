@@ -35,7 +35,6 @@ export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
             key={statGroup.stat.name + index.toString()}>
             <Text
               style={{
-                ...styles.listItem,
                 ...styles.statName,
                 color: color,
               }}
@@ -48,10 +47,12 @@ export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
             <View
               style={{
                 width: statGroup.base_stat + '%',
-                backgroundColor: colors.baseStats[baseStatsColors[index]],
+                backgroundColor: String(
+                  colors.baseStats[baseStatsColors[index] as keyof Object],
+                ),
                 ...styles.statValueWrapper,
               }}>
-              <Text style={styles.listItem}>{statGroup.base_stat}</Text>
+              <Text style={styles.statItem}>{statGroup.base_stat}</Text>
             </View>
           </View>
         </View>

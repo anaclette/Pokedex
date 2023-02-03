@@ -13,8 +13,9 @@ export const styles = StyleSheet.create({
     marginBottom: '5%',
     fontSize: metrics.scaledFontSize(17),
   },
-  listItem: {
+  statItem: {
     fontFamily: fonts.secondaryBold,
+    paddingLeft: metrics.scale(6),
   },
   rowContainer: {
     marginBottom: metrics.scaleVertical(4),
@@ -39,7 +40,6 @@ export const styles = StyleSheet.create({
     borderRadius: metrics.scale(10),
   },
   statValueWrapper: {
-    borderTopRightRadius: metrics.scale(4),
-    borderBottomRightRadius: metrics.scale(4),
+    borderRadius: metrics.scale(10),
   },
 });
