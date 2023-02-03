@@ -41,10 +41,9 @@ export const Account = () => {
         ...styles.container,
         paddingTop: isIos ? top * 2 : top + metrics.scale(68),
       }}>
-      {!username && (
+      {!username ? (
         <View style={styles.loginWrapper}>
           <View style={styles.textInputWrapper}>
-            {/* TODO: fix image going up when keyboard pops up */}
             <TextInput
               maxLength={20}
               autoFocus={true}
@@ -54,7 +53,7 @@ export const Account = () => {
               autoCorrect={false}
               keyboardType="default"
               style={styles.textInput}
-              placeholderTextColor={colors.indigoFocusColor}
+              placeholderTextColor={colors.gray}
               placeholder={t(TranslationKeys.USERNAME_PLACEHOLDER) as string}
               onChangeText={input => {
                 checkIfEmpty(input, setEmptyField);
@@ -98,8 +97,7 @@ export const Account = () => {
             }
           />
         </View>
-      )}
-      {username && (
+      ) : (
         <View style={styles.diffAccountContainer}>
           <View style={styles.storedUserNameContainer}>
             <Text
