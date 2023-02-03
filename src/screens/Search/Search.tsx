@@ -61,7 +61,6 @@ export const Search = ({navigation, route}: NavProps) => {
       <SearchInput onDebounce={setSearchValue} />
 
       {isFetching ? (
-        // TODO: fix loader showing on render instead of on search
         <Loader />
       ) : (
         <FlatList

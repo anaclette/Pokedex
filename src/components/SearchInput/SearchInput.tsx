@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {TextInput, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useDebouncer} from '../../hooks/useDebouncer';
-import {useEffect} from 'react';
 import {styles} from './searchInput.style';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Button from '../Button';
@@ -25,6 +24,10 @@ export const SearchInput = ({onDebounce}: Props) => {
     onDebounce(debouncedValue);
   }, [debouncedValue, onDebounce]);
 
+  const onPress = useCallback(() => {
+    inputValue !== '' ? setInputValue : '';
+  }, [inputValue]);
+
   return (
     <View style={{top: top + metrics.scale(15), ...styles.container}}>
       <TextInput
@@ -40,7 +43,7 @@ export const SearchInput = ({onDebounce}: Props) => {
         accessibilityRole="button"
         accessibilityLabel={t(TranslationKeys.ACCESSIBILITY_SEARCH_LABEL)}
         activeOpacity={0.7}
-        onPress={() => (inputValue !== '' ? setInputValue : '')}
+        onPress={onPress}
         style={styles.searchIconButton}
         children={
           <Icon

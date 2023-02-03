@@ -4,7 +4,7 @@ import {baseUrl, pictureBaseUrl} from '../common/constants';
 import {Pokemon, PokemonDetails, NewListPokemon} from '../types/Pokemon';
 
 export const usePokemonSearch = () => {
-  const [isFetching, setIsFetching] = useState(true);
+  const [isFetching, setIsFetching] = useState(false);
   const [pokemonList, setPokemonList] = useState<NewListPokemon[]>([]);
   const apiUrl = `${baseUrl}/pokemon?limit=1200`;
 
