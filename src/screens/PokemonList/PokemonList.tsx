@@ -20,15 +20,15 @@ export const PokemonList = ({navigation, route}: Props) => {
   const [backgroundColor, setBackgroundColor] = useState(
     colors.translucidLightBackground,
   );
-  const mode = Appearance.getColorScheme();
+  const darkMode = Appearance.getColorScheme() === 'dark';
 
   useEffect(() => {
-    if (mode === 'dark') {
+    if (darkMode) {
       setBackgroundColor(colors.black);
     } else {
       setBackgroundColor(colors.lightOcean);
     }
-  }, [mode]);
+  }, [darkMode]);
 
   const renderItem = ({item}: {item: NewListPokemon}) => {
     return (
@@ -45,7 +45,7 @@ export const PokemonList = ({navigation, route}: Props) => {
   const showLoader = (isFooter?: boolean) => (
     <ActivityIndicator
       size={20}
-      color={colors.dark}
+      color={!darkMode ? colors.black : colors.white}
       style={isFooter ? styles.footerLoader : styles.loader}
     />
   );
