@@ -5,7 +5,7 @@ import en from './translations/en';
 import es from './translations/es';
 
 export const Constants = {
-  defaultLanguage: 'es',
+  defaultLanguage: 'en',
 };
 
 export const supportedLangs = {
