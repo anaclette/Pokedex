@@ -21,7 +21,4 @@ export default {
     specialDefense: '#cce2a3',
     Speed: '#c57b57',
   },
-  // '#ff8552'
-  // '#566246'
-  // '#f19a3e'
 };

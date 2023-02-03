@@ -16,7 +16,7 @@ interface Props {
 export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
   const {t} = useTranslation();
   const stats = pokemon.stats;
-  // const [statColor, setStatColor] = useState(colors.gainsboroLightBackground);
+  const baseStatsColors = Object.keys(colors.baseStats);
 
   return (
     <View style={styles.container}>
@@ -48,8 +48,7 @@ export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
             <View
               style={{
                 width: statGroup.base_stat + '%',
-                // backgroundColor: statColor,
-                backgroundColor: colors.baseStats.hp,
+                backgroundColor: colors.baseStats[baseStatsColors[index]],
                 ...styles.statValueWrapper,
               }}>
               <Text style={styles.listItem}>{statGroup.base_stat}</Text>
