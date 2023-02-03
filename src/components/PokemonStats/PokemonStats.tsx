@@ -1,10 +1,11 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Animated, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import globalStyles from '../../themes/globalStyles';
 import {PokemonFullDetails} from '../../types/Pokemon';
 import {styles} from './pokemonStats.style';
 import {TranslationKeys} from '../../locale/translations/keys';
+import colors from '../../themes/colors';
 
 interface Props {
   pokemon: PokemonFullDetails;
@@ -15,6 +16,7 @@ interface Props {
 export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
   const {t} = useTranslation();
   const stats = pokemon.stats;
+  // const [statColor, setStatColor] = useState(colors.gainsboroLightBackground);
 
   return (
     <View style={styles.container}>
@@ -42,15 +44,17 @@ export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
             </Text>
           </View>
 
-          <Animated.View style={styles.bar}>
-            <Text
-              style={[
-                // {width: progressStatus + '%', backgroundColor: 'red'},
-                styles.listItem,
-              ]}>
-              {statGroup.base_stat}
-            </Text>
-          </Animated.View>
+          <View style={styles.bar}>
+            <View
+              style={{
+                width: statGroup.base_stat + '%',
+                // backgroundColor: statColor,
+                backgroundColor: colors.baseStats.hp,
+                ...styles.statValueWrapper,
+              }}>
+              <Text style={styles.listItem}>{statGroup.base_stat}</Text>
+            </View>
+          </View>
         </View>
       ))}
     </View>

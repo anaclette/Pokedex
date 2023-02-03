@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     fontSize: metrics.scaledFontSize(17),
   },
   listItem: {
-    fontFamily: fonts.item,
+    fontFamily: fonts.secondaryBold,
   },
   rowContainer: {
     marginBottom: metrics.scaleVertical(4),
@@ -35,8 +35,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: colors.gainsboroLightBackground,
     borderRadius: metrics.scale(10),
+  },
+  statValueWrapper: {
+    borderTopRightRadius: metrics.scale(4),
+    borderBottomRightRadius: metrics.scale(4),
   },
 });

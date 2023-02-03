@@ -13,4 +13,15 @@ export default {
   lightText: '#fff',
   black: '#000500',
   lightOcean: '#bce7fd',
+  baseStats: {
+    hp: '#654f6f',
+    attack: '#5c5d8d',
+    defense: '#99a1a6',
+    specialAttack: '#a8c69f',
+    specialDefense: '#cce2a3',
+    Speed: '#c57b57',
+  },
+  // '#ff8552'
+  // '#566246'
+  // '#f19a3e'
 };
