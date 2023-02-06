@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.secondarySemiBold,
     left: '8%',
     marginBottom: '5%',
-    fontSize: metrics.scaledFontSize(17),
   },
   fullMovesWrapper: {
     paddingHorizontal: metrics.scale(10),
@@ -19,10 +18,8 @@ export const styles = StyleSheet.create({
     textTransform: 'capitalize',
     textAlign: 'center',
     fontFamily: fonts.secondaryText,
-    fontSize: metrics.scaledFontSize(15),
   },
   moveItem: {
-    fontSize: metrics.scaledFontSize(15),
     margin: metrics.scale(5),
     textTransform: 'capitalize',
     fontFamily: fonts.secondaryText,
@@ -41,7 +38,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonText: {
-    fontSize: metrics.scaledFontSize(15),
     textDecorationLine: 'underline',
     fontFamily: fonts.mainText,
   },

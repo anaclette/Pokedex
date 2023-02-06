@@ -11,26 +11,44 @@ interface Props {
   pokemon: PokemonFullDetails;
   lightColor: string | undefined;
   darkColor: string | undefined;
+  titleSize: {};
+  itemTextSize: {};
 }
 
-export const PokemonDetailsGrid = ({pokemon, darkColor, lightColor}: Props) => {
+export const PokemonDetailsGrid = ({
+  pokemon,
+  darkColor,
+  lightColor,
+  titleSize,
+  itemTextSize,
+}: Props) => {
   const {t} = useTranslation();
 
   return (
     <View style={styles.container}>
       <View style={styles.detailsWrapper}>
-        <Text style={{color: lightColor, ...styles.title}}>
+        <Text style={{color: lightColor, ...styles.title, ...titleSize}}>
           {t(TranslationKeys.WEIGHT)}
         </Text>
-        <Text style={{color: lightColor, ...styles.listItem}}>
+        <Text
+          style={{
+            color: lightColor,
+            ...styles.listItem,
+            ...itemTextSize,
+          }}>
           {convertLbToKg(pokemon.weight)} kg
         </Text>
       </View>
       <View style={styles.detailsWrapper}>
-        <Text style={{color: lightColor, ...styles.title}}>
+        <Text style={{color: lightColor, ...styles.title, ...titleSize}}>
           {t(TranslationKeys.HEIGHT)}
         </Text>
-        <Text style={{color: lightColor, ...styles.listItem}}>
+        <Text
+          style={{
+            color: lightColor,
+            ...styles.listItem,
+            ...itemTextSize,
+          }}>
           {convertDcToCm(pokemon.height)} cm
         </Text>
       </View>
@@ -38,6 +56,8 @@ export const PokemonDetailsGrid = ({pokemon, darkColor, lightColor}: Props) => {
         pokemon={pokemon}
         backgroundColor={lightColor}
         textColor={darkColor}
+        titleSize={titleSize}
+        itemTextSize={itemTextSize}
       />
     </View>
   );

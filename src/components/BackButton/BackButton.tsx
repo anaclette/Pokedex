@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleProp, TouchableHighlight} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {isIos} from '../../common/constants';
 import metrics from '../../themes/metrics';
 import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
@@ -32,7 +31,7 @@ export const BackButton = ({
       <Icon
         accessibilityRole="image"
         style={iconStyle}
-        size={isIos ? metrics.scale(20) : metrics.scale(25)}
+        size={metrics.scale(30)}
         name="arrow-left"
         color={iconColor}
       />

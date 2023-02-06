@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
   name: {
     paddingBottom: metrics.scaleVertical(4),
     textTransform: 'capitalize',
-    fontSize: metrics.scaledFontSize(30),
+
     fontFamily: fonts.secondarySemiBold,
   },
   typeItemWrapper: {

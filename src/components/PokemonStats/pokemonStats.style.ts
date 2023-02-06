@@ -11,7 +11,6 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.secondarySemiBold,
     left: '10%',
     marginBottom: '5%',
-    fontSize: metrics.scaledFontSize(17),
   },
   statItem: {
     fontFamily: fonts.secondaryBold,
@@ -30,7 +29,6 @@ export const styles = StyleSheet.create({
   statName: {
     fontFamily: fonts.secondaryText,
     textTransform: 'capitalize',
-    fontSize: metrics.scaledFontSize(15),
   },
   bar: {
     flex: 1,

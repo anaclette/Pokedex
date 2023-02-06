@@ -11,9 +11,17 @@ interface Props {
   pokemon: PokemonFullDetails;
   color: string;
   titleColor: string;
+  titleSize: {};
+  itemTextSize: {};
 }
 
-export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
+export const PokemonStats = ({
+  pokemon,
+  color,
+  titleColor,
+  titleSize,
+  itemTextSize,
+}: Props) => {
   const {t} = useTranslation();
   const stats = pokemon.stats;
   const baseStatsColors = Object.keys(colors.baseStats);
@@ -25,6 +33,7 @@ export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
           ...globalStyles.textShadow,
           ...styles.title,
           color: titleColor,
+          ...titleSize,
         }}>
         {t(TranslationKeys.BASE_STATS)}
       </Text>
@@ -47,6 +56,7 @@ export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
                 style={{
                   ...styles.statName,
                   color: color,
+                  ...itemTextSize,
                 }}
                 key={statGroup.stat.name}>
                 {statGroup.stat.name}
@@ -60,7 +70,9 @@ export const PokemonStats = ({pokemon, color, titleColor}: Props) => {
                   backgroundColor: statColor,
                   ...styles.statValueWrapper,
                 }}>
-                <Text style={styles.statItem}>{statGroup.base_stat}</Text>
+                <Text style={{...itemTextSize, ...styles.statItem}}>
+                  {statGroup.base_stat}
+                </Text>
               </View>
             </View>
           </View>

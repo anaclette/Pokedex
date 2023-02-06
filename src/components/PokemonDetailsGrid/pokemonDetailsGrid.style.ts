@@ -11,12 +11,10 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: fonts.secondarySemiBold,
-    fontSize: metrics.scaledFontSize(15),
   },
   listItem: {
     fontFamily: fonts.secondaryText,
     marginVertical: metrics.scaleVertical(2.5),
-    fontSize: metrics.scaledFontSize(15),
   },
   detailsWrapper: {
     alignItems: 'center',

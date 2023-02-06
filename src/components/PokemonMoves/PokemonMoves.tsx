@@ -13,6 +13,8 @@ interface Props {
   fullMoves: boolean;
   textColor: string | undefined;
   titleColor: string;
+  titleSize: {};
+  itemTextSize: {};
 }
 
 export const PokemonMoves = ({
@@ -21,6 +23,8 @@ export const PokemonMoves = ({
   fullMoves,
   textColor,
   titleColor,
+  titleSize,
+  itemTextSize,
 }: Props) => {
   const moves = getMoves(pokemon.moves);
   const maxShown = 10;
@@ -32,6 +36,7 @@ export const PokemonMoves = ({
           ...globalStyles.textShadow,
           ...styles.title,
           color: titleColor,
+          ...titleSize,
         }}>{`${t(TranslationKeys.MOVES)} (${moves.length})`}</Text>
       {fullMoves ? (
         <ScrollView
@@ -45,6 +50,7 @@ export const PokemonMoves = ({
             style={{
               color: titleColor,
               ...styles.fullMovesItem,
+              ...itemTextSize,
             }}>
             {moves.join('  ·  ')}
           </Text>
@@ -59,6 +65,7 @@ export const PokemonMoves = ({
                 ...styles.buttonText,
                 ...styles.seeLessContentText,
                 color: titleColor,
+                ...itemTextSize,
               }}>
               {t(TranslationKeys.SEE_LESS)}
             </Text>
@@ -75,6 +82,7 @@ export const PokemonMoves = ({
               style={{
                 color: titleColor,
                 ...styles.moveItem,
+                ...itemTextSize,
               }}>
               {`${index !== 0 && ' ⊛ '} ${move}`}
             </Text>
@@ -85,6 +93,7 @@ export const PokemonMoves = ({
                 style={{
                   color: titleColor,
                   ...styles.moveItem,
+                  ...itemTextSize,
                 }}>
                 ...
               </Text>
@@ -99,6 +108,7 @@ export const PokemonMoves = ({
                     ...styles.buttonText,
                     ...styles.seeFullContentText,
                     color: titleColor,
+                    ...itemTextSize,
                   }}>
                   {t(TranslationKeys.SEE_ALL)}
                 </Text>

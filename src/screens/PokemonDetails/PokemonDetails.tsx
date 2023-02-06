@@ -38,6 +38,31 @@ export const PokemonDetails = ({route, navigation}: Props) => {
   const username = useAppSelector(state => state.auth.username);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const {t} = useTranslation();
+  const [textSize, setTextSize] = useState({
+    title: {
+      fontSize: metrics.scaledFontSize(20),
+    },
+    item: {
+      fontSize: metrics.scaledFontSize(17),
+    },
+  });
+
+  useEffect(() => {
+    setTypeColor(newShade(imgColor, 50));
+    username ? setIsLoggedIn(true) : setIsLoggedIn(false);
+    setTextSize({
+      title: {
+        fontSize: isIos
+          ? metrics.scaledFontSize(15)
+          : metrics.scaledFontSize(30),
+      },
+      item: {
+        fontSize: isIos
+          ? metrics.scaledFontSize(13)
+          : metrics.scaledFontSize(24),
+      },
+    });
+  }, [imgColor, username]);
 
   // console.log('full pokemon details: ', fullPokemon.name); // TODO: check why this executing thrice, 1st undefined and then twice
 
@@ -53,17 +78,20 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           {...styles.typeItemWrapper, backgroundColor: typeColor},
           index !== 0 && {...styles.marginLeft},
         ]}>
-        <Text style={{color: textColor, ...styles.typeItem}} key={index}>
+        <Text
+          style={{
+            color: textColor,
+            ...styles.typeItem,
+            fontSize: isIos
+              ? metrics.scaledFontSize(13)
+              : metrics.scaledFontSize(25),
+          }}
+          key={index}>
           {typeGroup.type.name}
         </Text>
       </View>
     ));
   };
-
-  useEffect(() => {
-    setTypeColor(newShade(imgColor, 50));
-    username ? setIsLoggedIn(true) : setIsLoggedIn(false);
-  }, [imgColor, username]);
 
   return (
     <View
@@ -75,9 +103,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
       <View
         style={{
           ...styles.topButtonsWrapper,
-          marginTop: isIos
-            ? top + metrics.scaleVertical(10)
-            : top + metrics.scaleVertical(20),
+          marginTop: top + metrics.scaleVertical(20),
         }}>
         <BackButton
           onPress={() => navigation.goBack()}
@@ -110,7 +136,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
               accessibilityRole="image"
               style={globalStyles.textShadow}
               name={isFavourite ? 'heart' : 'heart-outline'}
-              size={25}
+              size={metrics.scale(30)}
               color={isFavourite ? colors.favouriteColor : textColor}
             />
           }
@@ -127,13 +153,22 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             ...styles.name,
             color: textColor,
             ...globalStyles.textShadow,
+            fontSize: isIos
+              ? metrics.scaledFontSize(30)
+              : metrics.scaledFontSize(50),
           }}>
           {pokemonDetails.name}
         </Text>
         <View style={styles.rowContainer}>{getTypes()}</View>
       </View>
       <Pokeball
-        style={{width: width / 1.8, height: height / 4, ...styles.pokeballImg}}
+        style={{
+          width: metrics.scale(150),
+          height: isIos
+            ? metrics.scaleVertical(150)
+            : metrics.scaleVertical(180),
+          ...styles.pokeballImg,
+        }}
         source={require('../../assets/images/light_pokeball.png')}
       />
 
@@ -157,6 +192,8 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             pokemon={fullPokemon}
             lightColor={typeColor}
             darkColor={textColor}
+            titleSize={textSize.title}
+            itemTextSize={textSize.item}
           />
 
           <PokemonMoves
@@ -165,12 +202,16 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             fullMoves={fullMoves}
             textColor={textColor}
             titleColor={typeColor}
+            titleSize={textSize.title}
+            itemTextSize={textSize.item}
           />
 
           <PokemonStats
             color={typeColor}
             pokemon={fullPokemon}
             titleColor={typeColor}
+            titleSize={textSize.title}
+            itemTextSize={textSize.item}
           />
           <PokemonSprites pokemon={fullPokemon} />
         </ScrollView>
