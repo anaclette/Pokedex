@@ -26,7 +26,6 @@ export const styles = StyleSheet.create({
   name: {
     textTransform: 'capitalize',
     fontFamily: fonts.secondaryBold,
-    fontSize: metrics.scaledFontSize(15),
     paddingHorizontal: '5%',
     letterSpacing: metrics.scale(0.5),
   },
@@ -47,15 +46,15 @@ export const styles = StyleSheet.create({
     opacity: 0.5,
   },
   favouritePokeCard: {
-    height: height * 0.2,
+    height: height * 0.25,
+    justifyContent: 'center',
+  },
+  favouriteCardImageContainer: {
+    height: '100%',
   },
   favouritePokeballImage: {
-    width: metrics.scale(90),
-    height: metrics.scale(90),
-  },
-  favouritePokemonImageContainer: {
-    width: metrics.scale(150),
-    height: metrics.scale(150),
+    flex: 1,
+    bottom: metrics.scaleVertical(10),
   },
   favouritePokeName: {
     alignSelf: 'flex-end',

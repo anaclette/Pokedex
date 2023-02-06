@@ -22,13 +22,18 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
   },
-  title: {
+  titleWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     position: 'absolute',
     top: '10%',
     zIndex: 2,
-    right: '10%',
+    width: '100%',
+    paddingHorizontal: '5%',
+  },
+  title: {
     fontFamily: fonts.mainText,
-    fontSize: metrics.scaledFontSize(35),
     alignSelf: 'flex-end',
     color: colors.translucidLightBackground,
   },
