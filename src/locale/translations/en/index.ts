@@ -34,6 +34,7 @@ const translation: TranslationResource = {
   STILL_LOADING_WARNING: 'Not done loading yet...\nAny second now!',
   GO_BACK_BUTTON_LABEL: 'Go back button',
   NAVIGATE_TO_POKEDEX_BUTTON_LABEL: 'Go to Pokedex',
+  REMOVE_ALL_FAVOURITES: 'Delete all favourites',
 };
 
 export default translation;

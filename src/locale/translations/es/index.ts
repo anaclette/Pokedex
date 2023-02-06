@@ -38,6 +38,7 @@ const translation: TranslationResource = {
   STILL_LOADING_WARNING: 'Todavía no cargó...\nEn cualquier momento!',
   GO_BACK_BUTTON_LABEL: 'Botón para volver atrás',
   NAVIGATE_TO_POKEDEX_BUTTON_LABEL: 'Ir a la Pokedex',
+  REMOVE_ALL_FAVOURITES: 'Eliminar todos los favoritos',
 };
 
 export default translation;
