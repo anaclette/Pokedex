@@ -2,7 +2,11 @@ import React, {useState} from 'react';
 import {View, Text, TextInput, ImageBackground} from 'react-native';
 import {logIn, logOut} from '../../state/reducers/authReducer';
 import {useAppDispatch, useAppSelector} from '../../state/hooks';
-import {checkIfEmpty, validateUserInput} from '../../utils/helpers';
+import {
+  checkIfEmpty,
+  validateUserInput,
+  capitalizeFirstLetter,
+} from '../../utils/helpers';
 import {styles} from './account.style';
 import Button from '../../components/Button';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
@@ -39,13 +43,13 @@ export const Account = () => {
       source={require('../../assets/images/pokeball_wallpaper.jpeg')}
       style={{
         ...styles.container,
-        paddingTop: isIos ? top * 2 : top + metrics.scale(68),
+        paddingTop: isIos ? top * 2 : top + metrics.scale(30),
       }}>
       {!username ? (
         <View style={styles.loginWrapper}>
           <View style={styles.textInputWrapper}>
             <TextInput
-              maxLength={20}
+              maxLength={15}
               autoFocus={true}
               accessibilityLabel={
                 t(TranslationKeys.USERNAME_INPUT_LABEL) as string
@@ -58,6 +62,7 @@ export const Account = () => {
               onChangeText={input => {
                 checkIfEmpty(input, setEmptyField);
                 setUserInput(input);
+                capitalizeFirstLetter(input);
               }}
             />
           </View>

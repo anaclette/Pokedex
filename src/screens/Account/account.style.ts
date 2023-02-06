@@ -54,6 +54,7 @@ export const styles = StyleSheet.create({
   },
   diffUserNameContainer: {
     flexGrow: 1,
+    marginTop: '10%',
   },
   diffUserNameMessage: {
     fontSize: metrics.scaledFontSize(20),
@@ -63,7 +64,7 @@ export const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.white,
     alignSelf: 'center',
-    marginTop: metrics.scale(9),
+    marginTop: metrics.scale(10),
   },
   buttonText: {
     color: colors.white,
