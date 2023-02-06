@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     left: '13%',
   },
   scrollView: {
-    borderTopEndRadius: metrics.scale(20),
+    borderTopRightRadius: metrics.scale(20),
     borderTopLeftRadius: metrics.scale(20),
   },
   name: {
