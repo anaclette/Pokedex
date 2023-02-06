@@ -32,23 +32,26 @@ export const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     color: colors.translucidLightBackground,
   },
-  subtitle: {
-    fontFamily: fonts.mainLightText,
-    fontSize: metrics.scaledFontSize(15),
+  subtitleWrapper: {
+    flexDirection: 'row',
     alignSelf: 'center',
     bottom: '22%',
     position: 'absolute',
-    lineHeight: metrics.scaleVertical(20),
+    alignItems: 'center',
+  },
+  subtitle: {
+    fontFamily: fonts.mainLightText,
     color: colors.dark,
   },
   navigateToPokedexButton: {
     borderRadius: metrics.scale(10),
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   linkText: {
     fontFamily: fonts.mainText,
     textDecorationLine: 'underline',
     textTransform: 'capitalize',
-    fontSize: metrics.scaledFontSize(16),
     padding: metrics.scale(2),
     color: colors.dark,
   },

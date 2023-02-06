@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, FlatList, Image, ImageBackground} from 'react-native';
+import {Text, FlatList, Image, ImageBackground, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useFavourites} from '../../utils/hooks';
 import PokemonCard from '../../components/PokemonCard';
@@ -66,8 +66,16 @@ export const Favourites = ({navigation, route}: Props) => {
       style={{...styles.noFavsContainer, paddingTop: top}}>
       {showTitle()}
 
-      <Text style={styles.subtitle}>
-        {t(TranslationKeys.NO_FAVOURITES_SUBTITLE)}
+      <View style={styles.subtitleWrapper}>
+        <Text
+          style={{
+            fontSize: isIos
+              ? metrics.scaledFontSize(15)
+              : metrics.scaledFontSize(25),
+            ...styles.subtitle,
+          }}>
+          {t(TranslationKeys.NO_FAVOURITES_SUBTITLE)}
+        </Text>
         <Button
           style={styles.navigateToPokedexButton}
           accessibilityRole="link"
@@ -78,12 +86,18 @@ export const Favourites = ({navigation, route}: Props) => {
           underlayColor={colors.white}
           onPress={() => navigation.navigate('Pokedex')}
           children={
-            <Text style={styles.linkText}>
+            <Text
+              style={{
+                fontSize: isIos
+                  ? metrics.scaledFontSize(15)
+                  : metrics.scaledFontSize(25),
+                ...styles.linkText,
+              }}>
               {t(TranslationKeys.NO_FAVOURITES_LINK)}
             </Text>
           }
         />
-      </Text>
+      </View>
     </ImageBackground>
   );
 };
