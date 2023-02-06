@@ -20,6 +20,7 @@ import {
 import {BottomTabDescriptorMap} from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import PokemonList from '../../screens/PokemonList';
 import metrics from '../../themes/metrics';
+import {isIos} from '../../common/constants';
 interface TabsProps {
   state: TabNavigationState<ParamListBase>;
   descriptors: BottomTabDescriptorMap;
@@ -109,6 +110,11 @@ const MyTabBar = ({state, navigation, descriptors}: TabsProps) => {
                     ? {...styles.focusedColor}
                     : {...styles.inactiveColor},
                   styles.label,
+                  {
+                    fontSize: isIos
+                      ? metrics.scaledFontSize(15)
+                      : metrics.scaledFontSize(22),
+                  },
                 ]}>
                 {label}
               </Text>
