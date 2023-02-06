@@ -9,6 +9,7 @@ import colors from '../../themes/colors';
 import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
 import metrics from '../../themes/metrics';
+import {isIos} from '../../common/constants';
 
 interface Props {
   onDebounce: (userInput: string) => void;
@@ -34,7 +35,12 @@ export const SearchInput = ({onDebounce}: Props) => {
         autoCorrect={false}
         value={inputValue}
         onChangeText={setInputValue}
-        style={styles.textInput}
+        style={{
+          ...styles.textInput,
+          fontSize: !isIos
+            ? metrics.scaledFontSize(30)
+            : metrics.scaledFontSize(13),
+        }}
         placeholder={t(TranslationKeys.SEARCH_PLACEHOLDER) as string}
         placeholderTextColor={colors.burgundy}
       />

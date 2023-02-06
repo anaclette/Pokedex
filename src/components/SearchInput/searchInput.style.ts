@@ -21,7 +21,6 @@ export const styles = StyleSheet.create({
     borderRadius: metrics.scale(20),
     paddingLeft: '3%',
     fontFamily: fonts.secondaryText,
-    fontSize: metrics.scaledFontSize(17),
   },
   searchIconButton: {
     position: 'absolute',

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, FlatList, Image, ImageBackground, View} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useFavourites} from '../../utils/hooks';

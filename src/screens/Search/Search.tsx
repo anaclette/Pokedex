@@ -8,7 +8,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {NewListPokemon} from '../../types/Pokemon';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
-import {height, isIos} from '../../common/constants';
+import {height} from '../../common/constants';
 import Pokeball from '../../components/Pokeball';
 import colors from '../../themes/colors';
 import metrics from '../../themes/metrics';
@@ -65,7 +65,7 @@ export const Search = ({navigation, route}: NavProps) => {
       ) : (
         <FlatList
           contentContainerStyle={{
-            top: isIos ? top * 3 : top + metrics.scale(100),
+            top: top + metrics.scale(100),
             paddingBottom: height * 0.4,
           }}
           data={filteredPokemonResult}
