@@ -9,8 +9,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {styles} from './favourites.style';
 import {TranslationKeys} from '../../locale/translations/keys';
 import Pokeball from '../../components/Pokeball';
-import {isIos} from '../../common/constants';
-import metrics from '../../themes/metrics';
+import metrics, {fontScale} from '../../themes/metrics';
 import Button from '../../components/Button';
 import colors from '../../themes/colors';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -47,7 +46,7 @@ export const Favourites = ({navigation, route}: Props) => {
             <Icon
               accessibilityRole="image"
               name="delete"
-              size={metrics.scale(20)}
+              size={fontScale * metrics.moderateScale(30, 0.7)}
               color={colors.dark}
             />
           }
@@ -55,9 +54,9 @@ export const Favourites = ({navigation, route}: Props) => {
       )}
       <Text
         style={{
-          fontSize: isIos
-            ? metrics.scaledFontSize(35)
-            : metrics.scaledFontSize(50),
+          // fontSize: isIos
+          //   ? metrics.scaledFontSize(35)
+          //   : metrics.scaledFontSize(50),
           ...styles.title,
         }}>
         {t(TranslationKeys.MY_FAVOURITES)}
@@ -100,16 +99,8 @@ export const Favourites = ({navigation, route}: Props) => {
       style={{...styles.noFavsContainer, paddingTop: top}}>
       {showTitle()}
 
-      <View style={styles.subtitleWrapper}>
-        <Text
-          style={{
-            fontSize: isIos
-              ? metrics.scaledFontSize(15)
-              : metrics.scaledFontSize(25),
-            ...styles.subtitle,
-          }}>
-          {t(TranslationKeys.NO_FAVOURITES_SUBTITLE)}
-        </Text>
+      <Text style={styles.subtitle}>
+        {t(TranslationKeys.NO_FAVOURITES_SUBTITLE)}
         <Button
           style={styles.navigateToPokedexButton}
           accessibilityRole="link"
@@ -120,18 +111,12 @@ export const Favourites = ({navigation, route}: Props) => {
           underlayColor={colors.white}
           onPress={() => navigation.navigate('Pokedex')}
           children={
-            <Text
-              style={{
-                fontSize: isIos
-                  ? metrics.scaledFontSize(15)
-                  : metrics.scaledFontSize(25),
-                ...styles.linkText,
-              }}>
+            <Text style={styles.linkText}>
               {t(TranslationKeys.NO_FAVOURITES_LINK)}
             </Text>
           }
         />
-      </View>
+      </Text>
     </ImageBackground>
   );
 };

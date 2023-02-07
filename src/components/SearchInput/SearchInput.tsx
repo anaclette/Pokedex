@@ -8,7 +8,7 @@ import Button from '../Button';
 import colors from '../../themes/colors';
 import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
-import metrics from '../../themes/metrics';
+import metrics, {fontScale} from '../../themes/metrics';
 import {isIos} from '../../common/constants';
 
 interface Props {
@@ -38,8 +38,8 @@ export const SearchInput = ({onDebounce}: Props) => {
         style={{
           ...styles.textInput,
           fontSize: !isIos
-            ? metrics.scaledFontSize(30)
-            : metrics.scaledFontSize(13),
+            ? fontScale * metrics.moderateScale(15, 0.6)
+            : fontScale * metrics.moderateScale(18, 0.5),
         }}
         placeholder={t(TranslationKeys.SEARCH_PLACEHOLDER) as string}
         placeholderTextColor={colors.burgundy}

@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
 import fonts from '../../themes/fonts';
-import metrics from '../../themes/metrics';
+import metrics, {fontScale} from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   container: {
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
   warningText: {
     color: colors.lightText,
-    fontSize: metrics.scaledFontSize(15),
+    fontSize: fontScale * metrics.moderateScale(15, 0.8),
     fontFamily: fonts.itemBold,
     paddingHorizontal: metrics.scale(2),
   },
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
   },
   textInput: {
     color: colors.burgundy,
-    fontSize: metrics.scaledFontSize(20),
+    fontSize: fontScale * metrics.moderateScale(15, 0.8),
     textTransform: 'capitalize',
     fontFamily: fonts.secondaryText,
     padding: metrics.scale(4),
@@ -44,8 +44,8 @@ export const styles = StyleSheet.create({
     flexGrow: 2,
   },
   storedUserName: {
-    fontSize: metrics.scale(30),
-    flexBasis: '16%',
+    fontSize: fontScale * metrics.moderateScale(35, 0.8),
+    marginBottom: metrics.verticalScale(50),
   },
   userInput: {
     color: colors.white,
@@ -54,24 +54,23 @@ export const styles = StyleSheet.create({
   },
   diffUserNameContainer: {
     flexGrow: 1,
-    marginTop: '10%',
+    marginTop: metrics.verticalScale(100),
   },
   diffUserNameMessage: {
-    fontSize: metrics.scaledFontSize(20),
+    fontSize: metrics.moderateScale(20),
   },
   button: {
     borderRadius: metrics.scale(20),
-    borderWidth: StyleSheet.hairlineWidth,
+    borderWidth: metrics.scale(1),
     borderColor: colors.white,
     alignSelf: 'center',
-    marginTop: metrics.scale(10),
+    marginVertical: metrics.verticalScale(15),
   },
   buttonText: {
     color: colors.white,
-    fontSize: metrics.scaledFontSize(20),
-    marginVertical: metrics.scale(9),
+    fontSize: metrics.moderateScale(18),
     textAlign: 'center',
     fontFamily: fonts.secondaryText,
-    paddingHorizontal: metrics.scale(9),
+    padding: metrics.scale(9),
   },
 });

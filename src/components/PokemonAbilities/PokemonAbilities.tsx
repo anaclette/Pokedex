@@ -9,21 +9,17 @@ interface Props {
   pokemon: PokemonFullDetails;
   backgroundColor: string | undefined;
   textColor: string | undefined;
-  titleSize: {};
-  itemTextSize: {};
 }
 
 export const PokemonAbilities = ({
   pokemon,
   backgroundColor,
   textColor,
-  titleSize,
-  itemTextSize,
 }: Props) => {
   const {t} = useTranslation();
   return (
     <View style={{backgroundColor, ...styles.abilitiesWrapper}}>
-      <Text style={{color: textColor, ...styles.title, ...titleSize}}>
+      <Text style={{color: textColor, ...styles.title}}>
         {t(TranslationKeys.ABILITIES)}
       </Text>
       {pokemon.abilities.map((ability, index) => (
@@ -32,7 +28,6 @@ export const PokemonAbilities = ({
           style={{
             color: textColor,
             ...styles.listItem,
-            ...itemTextSize,
           }}>
           {ability.ability.name}
         </Text>

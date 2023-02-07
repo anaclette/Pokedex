@@ -8,7 +8,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {NewListPokemon} from '../../types/Pokemon';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
-import {height} from '../../common/constants';
+import {height} from '../../themes/metrics';
 import Pokeball from '../../components/Pokeball';
 import colors from '../../themes/colors';
 import metrics from '../../themes/metrics';

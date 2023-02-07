@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView} from 'react-native';
-import {width, height} from '../../common/constants';
+import {height, width} from '../../themes/metrics';
 import {PokemonFullDetails} from '../../types/Pokemon';
 import {isValid} from '../../utils/helpers';
 import FadeInImage from '../FadeInImage';

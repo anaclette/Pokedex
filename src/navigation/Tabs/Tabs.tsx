@@ -19,8 +19,7 @@ import {
 } from '@react-navigation/native';
 import {BottomTabDescriptorMap} from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import PokemonList from '../../screens/PokemonList';
-import metrics from '../../themes/metrics';
-import {isIos} from '../../common/constants';
+import metrics, {fontScale} from '../../themes/metrics';
 interface TabsProps {
   state: TabNavigationState<ParamListBase>;
   descriptors: BottomTabDescriptorMap;
@@ -95,7 +94,7 @@ const MyTabBar = ({state, navigation, descriptors}: TabsProps) => {
               style={styles.tabBarButton}>
               <Icon
                 name={getIconName()}
-                size={metrics.scale(20)}
+                size={fontScale * metrics.moderateScale(20, 1)}
                 style={
                   route.name === username && isFocused
                     ? styles.favouritesActiveTabIcon
@@ -110,11 +109,6 @@ const MyTabBar = ({state, navigation, descriptors}: TabsProps) => {
                     ? {...styles.focusedColor}
                     : {...styles.inactiveColor},
                   styles.label,
-                  {
-                    fontSize: isIos
-                      ? metrics.scaledFontSize(15)
-                      : metrics.scaledFontSize(22),
-                  },
                 ]}>
                 {label}
               </Text>

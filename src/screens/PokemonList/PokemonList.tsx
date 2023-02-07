@@ -8,7 +8,7 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import PokemonPoster from '../../components/PokemonPoster';
-import {height} from '../../common/constants';
+import {height} from '../../themes/metrics';
 import colors from '../../themes/colors';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}

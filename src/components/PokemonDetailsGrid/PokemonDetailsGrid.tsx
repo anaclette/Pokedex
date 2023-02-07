@@ -6,6 +6,7 @@ import PokemonAbilities from '../PokemonAbilities';
 import {styles} from './pokemonDetailsGrid.style';
 import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
+// import metrics, {fontScale} from '../../themes/metrics';
 
 interface Props {
   pokemon: PokemonFullDetails;
@@ -56,8 +57,6 @@ export const PokemonDetailsGrid = ({
         pokemon={pokemon}
         backgroundColor={lightColor}
         textColor={darkColor}
-        titleSize={titleSize}
-        itemTextSize={itemTextSize}
       />
     </View>
   );

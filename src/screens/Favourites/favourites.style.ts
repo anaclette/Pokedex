@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
 import fonts from '../../themes/fonts';
-import metrics from '../../themes/metrics';
+import metrics, {fontScale} from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   backgroundImage: {
@@ -36,17 +36,17 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.mainText,
     alignSelf: 'flex-end',
     color: colors.translucidLightBackground,
-  },
-  subtitleWrapper: {
-    flexDirection: 'row',
-    alignSelf: 'center',
-    bottom: '22%',
-    position: 'absolute',
-    alignItems: 'center',
+    fontSize: fontScale * metrics.moderateScale(35, 0.8),
   },
   subtitle: {
     fontFamily: fonts.mainLightText,
     color: colors.dark,
+    fontSize: fontScale * metrics.moderateScale(15, 0.9),
+    alignSelf: 'center',
+    bottom: '22%',
+    position: 'absolute',
+    alignItems: 'center',
+    paddingHorizontal: metrics.scale(10),
   },
   navigateToPokedexButton: {
     borderRadius: metrics.scale(10),
@@ -57,7 +57,8 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.mainText,
     textDecorationLine: 'underline',
     textTransform: 'capitalize',
-    padding: metrics.scale(2),
     color: colors.dark,
+    fontSize: fontScale * metrics.moderateScale(16, 0.9),
+    paddingHorizontal: metrics.scale(10),
   },
 });

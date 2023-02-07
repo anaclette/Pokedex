@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {height} from '../../common/constants';
+import {fontScale} from '../../themes/metrics';
 import fonts from '../../themes/fonts';
 import metrics from '../../themes/metrics';
 
@@ -28,9 +28,14 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.secondaryBold,
     paddingHorizontal: '5%',
     letterSpacing: metrics.scale(0.5),
+    fontSize: fontScale * metrics.moderateScale(15, 0.7),
   },
   imagesWrapper: {
     alignItems: 'flex-end',
+  },
+  pokemonImageContainer: {
+    width: metrics.moderateScale(110, 0.7),
+    height: metrics.moderateScale(110, 0.7),
   },
   pokemonImage: {
     flex: 1,
@@ -46,19 +51,18 @@ export const styles = StyleSheet.create({
     opacity: 0.5,
   },
   favouritePokeCard: {
-    height: height * 0.25,
+    height: metrics.verticalScale(120),
     justifyContent: 'center',
   },
   favouriteCardImageContainer: {
     height: '100%',
+    width: metrics.moderateScale(130, 0.6),
   },
   favouritePokeballImage: {
     flex: 1,
     bottom: metrics.scaleVertical(10),
   },
   favouritePokeName: {
-    alignSelf: 'flex-end',
-    right: '5%',
-    fontSize: metrics.scale(17),
+    fontSize: fontScale * metrics.moderateScale(20, 0.5),
   },
 });

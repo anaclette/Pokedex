@@ -13,6 +13,8 @@ export const styles = StyleSheet.create({
   pokeballImg: {
     alignSelf: 'flex-end',
     opacity: 0.4,
+    height: '30%',
+    width: metrics.moderateScale(180, 0.8),
   },
   nameAndTypesWrapper: {
     left: '13%',

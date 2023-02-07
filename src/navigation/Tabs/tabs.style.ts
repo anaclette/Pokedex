@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import colors from '../../themes/colors';
 import fonts from '../../themes/fonts';
+import metrics, {fontScale} from '../../themes/metrics';
 
 export const styles = StyleSheet.create({
   tabsContainer: {
@@ -31,5 +32,6 @@ export const styles = StyleSheet.create({
   },
   label: {
     fontFamily: fonts.tabBarLabel,
+    fontSize: fontScale * metrics.moderateScale(12, 0.9),
   },
 });

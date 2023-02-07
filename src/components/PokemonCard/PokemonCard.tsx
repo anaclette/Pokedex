@@ -8,10 +8,9 @@ import {styles} from './pokemonCard.style';
 import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import Pokeball from '../Pokeball';
-import {height, width, isIos} from '../../common/constants';
+import {isIos} from '../../common/constants';
 import globalStyles from '../../themes/globalStyles';
 import colors from '../../themes/colors';
-import metrics from '../../themes/metrics';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {
   item: NewListPokemon;
@@ -20,8 +19,6 @@ interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {
   isFavourite?: boolean;
 }
 
-const windowWidth = width;
-const windowHeight = height;
 const fallbackColor = colors.gray;
 
 export const PokemonCard = ({item, navigation, isFavourite}: Props) => {
@@ -78,11 +75,6 @@ export const PokemonCard = ({item, navigation, isFavourite}: Props) => {
             {color: titleColor, ...styles.name},
             isFavourite && styles.favouritePokeName,
             !isIos && {...globalStyles.textShadow},
-            {
-              fontSize: !isIos
-                ? metrics.scaledFontSize(30)
-                : metrics.scaledFontSize(15),
-            },
           ]}>
           {item.name}
         </Text>
@@ -99,16 +91,8 @@ export const PokemonCard = ({item, navigation, isFavourite}: Props) => {
         <FadeInImage
           uri={item.picture}
           containerStyle={[
-            {
-              width: windowWidth / 3,
-              height: isIos
-                ? windowHeight / 4 - metrics.scaleVertical(45)
-                : windowHeight / 3 - metrics.scaleVertical(85),
-            },
-            isFavourite && {
-              width: windowWidth / 2.5,
-              ...styles.favouriteCardImageContainer,
-            },
+            styles.pokemonImageContainer,
+            isFavourite && styles.favouriteCardImageContainer,
           ]}
           imgStyle={styles.pokemonImage}
         />

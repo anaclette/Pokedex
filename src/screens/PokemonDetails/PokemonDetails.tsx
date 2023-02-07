@@ -10,7 +10,8 @@ import PokemonMoves from '../../components/PokemonMoves';
 import PokemonStats from '../../components/PokemonStats';
 import PokemonImage from '../../components/PokemonImage';
 import BackButton from '../../components/BackButton';
-import {height, isIos, width} from '../../common/constants';
+import {isIos} from '../../common/constants';
+import metrics, {fontScale, height, width} from '../../themes/metrics';
 import Pokeball from '../../components/Pokeball';
 import PokemonSprites from '../../components/PokemonSprites';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -23,7 +24,6 @@ import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
 import colors from '../../themes/colors';
 import globalStyles from '../../themes/globalStyles';
-import metrics from '../../themes/metrics';
 
 interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 
@@ -53,13 +53,13 @@ export const PokemonDetails = ({route, navigation}: Props) => {
     setTextSize({
       title: {
         fontSize: isIos
-          ? metrics.scaledFontSize(15)
-          : metrics.scaledFontSize(30),
+          ? fontScale * metrics.moderateScale(14, 0.4)
+          : fontScale * metrics.moderateScale(18, 0.6),
       },
       item: {
         fontSize: isIos
-          ? metrics.scaledFontSize(13)
-          : metrics.scaledFontSize(24),
+          ? fontScale * metrics.moderateScale(13)
+          : fontScale * metrics.moderateScale(17),
       },
     });
   }, [imgColor, username]);
@@ -79,13 +79,13 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           index !== 0 && {...styles.marginLeft},
         ]}>
         <Text
-          style={{
-            color: textColor,
-            ...styles.typeItem,
-            fontSize: isIos
-              ? metrics.scaledFontSize(13)
-              : metrics.scaledFontSize(25),
-          }}
+          style={[
+            {
+              color: textColor,
+              ...styles.typeItem,
+            },
+            {...textSize.item},
+          ]}
           key={index}>
           {typeGroup.type.name}
         </Text>
@@ -136,7 +136,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
               accessibilityRole="image"
               style={globalStyles.textShadow}
               name={isFavourite ? 'heart' : 'heart-outline'}
-              size={metrics.scale(30)}
+              size={metrics.moderateScale(35)}
               color={isFavourite ? colors.favouriteColor : textColor}
             />
           }
@@ -154,21 +154,15 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             color: textColor,
             ...globalStyles.textShadow,
             fontSize: isIos
-              ? metrics.scaledFontSize(30)
-              : metrics.scaledFontSize(50),
+              ? fontScale * metrics.moderateScale(25)
+              : fontScale * metrics.moderateScale(30),
           }}>
           {pokemonDetails.name}
         </Text>
         <View style={styles.rowContainer}>{getTypes()}</View>
       </View>
       <Pokeball
-        style={{
-          width: metrics.scale(150),
-          height: isIos
-            ? metrics.scaleVertical(150)
-            : metrics.scaleVertical(180),
-          ...styles.pokeballImg,
-        }}
+        style={styles.pokeballImg}
         source={require('../../assets/images/light_pokeball.png')}
       />
 
