@@ -39,6 +39,10 @@ const translation: TranslationResource = {
   GO_BACK_BUTTON_LABEL: 'Botón para volver atrás',
   NAVIGATE_TO_POKEDEX_BUTTON_LABEL: 'Ir a la Pokedex',
   REMOVE_ALL_FAVOURITES: 'Eliminar todos los favoritos',
+  DELETE_ALL_ALERT_TITLE: 'Eliminar',
+  DELETE_ALL_ALERT_MESSAGE: 'Estás por eliminar todos tus favoritos',
+  DELETE_ALL_OPTION_ONE: 'Cancelar',
+  DELETE_ALL_OPTION_TWO: 'Eliminar',
 };
 
 export default translation;

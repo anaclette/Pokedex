@@ -1,5 +1,12 @@
 import React from 'react';
-import {Text, FlatList, Image, ImageBackground, View} from 'react-native';
+import {
+  Text,
+  FlatList,
+  Image,
+  ImageBackground,
+  View,
+  Alert,
+} from 'react-native';
 import {useTranslation} from 'react-i18next';
 import {useFavourites} from '../../utils/hooks';
 import PokemonCard from '../../components/PokemonCard';
@@ -28,9 +35,26 @@ export const Favourites = ({navigation, route}: Props) => {
   const dispatch = useAppDispatch();
 
   const removeFavourites = () => {
-    favourites.forEach(favouritePokemon => {
-      favourites.length !== 0 && dispatch(toggleIsFavourite(favouritePokemon));
-    });
+    Alert.alert(
+      t(TranslationKeys.DELETE_ALL_ALERT_TITLE),
+      String(t(TranslationKeys.DELETE_ALL_ALERT_MESSAGE)),
+      [
+        {
+          text: t(TranslationKeys.DELETE_ALL_OPTION_ONE)!,
+          style: 'cancel',
+        },
+        {
+          text: t(TranslationKeys.DELETE_ALL_OPTION_TWO)!,
+          onPress: () => {
+            favourites.forEach(favouritePokemon => {
+              favourites.length !== 0 &&
+                dispatch(toggleIsFavourite(favouritePokemon));
+            });
+          },
+          style: 'destructive',
+        },
+      ],
+    );
   };
 
   const showTitle = () => (
@@ -52,15 +76,7 @@ export const Favourites = ({navigation, route}: Props) => {
           }
         />
       )}
-      <Text
-        style={{
-          // fontSize: isIos
-          //   ? metrics.scaledFontSize(35)
-          //   : metrics.scaledFontSize(50),
-          ...styles.title,
-        }}>
-        {t(TranslationKeys.MY_FAVOURITES)}
-      </Text>
+      <Text style={styles.title}>{t(TranslationKeys.MY_FAVOURITES)}</Text>
     </View>
   );
   return favourites?.length ? (

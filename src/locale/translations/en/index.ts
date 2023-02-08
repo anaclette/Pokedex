@@ -35,6 +35,10 @@ const translation: TranslationResource = {
   GO_BACK_BUTTON_LABEL: 'Go back button',
   NAVIGATE_TO_POKEDEX_BUTTON_LABEL: 'Go to Pokedex',
   REMOVE_ALL_FAVOURITES: 'Delete all favourites',
+  DELETE_ALL_ALERT_TITLE: 'Delete',
+  DELETE_ALL_ALERT_MESSAGE: 'You are about to delete all of your favourites',
+  DELETE_ALL_OPTION_ONE: 'Cancel',
+  DELETE_ALL_OPTION_TWO: 'Delete',
 };
 
 export default translation;
