@@ -15,6 +15,7 @@ import colors from '../../themes/colors';
 import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
 import metrics from '../../themes/metrics';
+import LanguageButtons from '../../components/LanguageButtons';
 
 export const Account = () => {
   const [userInput, setUserInput] = useState('');
@@ -45,6 +46,7 @@ export const Account = () => {
         ...styles.container,
         paddingTop: isIos ? top * 2 : top + metrics.scale(30),
       }}>
+      <LanguageButtons />
       {!username ? (
         <View style={styles.loginWrapper}>
           <View style={styles.textInputWrapper}>

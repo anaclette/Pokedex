@@ -43,6 +43,7 @@ const translation: TranslationResource = {
   DELETE_ALL_ALERT_MESSAGE: 'Estás por eliminar todos tus favoritos',
   DELETE_ALL_OPTION_ONE: 'Cancelar',
   DELETE_ALL_OPTION_TWO: 'Eliminar',
+  FLAG_BUTTON_IMAGE: 'Argentinian flag image to choose spanish language',
 };
 
 export default translation;

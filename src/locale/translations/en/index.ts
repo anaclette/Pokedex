@@ -39,6 +39,7 @@ const translation: TranslationResource = {
   DELETE_ALL_ALERT_MESSAGE: 'You are about to delete all of your favourites',
   DELETE_ALL_OPTION_ONE: 'Cancel',
   DELETE_ALL_OPTION_TWO: 'Delete',
+  FLAG_BUTTON_IMAGE: 'EEUU flag image to choose english language',
 };
 
 export default translation;
