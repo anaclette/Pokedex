@@ -10,14 +10,12 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  pokeballImg: {
-    alignSelf: 'flex-end',
-    opacity: 0.4,
-    height: '30%',
-    width: metrics.moderateScale(180, 0.8),
-  },
   nameAndTypesWrapper: {
     left: '13%',
+  },
+  pokeballContainer: {
+    alignSelf: 'flex-end',
+    opacity: 0.4,
   },
   scrollView: {
     borderTopRightRadius: metrics.scale(20),
@@ -26,7 +24,6 @@ export const styles = StyleSheet.create({
   name: {
     paddingBottom: metrics.scaleVertical(4),
     textTransform: 'capitalize',
-
     fontFamily: fonts.secondarySemiBold,
   },
   typeItemWrapper: {
@@ -46,5 +43,8 @@ export const styles = StyleSheet.create({
   },
   marginLeft: {
     marginLeft: metrics.scale(7),
+  },
+  heartIconButton: {
+    zIndex: 1,
   },
 });

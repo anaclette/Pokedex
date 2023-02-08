@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, ActivityIndicator, ScrollView, Alert} from 'react-native';
+import {
+  Text,
+  View,
+  ActivityIndicator,
+  ScrollView,
+  Alert,
+  PixelRatio,
+} from 'react-native';
 import {RootStackParams} from '../../navigation/StackNavigator/StackNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {styles} from './pokemonDetails.style';
@@ -38,6 +45,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
   const username = useAppSelector(state => state.auth.username);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const {t} = useTranslation();
+  const size = PixelRatio.getPixelSizeForLayoutSize(metrics.moderateScale(100));
   const [textSize, setTextSize] = useState({
     title: {
       fontSize: metrics.scaledFontSize(20),
@@ -99,7 +107,6 @@ export const PokemonDetails = ({route, navigation}: Props) => {
         backgroundColor: imgColor,
         ...styles.container,
       }}>
-      <PokemonImage route={route} navigation={navigation} />
       <View
         style={{
           ...styles.topButtonsWrapper,
@@ -142,6 +149,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           }
           style={{
             right: width * 0.1,
+            ...styles.heartIconButton,
           }}
           underlayColor={colors.transparent}
         />
@@ -161,10 +169,13 @@ export const PokemonDetails = ({route, navigation}: Props) => {
         </Text>
         <View style={styles.rowContainer}>{getTypes()}</View>
       </View>
-      <Pokeball
-        style={styles.pokeballImg}
-        source={require('../../assets/images/light_pokeball.png')}
-      />
+
+      <View style={styles.pokeballContainer}>
+        <Pokeball
+          source={require('../../assets/images/light_pokeball.png')}
+          style={{width: size, height: size}}
+        />
+      </View>
 
       {isLoading ? (
         <ActivityIndicator
@@ -176,39 +187,42 @@ export const PokemonDetails = ({route, navigation}: Props) => {
           }}
         />
       ) : (
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          style={{
-            backgroundColor: textColor,
-            ...styles.scrollView,
-          }}>
-          <PokemonDetailsGrid
-            pokemon={fullPokemon}
-            lightColor={typeColor}
-            darkColor={textColor}
-            titleSize={textSize.title}
-            itemTextSize={textSize.item}
-          />
+        <>
+          <PokemonImage route={route} navigation={navigation} />
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{
+              backgroundColor: textColor,
+              ...styles.scrollView,
+            }}>
+            <PokemonDetailsGrid
+              pokemon={fullPokemon}
+              lightColor={typeColor}
+              darkColor={textColor}
+              titleSize={textSize.title}
+              itemTextSize={textSize.item}
+            />
 
-          <PokemonMoves
-            pokemon={fullPokemon}
-            onFullMovesPress={onFullMovesBtnPress}
-            fullMoves={fullMoves}
-            textColor={textColor}
-            titleColor={typeColor}
-            titleSize={textSize.title}
-            itemTextSize={textSize.item}
-          />
+            <PokemonMoves
+              pokemon={fullPokemon}
+              onFullMovesPress={onFullMovesBtnPress}
+              fullMoves={fullMoves}
+              textColor={textColor}
+              titleColor={typeColor}
+              titleSize={textSize.title}
+              itemTextSize={textSize.item}
+            />
 
-          <PokemonStats
-            color={typeColor}
-            pokemon={fullPokemon}
-            titleColor={typeColor}
-            titleSize={textSize.title}
-            itemTextSize={textSize.item}
-          />
-          <PokemonSprites pokemon={fullPokemon} />
-        </ScrollView>
+            <PokemonStats
+              color={typeColor}
+              pokemon={fullPokemon}
+              titleColor={typeColor}
+              titleSize={textSize.title}
+              itemTextSize={textSize.item}
+            />
+            <PokemonSprites pokemon={fullPokemon} />
+          </ScrollView>
+        </>
       )}
     </View>
   );
