@@ -84,7 +84,7 @@ export const PokemonMoves = ({
                 ...styles.moveItem,
                 ...itemTextSize,
               }}>
-              {`${index !== 0 && ' ⊛ '} ${move}`}
+              {`${index !== 0 && '· '}  ${move}`}
             </Text>
           ))}
           {moves.length > maxShown && (
