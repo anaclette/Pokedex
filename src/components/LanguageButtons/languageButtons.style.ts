@@ -5,15 +5,16 @@ import metrics from '../../themes/metrics';
 export const styles = StyleSheet.create({
   container: {
     position: 'absolute',
+    flexDirection: 'row',
     top: '8%',
-    right: 0,
+    right: '1%',
     zIndex: 1,
   },
   languageOptionWrapper: {
     borderColor: colors.translucidLightBackground,
     borderRadius: metrics.scale(20),
     borderWidth: metrics.scale(1),
-    marginVertical: metrics.verticalScale(1),
+    marginHorizontal: metrics.verticalScale(2),
   },
   flagImage: {
     width: metrics.moderateScale(30, 0.4),

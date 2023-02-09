@@ -115,7 +115,7 @@ export const Account = () => {
               {handleUserMessage(username, true)}
             </Text>
             <Button
-              style={styles.button}
+              style={{...styles.logOutButton, ...styles.button}}
               underlayColor={colors.transparent}
               accessibilityLabel={t(TranslationKeys.LOG_OUT)}
               activeOpacity={0.8}

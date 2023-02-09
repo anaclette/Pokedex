@@ -13,6 +13,7 @@ export default {
   lightText: '#fff',
   black: '#000500',
   lightOcean: '#bce7fd',
+  contrastBlackBackground: 'rgba(0, 0, 0, 0.15)',
   baseStats: {
     hp: '#654f6f',
     attack: '#5c5d8d',
