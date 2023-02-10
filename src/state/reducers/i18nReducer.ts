@@ -2,6 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import en from '../../locale/translations/en';
 import es from '../../locale/translations/es';
 import {Constants, supportedLangs} from '../../locale/config';
+import {STATE_MODULES} from '../../common/constants';
 
 const initialState = {
   lang: Constants.defaultLanguage,
@@ -13,7 +14,7 @@ const initialState = {
 };
 
 export const i18nReducer = createSlice({
-  name: 'i18n',
+  name: STATE_MODULES.LANGUAGES,
   initialState,
   reducers: {
     switchLanguage: (state, action: PayloadAction<string>) => ({
