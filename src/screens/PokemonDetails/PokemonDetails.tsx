@@ -142,9 +142,11 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             <Icon
               accessibilityRole="image"
               style={globalStyles.textShadow}
-              name={isFavourite ? 'heart' : 'heart-outline'}
+              name={isFavourite && username ? 'heart' : 'heart-outline'}
               size={metrics.moderateScale(35)}
-              color={isFavourite ? colors.favouriteColor : textColor}
+              color={
+                isFavourite && username ? colors.favouriteColor : textColor
+              }
             />
           }
           style={{
