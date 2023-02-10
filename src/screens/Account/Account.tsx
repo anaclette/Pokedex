@@ -30,12 +30,35 @@ export const Account = () => {
     return userInput.length < minLength || validateUserInput(userInput);
   };
 
-  const handleUserMessage = (user: string, notPrevUser?: boolean) => {
+  const handleUserMessage = (
+    user: string | null | undefined,
+    notPrevUser?: boolean,
+  ) => {
     return t(
       !notPrevUser
         ? TranslationKeys.NOT_USERNAME
         : TranslationKeys.GREET_USERNAME,
       {username: user},
+    );
+  };
+
+  const getButtonText = () =>
+    username ? t(TranslationKeys.LOG_OUT) : t(TranslationKeys.SIGN_IN);
+
+  const LoginAndOutButton = () => {
+    return (
+      <Button
+        style={styles.button}
+        underlayColor={colors.transparent}
+        disabled={!username && isDisabled()}
+        accessibilityState={
+          !username ? {disabled: isDisabled()} : {disabled: false}
+        }
+        accessibilityLabel={getButtonText()}
+        activeOpacity={0.8}
+        onPress={() => dispatch(username ? logOut() : logIn(userInput))}
+        children={<Text style={styles.buttonText}>{getButtonText()}</Text>}
+      />
     );
   };
 
@@ -47,7 +70,7 @@ export const Account = () => {
         paddingTop: isIos ? top * 2 : top + metrics.scale(30),
       }}>
       <LanguageButtons />
-      {!username ? (
+      {!username && (
         <View style={styles.loginWrapper}>
           <View style={styles.textInputWrapper}>
             <TextInput
@@ -89,62 +112,43 @@ export const Account = () => {
                 t(TranslationKeys.USERNAME_ALPHANUMERIC_ONLY)}
             </Text>
           </View>
-          <Button
-            style={styles.button}
-            underlayColor={colors.transparent}
-            disabled={isDisabled()}
-            accessibilityState={{disabled: isDisabled()}}
-            accessibilityLabel={t(TranslationKeys.SIGN_IN)}
-            activeOpacity={0.8}
-            onPress={() => dispatch(logIn(userInput))}
-            children={
-              <Text style={styles.buttonText}>
-                {t(TranslationKeys.SIGN_IN)}
+          {LoginAndOutButton()}
+        </View>
+      )}
+
+      {username && (
+        <>
+          <View style={styles.diffAccountContainer}>
+            <View style={styles.storedUserNameContainer}>
+              <Text
+                style={{...styles.storedUserName, ...styles.userInput}}
+                accessibilityHint={String(
+                  t(TranslationKeys.USERNAME_MATCH_STORED),
+                )}>
+                {handleUserMessage(username, true)}
               </Text>
-            }
-          />
-        </View>
-      ) : (
-        <View style={styles.diffAccountContainer}>
-          <View style={styles.storedUserNameContainer}>
-            <Text
-              style={{...styles.storedUserName, ...styles.userInput}}
-              accessibilityHint={String(
-                t(TranslationKeys.USERNAME_MATCH_STORED),
-              )}>
-              {handleUserMessage(username, true)}
-            </Text>
-            <Button
-              style={{...styles.logOutButton, ...styles.button}}
-              underlayColor={colors.transparent}
-              accessibilityLabel={t(TranslationKeys.LOG_OUT)}
-              activeOpacity={0.8}
-              onPress={() => dispatch(logOut())}
-              children={
-                <Text style={styles.buttonText}>
-                  {t(TranslationKeys.LOG_OUT)}
-                </Text>
-              }
-            />
+              {LoginAndOutButton()}
+            </View>
+            <View style={styles.diffUserNameContainer}>
+              <Text
+                style={{...styles.diffUserNameMessage, ...styles.userInput}}>
+                {handleUserMessage(username)}
+              </Text>
+              <Button
+                style={styles.button}
+                underlayColor={colors.transparent}
+                accessibilityLabel={t(TranslationKeys.SIGN_IN_DIFF_ACCOUNT)}
+                activeOpacity={0.8}
+                onPress={() => dispatch(logOut())}
+                children={
+                  <Text style={styles.buttonText}>
+                    {t(TranslationKeys.SIGN_IN_DIFF_ACCOUNT)}
+                  </Text>
+                }
+              />
+            </View>
           </View>
-          <View style={styles.diffUserNameContainer}>
-            <Text style={{...styles.diffUserNameMessage, ...styles.userInput}}>
-              {handleUserMessage(username)}
-            </Text>
-            <Button
-              style={styles.button}
-              underlayColor={colors.transparent}
-              accessibilityLabel={t(TranslationKeys.SIGN_IN_DIFF_ACCOUNT)}
-              activeOpacity={0.8}
-              onPress={() => dispatch(logOut())}
-              children={
-                <Text style={styles.buttonText}>
-                  {t(TranslationKeys.SIGN_IN_DIFF_ACCOUNT)}
-                </Text>
-              }
-            />
-          </View>
-        </View>
+        </>
       )}
     </ImageBackground>
   );

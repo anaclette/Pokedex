@@ -9,13 +9,12 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
   },
   loginWrapper: {
-    flex: 1,
     alignItems: 'center',
-    paddingVertical: metrics.moderateScale(35),
+    paddingTop: metrics.moderateScale(30),
   },
   warningContainer: {
     flexBasis: '8%',
-    marginTop: metrics.scale(9),
+    marginVertical: metrics.scale(9),
   },
   warningText: {
     color: colors.lightText,
@@ -24,7 +23,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: metrics.scale(2),
   },
   diffAccountContainer: {
-    justifyContent: 'space-between',
     flex: 1,
   },
   textInput: {
@@ -40,11 +38,12 @@ export const styles = StyleSheet.create({
     width: '50%',
   },
   storedUserNameContainer: {
-    flexGrow: 3,
+    flexBasis: '65%',
   },
   storedUserName: {
     fontSize: fontScale * metrics.moderateScale(35, 0.8),
-    marginTop: metrics.scale(20),
+    marginTop: metrics.verticalScale(15),
+    marginBottom: metrics.verticalScale(60),
   },
   userInput: {
     color: colors.white,
@@ -52,21 +51,19 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   diffUserNameContainer: {
-    flexGrow: 1,
+    minHeight: metrics.verticalScale(60),
+    marginTop: metrics.moderateScale(20),
   },
   diffUserNameMessage: {
     fontSize: metrics.moderateScale(20),
+    marginBottom: metrics.moderateScale(15),
   },
   button: {
     borderRadius: metrics.scale(20),
     borderWidth: metrics.scale(1),
     borderColor: colors.white,
     alignSelf: 'center',
-    marginVertical: metrics.verticalScale(15),
     backgroundColor: colors.contrastBlackBackground,
-  },
-  logOutButton: {
-    marginTop: metrics.scale(18) + '14%',
   },
   buttonText: {
     color: colors.white,
@@ -74,5 +71,10 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fonts.secondaryText,
     padding: metrics.scale(7),
+  },
+  signInLogOutButton: {
+    position: 'absolute',
+    top: '30%',
+    zIndex: 2,
   },
 });
