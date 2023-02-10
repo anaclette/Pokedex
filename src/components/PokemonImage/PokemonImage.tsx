@@ -12,7 +12,7 @@ interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 export const PokemonImage = ({route}: Props) => {
   const {pokemonDetails} = route.params;
   const size = !isIos
-    ? PixelRatio.getPixelSizeForLayoutSize(metrics.moderateScale(120))
+    ? PixelRatio.getPixelSizeForLayoutSize(metrics.moderateScale(115))
     : PixelRatio.getPixelSizeForLayoutSize(metrics.moderateScale(100));
 
   return (
