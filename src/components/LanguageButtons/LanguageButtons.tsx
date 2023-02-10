@@ -40,7 +40,10 @@ export const LanguageButtons = () => {
         accessibilityRole="button"
         activeOpacity={0.5}
         underlayColor={colors.transparent}
-        onPress={() => console.log('elegiste idioma extranjero')}
+        onPress={() => {
+          dispatch(switchLanguage(languageOptions.en));
+          i18n.changeLanguage(languageOptions.en);
+        }}
         children={
           <Image
             style={styles.flagImage}
