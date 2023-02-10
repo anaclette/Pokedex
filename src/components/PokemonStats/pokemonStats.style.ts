@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
   statItem: {
     fontFamily: fonts.secondaryBold,
     paddingLeft: metrics.scale(6),
+    color: colors.dark,
   },
   rowContainer: {
     marginBottom: metrics.scaleVertical(4),
@@ -32,8 +33,6 @@ export const styles = StyleSheet.create({
   },
   bar: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
     backgroundColor: colors.gainsboroLightBackground,
     borderRadius: metrics.scale(10),
   },

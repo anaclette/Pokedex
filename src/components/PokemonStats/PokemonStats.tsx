@@ -70,7 +70,14 @@ export const PokemonStats = ({
                   backgroundColor: statColor,
                   ...styles.statValueWrapper,
                 }}>
-                <Text style={{...itemTextSize, ...styles.statItem}}>
+                <Text
+                  style={{
+                    ...itemTextSize,
+                    ...styles.statItem,
+
+                    width:
+                      statWidth < topFillWidth ? statWidth + '10%' : statWidth,
+                  }}>
                   {statGroup.base_stat}
                 </Text>
               </View>
