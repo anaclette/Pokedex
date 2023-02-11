@@ -16,6 +16,7 @@ import {useTranslation} from 'react-i18next';
 import {TranslationKeys} from '../../locale/translations/keys';
 import metrics from '../../themes/metrics';
 import LanguageButtons from '../../components/LanguageButtons';
+import {cleanUpFavourites} from '../../state/reducers/favouritesReducer';
 
 export const Account = () => {
   const [userInput, setUserInput] = useState('');
@@ -139,7 +140,10 @@ export const Account = () => {
                 underlayColor={colors.transparent}
                 accessibilityLabel={t(TranslationKeys.SIGN_IN_DIFF_ACCOUNT)}
                 activeOpacity={0.8}
-                onPress={() => dispatch(logOut())}
+                onPress={() => {
+                  dispatch(logOut());
+                  dispatch(cleanUpFavourites());
+                }}
                 children={
                   <Text style={styles.buttonText}>
                     {t(TranslationKeys.SIGN_IN_DIFF_ACCOUNT)}

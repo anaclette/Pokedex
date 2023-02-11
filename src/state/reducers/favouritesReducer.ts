@@ -28,12 +28,12 @@ export const favouritesSlice = createSlice({
       }
       return {...state, data: state.data?.concat([action.payload])};
     },
-    setFavouritePokemon: (state, action: PayloadAction<string>) => {
-      return {...state, favouritePokemon: action.payload};
+    cleanUpFavourites: () => {
+      return initialState;
     },
   },
 });
 
-export const {toggleIsFavourite, setFavouritePokemon} = favouritesSlice.actions;
+export const {toggleIsFavourite, cleanUpFavourites} = favouritesSlice.actions;
 
 export default favouritesSlice.reducer;
