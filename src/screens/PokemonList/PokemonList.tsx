@@ -62,7 +62,6 @@ export const PokemonList = ({navigation, route}: Props) => {
         // data={pokeList.sort(
         //   (pokeA, pokeB) => pokeA.name.localeCompare(pokeB.name),
         //    TODO: fix how this is currently working
-        // TODO: concat next page results onEndReached once data is retrieved from state
         // )}
         data={pokeList}
         keyExtractor={(_, index) => index.toString()}

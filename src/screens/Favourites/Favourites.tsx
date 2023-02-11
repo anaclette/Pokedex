@@ -31,7 +31,6 @@ export const Favourites = ({navigation, route}: Props) => {
   const {top} = useSafeAreaInsets();
   const {t} = useTranslation();
   const {bottom} = useSafeAreaInsets();
-  // const languageOptions = useAppSelector(state => state.languages.lang); // TODO: get language endpoint from data
   const dispatch = useAppDispatch();
 
   const removeFavourites = () => {
