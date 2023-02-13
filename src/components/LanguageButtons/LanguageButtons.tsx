@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Image, View} from 'react-native';
+import {Alert, Image, View} from 'react-native';
 import {useAppDispatch, useAppSelector} from '../../state/hooks';
 import {switchLanguage} from '../../state/reducers/i18nReducer';
 import colors from '../../themes/colors';
@@ -25,6 +25,15 @@ export const LanguageButtons = () => {
         onPress={() => {
           dispatch(switchLanguage(languageOptions.es));
           i18n.changeLanguage(languageOptions.es);
+          Alert.alert(
+            'Advertencia',
+            'Los detalles de cada Pokémon se encuentran en inglés.\nEstamos trabajando para que puedas leerlos en castellano.\nMientras tanto...\nbuena oportunidad para practicar inglés! ',
+            [
+              {
+                text: 'Ok',
+              },
+            ],
+          );
         }}
         children={
           <Image

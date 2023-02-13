@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     bottom: '22%',
     position: 'absolute',
     alignItems: 'center',
-    paddingHorizontal: metrics.scale(10),
+    marginHorizontal: metrics.scale(10),
   },
   navigateToPokedexButton: {
     borderRadius: metrics.scale(10),
@@ -59,6 +59,6 @@ export const styles = StyleSheet.create({
     textTransform: 'capitalize',
     color: colors.dark,
     fontSize: fontScale * metrics.moderateScale(16, 0.9),
-    paddingHorizontal: metrics.scale(10),
+    paddingHorizontal: metrics.scale(3),
   },
 });
