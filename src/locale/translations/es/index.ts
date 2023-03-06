@@ -26,7 +26,7 @@ const translation: TranslationResource = {
   MY_FAVOURITES: 'Mis favoritos',
   NO_FAVOURITES_SUBTITLE:
     'Todavía no hay favoritos. Agregá los tuyos desde la ',
-  NO_FAVOURITES_LINK: 'Pokedex',
+  NO_FAVOURITES_LINK: 'PikaDex',
   ACCESSIBILITY_LABEL_FAVOURITES_ICON:
     'Ícono de corazón para agregar favoritos',
   SEARCH_PLACEHOLDER: 'Buscar',
@@ -37,7 +37,7 @@ const translation: TranslationResource = {
     'Logueate para agregar a {{PokemonName}} a tus favoritos',
   STILL_LOADING_WARNING: 'Todavía no cargó...\nEn cualquier momento!',
   GO_BACK_BUTTON_LABEL: 'Botón para volver atrás',
-  NAVIGATE_TO_POKEDEX_BUTTON_LABEL: 'Ir a la Pokedex',
+  NAVIGATE_TO_PIKADEX_BUTTON_LABEL: 'Ir a la PikaDex',
   REMOVE_ALL_FAVOURITES: 'Eliminar todos los favoritos',
   DELETE_ALL_ALERT_TITLE: 'Eliminar',
   DELETE_ALL_ALERT_MESSAGE: 'Estás por eliminar todos tus favoritos',

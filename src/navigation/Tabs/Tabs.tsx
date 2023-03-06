@@ -142,7 +142,11 @@ export const Tabs = () => {
         />
       )}
 
-      <Tab.Screen name="Pokedex" component={PokemonList} />
+      <Tab.Screen
+        name="Pokedex"
+        options={{title: 'PikaDex'}}
+        component={PokemonList}
+      />
       <Tab.Screen
         name={t(TranslationKeys.TAB_SEARCH) as keyof TabNavigationProps}
         component={Search}

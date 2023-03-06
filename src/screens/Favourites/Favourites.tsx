@@ -120,7 +120,7 @@ export const Favourites = ({navigation, route}: Props) => {
           style={styles.navigateToPokedexButton}
           accessibilityRole="link"
           accessibilityLabel={t(
-            TranslationKeys.NAVIGATE_TO_POKEDEX_BUTTON_LABEL,
+            TranslationKeys.NAVIGATE_TO_PIKADEX_BUTTON_LABEL,
           )}
           activeOpacity={0.7}
           underlayColor={colors.white}

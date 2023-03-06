@@ -16,7 +16,7 @@ interface Props extends StackScreenProps<RootStackParams, 'PokemonDetails'> {}
 export const PokemonList = ({navigation, route}: Props) => {
   const {pokeList, loadPokemons} = usePokemon();
   const {top} = useSafeAreaInsets();
-  const pokePosterHeight = height / 4;
+  const pokePosterHeight = height / 2.5;
   const [backgroundColor, setBackgroundColor] = useState(
     colors.translucidLightBackground,
   );
@@ -56,7 +56,7 @@ export const PokemonList = ({navigation, route}: Props) => {
       <FlatList
         numColumns={2}
         contentContainerStyle={{
-          top: top + pokePosterHeight,
+          top: top + pokePosterHeight / 2,
         }}
         showsVerticalScrollIndicator={false}
         // data={pokeList.sort(
