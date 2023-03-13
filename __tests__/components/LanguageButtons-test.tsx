@@ -11,7 +11,9 @@ test('language buttons render correctly', () => {
     </Provider>
   );
 
-  render(component);
-
+  const {getAllByRole} = render(component);
   expect(component).toMatchSnapshot();
+
+  const button = getAllByRole('button');
+  expect(button).toBeTruthy();
 });
