@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, Text, TextInput, ImageBackground} from 'react-native';
 import {logIn, logOut} from '../../state/reducers/authReducer';
 import {useAppDispatch, useAppSelector} from '../../state/hooks';
@@ -27,9 +27,9 @@ export const Account = () => {
   const {top} = useSafeAreaInsets();
   const {t} = useTranslation();
 
-  const isDisabled = () => {
+  const isDisabled = useCallback(() => {
     return userInput.length < minLength || validateUserInput(userInput);
-  };
+  }, [userInput]);
 
   const handleUserMessage = (
     user: string | null | undefined,
@@ -43,10 +43,11 @@ export const Account = () => {
     );
   };
 
-  const getButtonText = () =>
-    username ? t(TranslationKeys.LOG_OUT) : t(TranslationKeys.SIGN_IN);
+  const getButtonText = useCallback(() => {
+    return username ? t(TranslationKeys.LOG_OUT) : t(TranslationKeys.SIGN_IN);
+  }, [t, username]);
 
-  const LoginAndOutButton = () => {
+  const LoginAndOutButton = useCallback(() => {
     return (
       <Button
         style={styles.button}
@@ -61,7 +62,7 @@ export const Account = () => {
         children={<Text style={styles.buttonText}>{getButtonText()}</Text>}
       />
     );
-  };
+  }, [dispatch, getButtonText, isDisabled, userInput, username]);
 
   return (
     <ImageBackground
@@ -77,14 +78,14 @@ export const Account = () => {
             <TextInput
               maxLength={15}
               autoFocus={true}
-              accessibilityLabel={
-                t(TranslationKeys.USERNAME_INPUT_LABEL) as string
-              }
+              accessibilityLabel={t(
+                TranslationKeys.USERNAME_INPUT_LABEL,
+              ).toString()}
               autoCorrect={false}
               keyboardType="default"
               style={styles.textInput}
               placeholderTextColor={colors.gray}
-              placeholder={t(TranslationKeys.USERNAME_PLACEHOLDER) as string}
+              placeholder={t(TranslationKeys.USERNAME_PLACEHOLDER).toString()}
               onChangeText={input => {
                 checkIfEmpty(input, setEmptyField);
                 setUserInput(input);

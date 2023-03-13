@@ -94,11 +94,29 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             },
             {...textSize.item},
           ]}
-          key={index}>
+          key={`${typeGroup.type.name}`}>
           {typeGroup.type.name}
         </Text>
       </View>
     ));
+  };
+
+  const showLoginWarning = () => {
+    return Alert.alert(
+      t(TranslationKeys.ADD_FAVOURITE_LOGIN_WARNING, {
+        PokemonName: capitalizeFirstLetter(fullPokemon.name),
+      }),
+    );
+  };
+
+  const onPress = () => {
+    if (isLoading) {
+      Alert.alert(t(TranslationKeys.STILL_LOADING_WARNING));
+    } else if (isLoggedIn) {
+      dispatch(toggleIsFavourite(pokemonDetails));
+    } else {
+      showLoginWarning();
+    }
   };
 
   return (
@@ -127,17 +145,7 @@ export const PokemonDetails = ({route, navigation}: Props) => {
             TranslationKeys.ACCESSIBILITY_LABEL_FAVOURITES_ICON,
           )}
           activeOpacity={0.6}
-          onPress={() => {
-            isLoading
-              ? Alert.alert(t(TranslationKeys.STILL_LOADING_WARNING))
-              : isLoggedIn
-              ? dispatch(toggleIsFavourite(pokemonDetails))
-              : Alert.alert(
-                  t(TranslationKeys.ADD_FAVOURITE_LOGIN_WARNING, {
-                    PokemonName: capitalizeFirstLetter(fullPokemon.name),
-                  }),
-                );
-          }}
+          onPress={onPress}
           children={
             <Icon
               accessibilityRole="image"
