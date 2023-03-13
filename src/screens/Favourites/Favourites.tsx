@@ -28,9 +28,8 @@ interface Props
 
 export const Favourites = ({navigation, route}: Props) => {
   const favourites = useFavourites();
-  const {top} = useSafeAreaInsets();
+  const {top, bottom} = useSafeAreaInsets();
   const {t} = useTranslation();
-  const {bottom} = useSafeAreaInsets();
   const dispatch = useAppDispatch();
 
   const removeFavourites = () => {
