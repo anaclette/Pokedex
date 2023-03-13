@@ -13,6 +13,7 @@ export const PokemonPoster = ({viewTop, imgHeight, style}: Props) => {
     <View style={{...style, top: viewTop}}>
       <Image
         accessibilityRole="image"
+        accessibilityLabel="Pokedex header image"
         source={require('../../assets/images/poster.png')}
         style={{
           ...styles.poster,
