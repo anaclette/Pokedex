@@ -17,6 +17,7 @@ export const LanguageButtons = () => {
   return (
     <View style={styles.container}>
       <Button
+        testID="spanish-language-button"
         style={styles.languageOptionWrapper}
         accessibilityLabel={t(TranslationKeys.FLAG_BUTTON_IMAGE)}
         accessibilityRole="button"
@@ -44,6 +45,7 @@ export const LanguageButtons = () => {
       />
 
       <Button
+        testID="english-language-button"
         style={styles.languageOptionWrapper}
         accessibilityLabel={t(TranslationKeys.FLAG_BUTTON_IMAGE)}
         accessibilityRole="button"
