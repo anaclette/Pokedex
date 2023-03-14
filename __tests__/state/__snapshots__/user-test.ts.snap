@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing reducer after user logs out user is returned back to initial app state 1`] = `
+Object {
+  "username": null,
+}
+`;

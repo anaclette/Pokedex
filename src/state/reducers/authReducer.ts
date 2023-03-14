@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {STATE_MODULES} from '../../common/constants';
 
-type Auth = {username?: string | null | undefined};
+export type Auth = {username?: string | null | undefined};
 
 const initialState: Auth = {
   username: null,
