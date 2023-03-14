@@ -19,7 +19,9 @@ export const PokemonAbilities = ({
   const {t} = useTranslation();
   return (
     <View style={{backgroundColor, ...styles.abilitiesWrapper}}>
-      <Text style={{color: textColor, ...styles.title}}>
+      <Text
+        testID="abilities-title"
+        style={{color: textColor, ...styles.title}}>
         {t(TranslationKeys.ABILITIES)}
       </Text>
       {pokemon.abilities.map((ability, index) => (
