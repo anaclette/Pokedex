@@ -32,6 +32,7 @@ export const SearchInput = ({onDebounce}: Props) => {
   return (
     <View style={{top: top + metrics.scale(15), ...styles.container}}>
       <TextInput
+        testID="search-input"
         autoCorrect={false}
         value={inputValue}
         onChangeText={setInputValue}
@@ -45,6 +46,7 @@ export const SearchInput = ({onDebounce}: Props) => {
         placeholderTextColor={colors.burgundy}
       />
       <Button
+        testID="search-input-button"
         underlayColor={colors.transparent}
         accessibilityRole="button"
         accessibilityLabel={t(TranslationKeys.ACCESSIBILITY_SEARCH_LABEL)}
