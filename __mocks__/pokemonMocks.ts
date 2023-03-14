@@ -65,16 +65,4 @@ const pokemonMock: PokemonFullDetails = {
   weight: 100,
 };
 
-// const pokemonDetailsMock = {
-//   pokemonDetails: {
-//     id: '3',
-//     name: 'Charmander',
-//     picture: 'picture-url',
-//     imgColor: 'green',
-//     textColor: 'white',
-//   },
-//   imgColor: 'green',
-//   textColor: 'white',
-// };
-
 export {pokemonMock, abilitiesMock, speciesMock};
