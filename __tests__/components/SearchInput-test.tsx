@@ -17,5 +17,7 @@ describe('SearchInput test', () => {
   );
   it('renders', () => {
     render(component);
+
+    expect(component).toMatchSnapshot();
   });
 });

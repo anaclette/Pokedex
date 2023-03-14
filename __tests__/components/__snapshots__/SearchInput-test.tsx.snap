@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchInput test renders 1`] = `
+<SafeAreaProvider>
+  <Provider
+    store={
+      Object {
+        "@@observable": [Function],
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <SearchInput
+      onDebounce={[MockFunction]}
+    />
+  </Provider>
+</SafeAreaProvider>
+`;
