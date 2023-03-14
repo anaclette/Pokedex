@@ -6,6 +6,7 @@ import {
   Stat,
   Type,
   PokemonFullDetails,
+  NewListPokemon,
 } from '../src/types/Pokemon';
 
 const speciesMock: Species = {
@@ -65,4 +66,12 @@ const pokemonMock: PokemonFullDetails = {
   weight: 100,
 };
 
-export {pokemonMock, abilitiesMock, speciesMock};
+const mockNewListPokemon: NewListPokemon = {
+  id: '20',
+  name: 'Metapod',
+  picture: 'url',
+  imgColor: 'peru',
+  textColor: 'lime',
+};
+
+export {pokemonMock, abilitiesMock, speciesMock, mockNewListPokemon};
