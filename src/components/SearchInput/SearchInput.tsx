@@ -41,7 +41,7 @@ export const SearchInput = ({onDebounce}: Props) => {
             ? fontScale * metrics.moderateScale(15, 0.6)
             : fontScale * metrics.moderateScale(18, 0.5),
         }}
-        placeholder={t(TranslationKeys.SEARCH_PLACEHOLDER) as string}
+        placeholder={t(TranslationKeys.SEARCH_PLACEHOLDER).toString()}
         placeholderTextColor={colors.burgundy}
       />
       <Button

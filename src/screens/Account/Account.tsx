@@ -50,6 +50,7 @@ export const Account = () => {
   const LoginAndOutButton = useCallback(() => {
     return (
       <Button
+        testID="login-and-out-button"
         style={styles.button}
         underlayColor={colors.transparent}
         disabled={!username && isDisabled()}
@@ -76,6 +77,7 @@ export const Account = () => {
         <View style={styles.loginWrapper}>
           <View style={styles.textInputWrapper}>
             <TextInput
+              testID="account-screen-user-input"
               maxLength={15}
               autoFocus={true}
               accessibilityLabel={t(

@@ -11,6 +11,7 @@ interface ButtonProps {
   children: JSX.Element;
   style?: StyleProp<any>;
   accessibilityRole?: AccessibilityRole | undefined;
+  testID?: string;
 }
 
 export const Button = ({
@@ -23,9 +24,11 @@ export const Button = ({
   children,
   style,
   accessibilityRole,
+  testID,
 }: ButtonProps) => {
   return (
     <TouchableHighlight
+      testID={testID}
       accessibilityRole={accessibilityRole}
       style={style}
       accessible={true}
