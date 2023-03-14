@@ -1,7 +1,7 @@
-import authReducer, {logIn} from '../../src/state/reducers/authReducer';
-import {logOut} from '../../src/state/reducers/authReducer';
-import {store} from '../../src/state/store';
-import {User} from '../../__mocks__/userMock';
+import authReducer, {logIn} from '../../../src/state/reducers/authReducer';
+import {logOut} from '../../../src/state/reducers/authReducer';
+import {store} from '../../../src/state/store';
+import {User} from '../../../__mocks__/userMock';
 
 describe('Testing the sign in authentication', () => {
   it('user attempts to login', async () => {
