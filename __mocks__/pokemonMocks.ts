@@ -10,7 +10,7 @@ import {
 } from '../src/types/Pokemon';
 
 const speciesMock: Species = {
-  name: 'Pikachu',
+  name: 'bulbasaur',
   url: 'url',
 };
 
@@ -52,11 +52,11 @@ const pokemonMock: PokemonFullDetails = {
   forms: [speciesMock],
   height: 50,
   held_items: [],
-  id: '3',
+  id: '1',
   is_default: false,
   location_area_encounters: 'location-area-encounters',
   moves: [movesMock],
-  name: 'Pikachu',
+  name: 'bulbasaur',
   order: 10,
   past_types: [],
   species: speciesMock,
