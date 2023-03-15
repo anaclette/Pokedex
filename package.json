@@ -62,6 +62,9 @@
     "setupFiles": [
       "./jestSetup.ts"
     ],
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    },
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
