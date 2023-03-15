@@ -13,12 +13,6 @@ let route: Partial<RouteProp<RootStackParams, 'PokemonDetails'>>;
 
 describe('Favourites screen', () => {
   it('displays Favourites screen', () => {
-    beforeEach(() => {
-      navigation = {
-        dispatch: jest.fn(),
-      };
-    });
-
     const favourites = render(
       <Provider store={store}>
         <SafeAreaProvider>
