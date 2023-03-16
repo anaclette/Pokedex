@@ -1,15 +1,15 @@
-import {renderHook} from '@testing-library/react-native';
+import {renderHook} from '@testing-library/react-hooks';
 import {useFullPokemon} from '../../src/hooks/useFullPokemon';
 import {pokemonMock} from '../../__mocks__/pokemonMocks';
 
-describe('Testing useFullPokemon hook', () => {
-  it('should retrieve stored pokemon', () => {
-    const {result} = renderHook(() => useFullPokemon('1'));
-    expect(result.current.isLoading).toBe(true);
+test('useFullPokemon performs GET request', async () => {
+  const {result, waitForNextUpdate} = renderHook(() => useFullPokemon('1'));
+  expect(result.current.fullPokemon).toEqual({});
+  expect(result.current.isLoading).toBeTruthy();
 
-    // test failed: Received: undefined
-    // result prop not working
-    // expect(result.current.fullPokemon).toHaveProperty('name');
-    // expect(result.current.fullPokemon.name).toBe(pokemonMock.name);
-  });
+  await waitForNextUpdate();
+
+  expect(result.current.isLoading).toBeFalsy();
+  expect(result.current.fullPokemon).toHaveProperty('name');
+  expect(result.current.fullPokemon.name).toEqual(pokemonMock.name);
 });

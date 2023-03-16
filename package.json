@@ -16,6 +16,7 @@
     "@react-navigation/native": "^6.1.2",
     "@react-navigation/stack": "^6.3.10",
     "@reduxjs/toolkit": "^1.9.1",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/lodash.debounce": "^4.0.7",
     "@types/react-native-vector-icons": "^6.4.12",
     "axios": "^1.2.2",
