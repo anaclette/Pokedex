@@ -3,6 +3,7 @@ import {fireEvent, render} from '@testing-library/react-native';
 import Account from '../../src/screens/Account';
 import {Provider} from 'react-redux';
 import {store} from '../../src/state/store';
+import {TranslationKeys} from '../../src/locale/translations/keys';
 
 describe('Account', () => {
   const component = (
@@ -16,8 +17,8 @@ describe('Account', () => {
   });
 
   it('catches the user input', () => {
-    const {getByTestId, getAllByRole} = render(component);
-    const input = getByTestId('account-screen-user-input');
+    const {getAllByRole, getByPlaceholderText} = render(component);
+    const input = getByPlaceholderText(TranslationKeys.USERNAME_PLACEHOLDER);
 
     expect(input.props.value).toBe('');
 
