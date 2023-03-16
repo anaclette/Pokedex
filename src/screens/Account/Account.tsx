@@ -58,6 +58,7 @@ export const Account = () => {
           !username ? {disabled: isDisabled()} : {disabled: false}
         }
         accessibilityLabel={getButtonText()}
+        accessibilityRole="button"
         activeOpacity={0.8}
         onPress={() => dispatch(username ? logOut() : logIn(userInput))}
         children={<Text style={styles.buttonText}>{getButtonText()}</Text>}
@@ -77,6 +78,7 @@ export const Account = () => {
         <View style={styles.loginWrapper}>
           <View style={styles.textInputWrapper}>
             <TextInput
+              value={userInput}
               testID="account-screen-user-input"
               maxLength={15}
               autoFocus={true}
@@ -139,6 +141,7 @@ export const Account = () => {
                 {handleUserMessage(username)}
               </Text>
               <Button
+                accessibilityRole="button"
                 style={styles.button}
                 underlayColor={colors.transparent}
                 accessibilityLabel={t(TranslationKeys.SIGN_IN_DIFF_ACCOUNT)}
