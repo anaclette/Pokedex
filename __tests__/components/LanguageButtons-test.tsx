@@ -3,6 +3,7 @@ import {Provider} from 'react-redux';
 import {fireEvent, render} from '@testing-library/react-native';
 import LanguageButtons from '../../src/components/LanguageButtons';
 import {store} from '../../src/state/store';
+import {TranslationKeys} from '../../src/locale/translations/keys';
 
 const component = (
   <Provider store={store}>
@@ -17,7 +18,7 @@ test('language buttons render correctly', () => {
   const button = getAllByRole('button');
   expect(button).toBeTruthy();
 
-  const label = getAllByLabelText('EEUU flag image to choose english language');
+  const label = getAllByLabelText(TranslationKeys.FLAG_BUTTON_IMAGE);
   expect(label).toBeTruthy();
 
   const spanishButton = getByTestId('spanish-language-button');
