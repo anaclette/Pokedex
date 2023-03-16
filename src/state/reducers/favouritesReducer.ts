@@ -2,7 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {STATE_MODULES} from '../../common/constants';
 import {NewListPokemon} from '../../types/Pokemon';
 
-type FavouritesSlice = {
+export type FavouritesSlice = {
   data: NewListPokemon[];
   favouritePokemon: string;
 };
