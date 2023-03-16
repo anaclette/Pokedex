@@ -1,4 +1,4 @@
-import authReducer, {
+import favouritesReducer, {
   toggleIsFavourite,
   cleanUpFavourites,
 } from '../../../src/state/reducers/favouritesReducer';
@@ -17,8 +17,9 @@ describe('Testing having removed all favourites', () => {
       data: [],
       favouritePokemon: '',
     };
-    expect(authReducer(Favourites, {type: cleanUpFavourites})).toEqual(
+    expect(favouritesReducer(Favourites, {type: cleanUpFavourites})).toEqual(
       initialState,
     );
+    // expect()
   });
 });
