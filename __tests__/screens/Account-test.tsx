@@ -3,14 +3,11 @@ import {fireEvent, render} from '@testing-library/react-native';
 import Account from '../../src/screens/Account';
 import {Provider} from 'react-redux';
 import {store} from '../../src/state/store';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 describe('Account', () => {
   const component = (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <Account />
-      </SafeAreaProvider>
+      <Account />
     </Provider>
   );
 
