@@ -20,6 +20,8 @@ describe('Testing having removed all favourites', () => {
     expect(favouritesReducer(Favourites, {type: cleanUpFavourites})).toEqual(
       initialState,
     );
-    // expect()
+    expect(
+      favouritesReducer(Favourites, {type: cleanUpFavourites}),
+    ).toMatchSnapshot();
   });
 });

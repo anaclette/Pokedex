@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing having removed all favourites should be none favourites stored 1`] = `
+Object {
+  "data": Array [],
+  "favouritePokemon": "",
+}
+`;
