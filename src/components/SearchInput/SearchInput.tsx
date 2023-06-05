@@ -26,7 +26,7 @@ export const SearchInput = ({onDebounce}: Props) => {
   }, [debouncedValue, onDebounce]);
 
   const onPress = useCallback(() => {
-    inputValue !== '' ? setInputValue : '';
+    return inputValue !== '' ? setInputValue : '';
   }, [inputValue]);
 
   return (

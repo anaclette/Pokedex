@@ -36,6 +36,7 @@ export const FadeInImage = ({
     <View style={containerStyle ? containerStyle : styles.container}>
       {isLoading && (
         <ActivityIndicator
+          testID="activity-indicator"
           style={styles.loader}
           color={colors.dark}
           size={30}
@@ -43,6 +44,7 @@ export const FadeInImage = ({
       )}
 
       <Animated.Image
+        testID="image"
         accessibilityRole="image"
         source={{uri}}
         onError={onError}

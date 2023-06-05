@@ -7,6 +7,7 @@ import {
   Type,
   PokemonFullDetails,
   NewListPokemon,
+  PokemonDetails,
 } from '../src/types/Pokemon';
 
 const speciesMock: Species = {
@@ -74,4 +75,16 @@ const mockNewListPokemon: NewListPokemon = {
   textColor: 'lime',
 };
 
-export {pokemonMock, abilitiesMock, speciesMock, mockNewListPokemon};
+const pokemonBasicDetails: PokemonDetails = {
+  name: 'Pikachu',
+  url: 'some-url',
+  picture: 'some-picture-url',
+};
+
+export {
+  pokemonBasicDetails,
+  pokemonMock,
+  abilitiesMock,
+  speciesMock,
+  mockNewListPokemon,
+};

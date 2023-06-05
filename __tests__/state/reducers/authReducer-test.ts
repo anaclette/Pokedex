@@ -5,9 +5,12 @@ import authReducer, {
 import {store} from '../../../src/state/store';
 import {User} from '../../../__mocks__/userMock';
 
+const mockPayloadValue = 'Ana13';
+
 describe('Testing the sign in authentication', () => {
   it('user attempts to login', async () => {
-    await store.dispatch(logIn('Cookie'));
+    await store.dispatch(logIn(mockPayloadValue));
+    expect(store.getState().auth.username).toBe(mockPayloadValue);
   });
 });
 describe('Testing reducer after user logs out', () => {

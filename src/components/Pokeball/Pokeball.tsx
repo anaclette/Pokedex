@@ -7,5 +7,12 @@ interface PokeballProps {
 }
 
 export const Pokeball = ({style, source}: PokeballProps) => {
-  return <Image accessibilityRole="image" source={source} style={style} />;
+  return (
+    <Image
+      accessibilityRole="image"
+      accessibilityLabel="Pokeball image"
+      source={source}
+      style={style}
+    />
+  );
 };

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pokeball image renders correctly displays the pokeball 1`] = `
+<Image
+  accessibilityLabel="Pokeball image"
+  accessibilityRole="image"
+  source={
+    Object {
+      "uri": "some source uri",
+    }
+  }
+  style={
+    Object {
+      "width": 20,
+    }
+  }
+/>
+`;

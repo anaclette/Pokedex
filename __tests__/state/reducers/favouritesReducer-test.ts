@@ -9,6 +9,9 @@ import {Favourites} from '../../../__mocks__/favouritesMock';
 describe('Testing favourites reducer', () => {
   it('should show stored favourites', async () => {
     await store.dispatch(toggleIsFavourite(mockNewListPokemon));
+    expect(Object.keys(store.getState().favourites.data[0])).toEqual(
+      Object.keys(mockNewListPokemon),
+    );
   });
 });
 describe('Testing having removed all favourites', () => {

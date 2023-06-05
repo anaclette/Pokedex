@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing FadeInImage component Should render FadeInImage correctly 1`] = `
+<View
+  style={Object {}}
+>
+  <ActivityIndicator
+    color="#291720"
+    size={30}
+    style={
+      Object {
+        "flex": 1,
+        "top": "20%",
+      }
+    }
+    testID="activity-indicator"
+  />
+  <Image
+    accessibilityRole="image"
+    collapsable={false}
+    onError={[Function]}
+    onLoad={[Function]}
+    source={
+      Object {
+        "uri": "uri source",
+      }
+    }
+    style={
+      Object {
+        "opacity": 0,
+      }
+    }
+    testID="image"
+  />
+</View>
+`;
